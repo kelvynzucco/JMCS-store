@@ -9,6 +9,8 @@
  */
 {
   "current": {
+    "show_scroll_top_button": false,
+    "language_support_rtl": "",
     "container_width": 1200,
     "container_fluid_width": 1420,
     "container_fluid_offset": 65,
