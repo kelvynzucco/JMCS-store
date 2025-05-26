@@ -17,14 +17,14 @@
         "item_dGj4GU": {
           "type": "item",
           "settings": {
-            "message": "Free shipping for all orders from $60+",
+            "message": "Produção rápida e envio para todo o Brasil ⚡ Faça seu evento brilhar!",
             "message_link": ""
           }
         },
         "item_6Ycmkw": {
           "type": "item",
           "settings": {
-            "message": "Free shipping for all orders from $60+",
+            "message": "Produção rápida e envio para todo o Brasil ⚡ Faça seu evento brilhar!",
             "message_link": ""
           }
         }
@@ -33,27 +33,17 @@
         "item_dGj4GU",
         "item_6Ycmkw"
       ],
-<<<<<<< HEAD
       "custom_css": [
         ".m-announcement-bar__container {--container-width: 600px;}"
       ],
       "settings": {
         "container": "container",
         "color_scheme": "badge-sale",
-        "show_social_links": true,
-=======
-      "custom_css": [],
-      "settings": {
-        "container": "container",
-        "color_scheme": "badge-sale",
->>>>>>> 1e48bd184c3145c7f08b3329af024427dd1a9b28
         "show_announcement": true,
-        "homepage_only": true,
-        "show_close": true,
         "show_divider": false,
-        "show_nav": true,
         "autorotate": true,
-        "autorotate_speed": 3
+        "autorotate_speed": 3,
+        "location_text": "Joinville - SC"
       }
     },
     "header": {
