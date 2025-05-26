@@ -33,9 +33,7 @@
         "item_dGj4GU",
         "item_6Ycmkw"
       ],
-      "custom_css": [
-        ".m-announcement-bar__container {--container-width: 600px;}"
-      ],
+      "custom_css": [],
       "settings": {
         "container": "container",
         "color_scheme": "badge-sale",
