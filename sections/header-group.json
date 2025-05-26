@@ -41,7 +41,8 @@
         "show_divider": false,
         "autorotate": true,
         "autorotate_speed": 5,
-        "location_text": "Joinville - SC"
+        "location_text": "Joinville - SC",
+        "location_link": "https://maps.app.goo.gl/zKunzNY9hZkfQxF89"
       }
     },
     "header": {
