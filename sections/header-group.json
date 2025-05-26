@@ -40,7 +40,7 @@
         "show_announcement": true,
         "show_divider": false,
         "autorotate": true,
-        "autorotate_speed": 3,
+        "autorotate_speed": 5,
         "location_text": "Joinville - SC"
       }
     },
