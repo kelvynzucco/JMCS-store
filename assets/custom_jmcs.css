@@ -12,6 +12,10 @@
   text-transform: uppercase;
 }
 
+.links-menu-jmcs:hover {
+  color: #3567e4;
+}
+
 .jmcs_header_icon,
 .jmcs_header_icon_search {
   color: #3567e4;
@@ -65,6 +69,10 @@
 }
 .social-media-links--label {
   font-size: 12px;
+}
+.social-media-links--item:hover,
+.location-row:hover {
+  color: #86a4ef;
 }
 
 @media (max-width: 1200px) {
