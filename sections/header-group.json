@@ -46,27 +46,6 @@
     },
     "header": {
       "type": "header",
-      "blocks": {
-        "5e153016-a9d7-46c9-a10e-30d16446793d": {
-          "type": "topbar",
-          "settings": {
-            "color_scheme": "",
-            "show_divider": true,
-            "transparent_on_top": false,
-            "show_phone_numb": false,
-            "show_email": false,
-            "show_social_links": true,
-            "show_stores_page": false,
-            "show_currency_switcher": false,
-            "show_country_selector": true,
-            "show_language_switcher": true,
-            "alert_message": "<span>Open Doors To A World Of Fashion  |  <a class=\"m-link-underline\" href=\"#\">Discover More</a><span></span></span>"
-          }
-        }
-      },
-      "block_order": [
-        "5e153016-a9d7-46c9-a10e-30d16446793d"
-      ],
       "custom_css": [
         ".m-topbar a[href*=\"facebook\"] {order: 2;}",
         ".social-media-links {column-gap: 30px;}"
