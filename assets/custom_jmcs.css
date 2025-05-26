@@ -1,9 +1,20 @@
+.location-dot {
+  color: #3567e4;
+  width: 12px;
+  height: 100%;
+}
+.social-media-links--item svg {
+  color: #3567e4;
+  width: 14px;
+  height: 100%;
+}
 .location-row {
   width: 20%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 0.5rem;
+  font-size: 12px;
 }
 .social-links-row {
   width: 20%;
@@ -11,11 +22,13 @@
   align-items: center;
   justify-content: flex-start;
 }
-
 .announcement_bar_jmcs {
   width: 60%;
   display: flex;
   justify-content: center;
+}
+.social-media-links--label {
+  font-size: 12px;
 }
 
 @media (max-width: 1200px) {
