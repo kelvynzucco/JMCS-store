@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "404": {
@@ -34,10 +43,9 @@
     "password_page": {
       "opening_soon": "Opening Soon"
     },
-    "social": {},
     "search": {
       "title": "Search our store",
-      "placeholder": "Search products",
+      "placeholder": "O que você procura?",
       "placeholder_short": "Search",
       "popular_searches": "Popular Searches",
       "results_for": "results for",
