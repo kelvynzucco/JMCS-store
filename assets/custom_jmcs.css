@@ -1,3 +1,39 @@
+/* .m-tooltip__content {
+  display: none;
+} */
+
+.links-menu-jmcs {
+  display: flex;
+  align-items: center;
+  position: relative;
+  font-size: 16px;
+  padding: var(--main-link-py) var(--main-link-px);
+  font-family: var(--font-stack-header);
+  text-transform: uppercase;
+}
+
+.jmcs_header_icon,
+.jmcs_header_icon_search {
+  color: #3567e4;
+  transition: all 0.2s ease-in-out;
+}
+
+.jmcs_header_icon:hover,
+.jmcs_header_icon:active {
+  color: #86a4ef;
+  filter: drop-shadow(0 0 5.6px rgba(53, 70, 228, 0.68));
+}
+
+.m-hamburger-box__inner {
+  background: #3567e4;
+  transition: all 0.2s ease-in-out;
+}
+
+.m-hamburger-box__inner:active {
+  background: #86a4ef;
+  filter: drop-shadow(0 0 5.6px rgba(53, 70, 228, 0.68));
+}
+
 .location-dot {
   color: #3567e4;
   width: 12px;
