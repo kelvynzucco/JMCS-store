@@ -33,6 +33,7 @@
         "item_dGj4GU",
         "item_6Ycmkw"
       ],
+<<<<<<< HEAD
       "custom_css": [
         ".m-announcement-bar__container {--container-width: 600px;}"
       ],
@@ -40,6 +41,12 @@
         "container": "container",
         "color_scheme": "badge-sale",
         "show_social_links": true,
+=======
+      "custom_css": [],
+      "settings": {
+        "container": "container",
+        "color_scheme": "badge-sale",
+>>>>>>> 1e48bd184c3145c7f08b3329af024427dd1a9b28
         "show_announcement": true,
         "homepage_only": true,
         "show_close": true,
