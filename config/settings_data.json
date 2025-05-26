@@ -190,7 +190,7 @@
         "settings": {
           "background": "#da3f3f",
           "background_secondary": "#f5f5f5",
-          "background_gradient": "",
+          "background_gradient": "linear-gradient(90deg, rgba(17, 24, 82, 1), rgba(42, 15, 86, 1) 30%, rgba(8, 12, 46, 1) 70%, rgba(19, 11, 67, 1) 100%)",
           "text": "#ffffff",
           "subtext": "#ffffff",
           "heading_text": "#ffffff",
