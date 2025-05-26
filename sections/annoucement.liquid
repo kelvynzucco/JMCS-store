@@ -9,7 +9,6 @@
   assign autorotate = section.settings.autorotate
   assign autorotate_speed = section.settings.autorotate_speed
   assign show_divider = section.settings.show_divider
-  assign show_nav = section.settings.show_nav
 
   assign container = section.settings.container
   if container == 'w-full'
@@ -18,24 +17,28 @@
 %}
 
 {% if section.settings.show_announcement %}
-  {% if section.settings.homepage_only == false or request.page_type == 'index' %}
-    <section
-      id="m-announcement--{{ section.id }}"
-      data-section-id="{{ section.id }}"
-      data-section-type="announcement"
-      class="m-announcement-bar m-gradient m-color-{{ section.settings.color_scheme }}"
-      {% if show_divider %}
-        style="--border-width: 1px"
+  <section
+    id="m-announcement--{{ section.id }}"
+    data-section-id="{{ section.id }}"
+    data-section-type="announcement"
+    class="m-announcement-bar m-gradient m-color-{{ section.settings.color_scheme }}"
+    {% if show_divider %}
+      style="--border-width: 1px"
+    {% endif %}
+  >
+    <m-announcement-bar
+      data-enable-slider="{{ enable_slider }}"
+      {% if enable_slider %}
+        data-enable-autoplay="{{ autorotate }}"
+        data-autoplay-speed="{{ autorotate_speed }}"
       {% endif %}
     >
-      <m-announcement-bar
-        data-enable-slider="{{ enable_slider }}"
-        {% if enable_slider %}
-          data-enable-autoplay="{{ autorotate }}"
-          data-autoplay-speed="{{ autorotate_speed }}"
-        {% endif %}
-      >
-        <div class="m-announcement-bar__container {{ container }}">
+      <div class="m-announcement-bar__container {{ container }} m:flex m:items-center">
+        <div class="social-links-row">
+          {% render 'social-media-links', show_label: true %}
+        </div>
+
+        <div class="announcement_bar_jmcs">
           <div class="m-announcement-bar__wrapper{% if enable_slider %} swiper-container{% endif %}">
             <div class="m-announcement-bar__inner{% if enable_slider %} swiper-wrapper{% endif %}">
               {% for block in section.blocks %}
@@ -50,32 +53,26 @@
               {% endfor %}
             </div>
           </div>
-          {% if enable_slider %}
-            {% render 'slider-controls', show_nav: show_nav, absolute: true, container: container %}
-          {% endif %}
         </div>
-      </m-announcement-bar>
-      {% if section.settings.show_close %}
-        <div class="m-announcement-bar__close m:flex m:items-center">
+
+        <div class="location-row">
           <svg
-            class="m-svg-icon--medium"
+            width="13"
+            height="16"
+            viewBox="0 0 13 16"
             fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+            class="location-dot"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            <path d="M12.2 6.6c0 3.495-3.877 7.135-5.18 8.26a.7.7 0 0 1-.84 0C4.876 13.734 1 10.094 1 6.6a5.6 5.6 0 1 1 11.2 0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
+          {% if section.settings.location_text != blank %}
+            <span class="m:text-sm">{{ section.settings.location_text }}</span>
+          {% endif %}
         </div>
-        <script>
-          document.querySelector('.m-announcement-bar__close').addEventListener('click', function () {
-            document.querySelector('.m-announcement-bar').remove();
-            document.documentElement.style.setProperty('--m-announcement-height', '0px');
-          });
-        </script>
-      {% endif %}
-    </section>
-  {% endif %}
+      </div>
+    </m-announcement-bar>
+  </section>
 {% endif %}
 
 {% schema %}
@@ -126,18 +123,6 @@
     },
     {
       "type": "checkbox",
-      "id": "homepage_only",
-      "label": "Home page only",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_close",
-      "label": "Show close button",
-      "default": true
-    },
-    {
-      "type": "checkbox",
       "id": "show_divider",
       "label": "Show divider",
       "default": false
@@ -148,13 +133,7 @@
     },
     {
       "type": "paragraph",
-      "content": "Slider work when more than more 2 items"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_nav",
-      "label": "Show navigation",
-      "default": false
+      "content": "Slider funciona quando há mais de 2 itens"
     },
     {
       "type": "checkbox",
@@ -171,6 +150,16 @@
       "step": 1,
       "unit": "s",
       "default": 3
+    },
+    {
+      "type": "header",
+      "content": "Localização"
+    },
+    {
+      "type": "text",
+      "id": "location_text",
+      "label": "Localização",
+      "default": "Joinville - SC"
     }
   ],
   "blocks": [

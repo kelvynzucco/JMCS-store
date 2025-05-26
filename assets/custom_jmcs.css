@@ -1,0 +1,32 @@
+.location-dot {
+}
+
+.location-row {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+.social-links-row {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.announcement_bar_jmcs {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1200px) {
+  .social-links-row,
+  .location-row {
+    display: none;
+  }
+  .announcement_bar_jmcs {
+    width: 100%;
+  }
+}

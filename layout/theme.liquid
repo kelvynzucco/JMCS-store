@@ -69,6 +69,8 @@
       render 'style-tags'
     -%}
 
+    {{ 'custom_jmcs.css' | asset_url | stylesheet_tag }}
+
     <script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'theme-global.js' | asset_url }}" defer="defer"></script>
     {%- if settings.animations != 'none' -%}
