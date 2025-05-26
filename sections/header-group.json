@@ -46,10 +46,7 @@
     },
     "header": {
       "type": "header",
-      "custom_css": [
-        ".m-topbar a[href*=\"facebook\"] {order: 2;}",
-        ".social-media-links {column-gap: 30px;}"
-      ],
+      "custom_css": [],
       "settings": {
         "color_scheme": "dark",
         "color_scheme_menu": "",
