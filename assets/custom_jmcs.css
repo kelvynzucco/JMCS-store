@@ -75,6 +75,10 @@
   color: #86a4ef;
 }
 
+.policy-item {
+  background: transparent !important;
+}
+
 @media (max-width: 1200px) {
   .social-links-row,
   .location-row {
