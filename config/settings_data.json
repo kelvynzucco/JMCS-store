@@ -121,7 +121,7 @@
       "dark": {
         "settings": {
           "background": "#04061c",
-          "background_secondary": "#e6e8f9",
+          "background_secondary": "#04061c",
           "background_gradient": "",
           "text": "#e6e8f9",
           "subtext": "#e6e8f9",
