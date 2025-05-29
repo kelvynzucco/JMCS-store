@@ -64,8 +64,8 @@
         "16225125199f82d8fe-0": {
           "type": "iconbox",
           "settings": {
-            "card_color_scheme": "",
-            "image_by_url": "",
+            "card_color_scheme": "dark",
+            "image_by_url": "https://cdn.shopify.com/s/files/1/0919/2167/8700/files/Entrega.svg?v=1748520530",
             "title": "Entrega em todo brasil",
             "description": "<p>Envio rápido para qualquer região</p>",
             "link": "",
@@ -78,8 +78,8 @@
         "16225125199f82d8fe-1": {
           "type": "iconbox",
           "settings": {
-            "card_color_scheme": "",
-            "image_by_url": "",
+            "card_color_scheme": "dark",
+            "image_by_url": "https://cdn.shopify.com/s/files/1/0919/2167/8700/files/Pulseiras.svg?v=1748520530",
             "title": "Pulseiras exclusivas",
             "description": "<p>Do seu jeito, com a sua marca</p>",
             "link": "",
@@ -92,8 +92,8 @@
         "16225125199f82d8fe-2": {
           "type": "iconbox",
           "settings": {
-            "card_color_scheme": "",
-            "image_by_url": "",
+            "card_color_scheme": "dark",
+            "image_by_url": "https://cdn.shopify.com/s/files/1/0919/2167/8700/files/Atendimento.svg?v=1748520530",
             "title": "Atendimento vip",
             "description": "<p>Fale direto com nossos especialistas</p>",
             "link": "",
@@ -106,14 +106,14 @@
         "71deafbb-3baf-443a-a087-3f7b8af7b9fa": {
           "type": "iconbox",
           "settings": {
-            "card_color_scheme": "",
-            "image_by_url": "",
+            "card_color_scheme": "dark",
+            "image_by_url": "https://cdn.shopify.com/s/files/1/0919/2167/8700/files/Compra.svg?v=1748520530",
             "title": "Compra segura",
             "description": "<p>Pay with Multiple Credit Cards</p>",
             "link": "",
             "button_label": "",
             "button_link": "",
-            "button_style": "sf__btn-link",
+            "button_style": "m-button--primary",
             "button_size": ""
           }
         }
