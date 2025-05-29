@@ -145,8 +145,8 @@
         "show_navigation": false,
         "use_scroll_mobile": true,
         "use_grid_column_mb": false,
-        "padding_top": 80,
-        "padding_bottom": 100,
+        "padding_top": 70,
+        "padding_bottom": 70,
         "custom_class": "",
         "animations": "inherit"
       }
