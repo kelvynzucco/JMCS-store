@@ -127,7 +127,7 @@
       "custom_css": [],
       "settings": {
         "container": "container-fluid",
-        "color_scheme": "dark",
+        "color_scheme": "footer",
         "heading": "",
         "heading_size": "h3",
         "subheading": "",
