@@ -30,6 +30,7 @@
     "inputs_border_radius": 38,
     "blocks_corner_radius": "round",
     "pcard_corner_radius": "round",
+    "default_color_scheme": "dark",
     "bg_cart_wishlist_count": "#ef5636",
     "color_cart_wishlist_count": "#e6e8f9",
     "img_overlay_bg": "#04061c",
