@@ -715,6 +715,7 @@
   position: relative;
   display: none;
 }
+
 @media screen and (min-width: 1024px) {
   .m-header__desktop {
     display: block;

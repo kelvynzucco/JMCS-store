@@ -2,6 +2,21 @@
   display: none;
 } */
 
+.m-header__desktop,
+.m-header__mobile {
+  border: none;
+  background-image: linear-gradient(
+    to right,
+    #04061c 0%,
+    #410896 20%,
+    #3567e4 80%,
+    #04061c 100%
+  );
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
 .links-menu-jmcs {
   display: flex;
   align-items: center;
