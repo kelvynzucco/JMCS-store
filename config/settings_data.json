@@ -268,10 +268,6 @@
     }
   },
   "platform_customizations": {
-    "custom_css": [
-      ".m-section__subheading,.m-richtext__subtitle {font-weight: 500; font-size: 18px;}",
-      ".m-section__header {--m-section-header-spacing-bottom: 40px;}",
-      ".m-button--link {--btn-link-border: 1px;}"
-    ]
+    "custom_css": []
   }
 }
