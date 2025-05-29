@@ -124,9 +124,7 @@
         "16225125199f82d8fe-2",
         "71deafbb-3baf-443a-a087-3f7b8af7b9fa"
       ],
-      "custom_css": [
-        ".m-icon-box__icon {margin-right: 12px;}"
-      ],
+      "custom_css": [],
       "settings": {
         "container": "container-fluid",
         "color_scheme": "",
