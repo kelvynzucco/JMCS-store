@@ -2,6 +2,27 @@
   display: none;
 } */
 
+.jmcs-policies-block {
+  position: relative;
+  box-shadow: 0 -10px 56.6px 30px rgba(0, 0, 0, 0.3);
+}
+
+.jmcs-policies-block::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    #04061c 0%,
+    #410896 20%,
+    #3567e4 80%,
+    #04061c 100%
+  );
+}
+
 .m-header__desktop,
 .m-header__mobile {
   border: none;
