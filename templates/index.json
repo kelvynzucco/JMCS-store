@@ -147,7 +147,7 @@
         "use_grid_column_mb": false,
         "padding_top": 46,
         "padding_bottom": 46,
-        "custom_class": "m-icon-box--small",
+        "custom_class": "",
         "animations": "inherit"
       }
     },
