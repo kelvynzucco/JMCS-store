@@ -75,6 +75,7 @@
     "discount_code_enable": true,
     "cart_estimate_shipping": true,
     "show_delivery_days": true,
+    "popular_search_queries": "",
     "wishlist_page": "wishlist",
     "product_compare_page": "product-compare",
     "show_cookie_consent": true,
