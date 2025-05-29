@@ -149,7 +149,7 @@
         "use_grid_column_mb": false,
         "padding_top": 70,
         "padding_bottom": 70,
-        "custom_class": "",
+        "custom_class": "jmcs-policies-block",
         "animations": "inherit"
       }
     },
