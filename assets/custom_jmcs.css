@@ -240,6 +240,7 @@
 
 .jmcs-categories .m-collection-card--inside:hover .m-button {
   color: #fff;
+  background: transparent;
 }
 
 .jmcs-categories .m-collection-card--inside:hover .m-button::after {
