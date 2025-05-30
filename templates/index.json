@@ -205,7 +205,7 @@
         "button_link": "",
         "button_style": "m-button--primary",
         "header_alignment": "left",
-        "color_scheme": "",
+        "color_scheme": "dark",
         "container": "container-fluid",
         "layout": "grid",
         "expanded": true,
