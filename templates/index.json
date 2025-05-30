@@ -228,7 +228,7 @@
         "hidden_slide_control_mobile": false,
         "padding_top": 100,
         "padding_bottom": 0,
-        "custom_class": "sf-home__collection-list",
+        "custom_class": "",
         "animations": "inherit"
       }
     },
