@@ -228,7 +228,7 @@
         "hidden_slide_control_mobile": false,
         "padding_top": 100,
         "padding_bottom": 0,
-        "custom_class": "",
+        "custom_class": "jmcs-categories",
         "animations": "inherit"
       }
     },
