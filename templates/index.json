@@ -195,10 +195,7 @@
         "16225316461d1cff80-1",
         "6d4abb37-5aa2-4499-a2b0-5d85f0d36eec"
       ],
-      "custom_css": [
-        ".m-collection-card__title {font-weight: 400;}",
-        "@media (max-width: 767px) {.m-slider-controls[class*=\"-bottom-left\"], .m-section__header {text-align: center; }}"
-      ],
+      "custom_css": [],
       "settings": {
         "heading": "",
         "heading_size": "h3",
