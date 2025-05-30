@@ -160,28 +160,32 @@
           "type": "collection_block",
           "settings": {
             "collection": "sunglasses",
-            "title": "Glasses"
+            "title": "SHOWS &<br>EVENTOS",
+            "item_image": "shopify://shop_images/Shows_e_Eventos.png"
           }
         },
         "694c01c9-a95f-4c09-9cf0-ec75f0131e98": {
           "type": "collection_block",
           "settings": {
             "collection": "knit-wears",
-            "title": "Knit Wears"
+            "title": "FESTAS<br>PARTICULARES",
+            "item_image": "shopify://shop_images/Festas_Particulares.png"
           }
         },
         "16225316461d1cff80-1": {
           "type": "collection_block",
           "settings": {
             "collection": "women-bags",
-            "title": "Summer Bags"
+            "title": "HOSPITAIS &<br>CLÍNICAS",
+            "item_image": "shopify://shop_images/Hospitais_e_Clinicas.png"
           }
         },
         "6d4abb37-5aa2-4499-a2b0-5d85f0d36eec": {
           "type": "collection_block",
           "settings": {
             "collection": "sneakers",
-            "title": "Sneakers"
+            "title": "ASSEMBLEIAS &<br>SEMINÁRIOS",
+            "item_image": "shopify://shop_images/Assembleias_e_Seminarios.png"
           }
         }
       },
