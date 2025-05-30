@@ -1015,7 +1015,7 @@
 .m-search-form--full {
   position: relative;
   z-index: 0;
-  border-radius: 10rem;
+  border-radius: 999px;
   padding: 2px;
   background: linear-gradient(to right, #410896, #3567e4);
   height: 46px;
