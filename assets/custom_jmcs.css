@@ -247,6 +247,25 @@
   opacity: 1;
 }
 
+.jmcs-categories .m-hover-box__wrapper {
+  position: relative;
+}
+
+.jmcs-categories .m-hover-box__wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 6, 28, 0.3);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.jmcs-categories .m-collection-card--inside:hover .m-hover-box__wrapper::after {
+  opacity: 0;
+}
+
 @media (max-width: 1200px) {
   .social-links-row,
   .location-row {
