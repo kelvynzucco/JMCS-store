@@ -4,7 +4,7 @@
 
 {% liquid
   assign items_per_row = section.settings.items_per_row
-  assign items_per_row_tablet = items_per_row | divided_by: 1.0 | ceil
+  assign items_per_row_tablet = items_per_row | divided_by: 2.0 | ceil
   if items_per_row == 3
     assign items_per_row_tablet = 3
   endif
@@ -178,7 +178,7 @@
   <div class="m-collection-list__content">
     <div class="m-mixed-layout{% if mobile_disable_slider or enable_slider != true %} m-mixed-layout--mobile-grid{% if use_scroll_mobile %} m-mixed-layout--mobile-scroll{% endif %}{% endif %}">
       <div class="m-mixed-layout__wrapper{% if enable_slider %} swiper-container swiper--equal-height{% endif %}">
-        <div class="m-mixed-layout__inner m:grid md:m:grid-{{ items_per_row_tablet }}-cols xl:m:grid-{{ items_per_row }}-cols{% if enable_slider %} swiper-wrapper{% endif %}">
+        <div class="m-mixed-layout__inner m:grid md:m:grid-{{ items_per_row_tablet }}-cols lg:m:grid-{{ items_per_row }}-cols{% if enable_slider %} swiper-wrapper{% endif %}">
           {% for block in section.blocks %}
             {% case block.type %}
               {% when 'collection_block' %}
