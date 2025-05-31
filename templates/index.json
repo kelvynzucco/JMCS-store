@@ -264,7 +264,7 @@
         "description": "",
         "header_alignment": "center",
         "container": "container-fluid",
-        "color_scheme": "",
+        "color_scheme": "dark",
         "tab_header": "select",
         "limit": 5,
         "show_button": true,
