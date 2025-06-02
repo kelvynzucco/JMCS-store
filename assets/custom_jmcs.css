@@ -387,6 +387,10 @@
   opacity: 1;
 }
 
+.m-footer--block-spacing {
+  width: 10%;
+}
+
 @media (max-width: 1200px) {
   .social-links-row,
   .location-row {
