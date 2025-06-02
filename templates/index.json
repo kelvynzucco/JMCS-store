@@ -466,7 +466,7 @@
         "description": "",
         "header_alignment": "left",
         "container": "container-fluid",
-        "color_scheme": "default",
+        "color_scheme": "dark",
         "design": "testimonials-3",
         "show_stars": false,
         "autorotate": false,
