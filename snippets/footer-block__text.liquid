@@ -1,15 +1,30 @@
 <div class="{% if block.settings.title != blank %}m-accordion--item-content{% endif %} m-footer--block-content">
+  <div class="m-logo__image-default m-image">
+    <img
+      src="https://cdn.shopify.com/s/files/1/0919/2167/8700/files/JMCS-logo.svg?v=1748281350"
+      alt="JMCS Pulseiras"
+      width="auto"
+      height="auto"
+      loading="lazy"
+    >
+  </div>
+
   {% if block.settings.image != blank %}
     <div class="block-image m:blocks-radius-md" style="max-width: {{ block.settings.image_max }}">
       {% render 'responsive-image', image: block.settings.image %}
     </div>
   {% endif %}
+
   {% if block.settings.description != blank %}
-    <div class="block-text">
+    <div class="block-text block__location">
       {{ block.settings.description }}
     </div>
   {% endif %}
-  <div class="block-text">
-    {{ block.settings.horarios }}
-  </div>
+
+  {% if block.settings.horarios != blank %}
+    <div class="block-text block__schedule">
+      <p class="title__schedule">Atendimento</p>
+      {{ block.settings.horarios }}
+    </div>
+  {% endif %}
 </div>
