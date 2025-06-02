@@ -31,21 +31,21 @@
             "width": "25%"
           }
         },
-        "7ebc2f78-975b-4a81-b874-103c3355a866": {
+        "49e72833-c68f-4a7b-ab64-3ef0cae99bcb": {
           "type": "menu",
           "settings": {
             "menu": "main-menu",
-            "title": "Quick link",
+            "title": "Central de Ajuda",
             "width": "25%",
             "order_first": false,
             "open_default": false
           }
         },
-        "49e72833-c68f-4a7b-ab64-3ef0cae99bcb": {
+        "7ebc2f78-975b-4a81-b874-103c3355a866": {
           "type": "menu",
           "settings": {
             "menu": "main-menu",
-            "title": "Company",
+            "title": "Loja Online",
             "width": "25%",
             "order_first": false,
             "open_default": false
@@ -54,8 +54,8 @@
         "93571032-b171-4c66-8b3e-96cd91946363": {
           "type": "our_store",
           "settings": {
-            "title": "Our store",
-            "description": "",
+            "title": "Contato",
+            "description": "<p><strong>Telefone</strong> +55  47 3034 4473</p><p><strong>Telefone</strong> +55 47 98901 9931</p><p><strong>Whatsapp</strong> +55 47 98813 0354</p><p><strong>E-mail </strong>comercial@jmcs.com.br</p>",
             "show_email": false,
             "show_phone": false,
             "show_socials_link": true,
@@ -68,8 +68,8 @@
       "block_order": [
         "custom_text_8epED8",
         "spacing_6RyY7X",
-        "7ebc2f78-975b-4a81-b874-103c3355a866",
         "49e72833-c68f-4a7b-ab64-3ef0cae99bcb",
+        "7ebc2f78-975b-4a81-b874-103c3355a866",
         "93571032-b171-4c66-8b3e-96cd91946363"
       ],
       "custom_css": [
