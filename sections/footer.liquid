@@ -5,7 +5,7 @@
 -%}
   <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
-<m-footer class="m-footer m:block" data-section-type="footer" data-section-id="{{ section.id }}">
+<m-footer class="jmcs-footer m-footer m:block" data-section-type="footer" data-section-id="{{ section.id }}">
   {% render 'footer-blocks',
     blocks: section.blocks,
     bordered: section.settings.bordered,
