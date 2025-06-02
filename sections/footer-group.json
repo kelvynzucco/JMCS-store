@@ -79,9 +79,9 @@
         "@media (min-width: 1280px) {.m-footer--block-newsletter .m-footer--block-title {font-size: 36px; margin-bottom: 12px; } .m-footer__copyright, .m-footer--bottom-menu {font-size: 14px; }}"
       ],
       "settings": {
-        "color_scheme": "",
-        "design": "footer-1",
-        "container": "container-fluid",
+        "color_scheme": "dark",
+        "design": "footer-3",
+        "container": "container",
         "bordered": false,
         "copyright": "© MINIMOG 2024",
         "show_country_selector": false,
