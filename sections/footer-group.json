@@ -26,6 +26,12 @@
             "open_default": false
           }
         },
+        "spacing_h8KJ3f": {
+          "type": "spacing",
+          "settings": {
+            "width": "25%"
+          }
+        },
         "49e72833-c68f-4a7b-ab64-3ef0cae99bcb": {
           "type": "menu",
           "settings": {
@@ -62,11 +68,17 @@
       },
       "block_order": [
         "custom_text_8epED8",
+        "spacing_h8KJ3f",
         "49e72833-c68f-4a7b-ab64-3ef0cae99bcb",
         "7ebc2f78-975b-4a81-b874-103c3355a866",
         "93571032-b171-4c66-8b3e-96cd91946363"
       ],
-      "custom_css": [],
+      "custom_css": [
+        ".m-footer--block-spacing {width: 10%;}",
+        ".m-newsletter-form {margin-top: 24px;}",
+        ".m-footer--block-newsletter .m-footer--block-title {font-weight: 400; font-size: 25px;}",
+        "@media (min-width: 1280px) {.m-footer--block-newsletter .m-footer--block-title {font-size: 36px; margin-bottom: 12px; } .m-footer__copyright, .m-footer--bottom-menu {font-size: 14px; }}"
+      ],
       "settings": {
         "color_scheme": "dark",
         "design": "footer-2",
