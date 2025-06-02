@@ -6,7 +6,7 @@
 %}
 <div class="m-footer--bottom m-footer--bottom-{{ section.settings.design }} m-gradient m-color-{{ section.settings.footer_bottom_color_scheme }}">
   <div class="{{ container }}">
-    <div class="signature-footer m-footer--bottom-inner m:flex m:flex-col xl:m:flex-row m:justify-between m:items-end">
+    <div class="signature-footer m:flex m:flex-col xl:m:flex-row m:justify-between m:items-center">
       {% case section.settings.design %}
         {% when 'footer-1' %}
           {% if section.settings.copyright != blank %}
@@ -58,13 +58,15 @@
         {% when 'footer-2' %}
           {% if section.settings.show_payment_icons %}
             <div class="m-footer--bottom-left m:w-full m:flex-1 xl:m:w-auto{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
+              <span class="footer__copyright_infos">Todos os Direitos Reservados.</span>
               {% render 'payment-icons', section: section %}
             </div>
           {% endif %}
 
           {% if section.settings.copyright != blank %}
-            <div class="m-footer--bottom-center m:flex-1 m:text-left xl:m:text-center xl:m:w-auto m:w-full{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
-              <span class="m-footer__copyright">{{ section.settings.copyright }}</span>
+            <div class="m-footer--bottom-center m:flex-1 xl:m:text-center xl:m:w-auto m:w-full{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
+              <span class="footer__copyright">JMCS © 2025</span><br>
+              <span class="footer__copyright_infos">CNPJ 22.572.274/0001-98</span>
               {%- if show_follow_on_shop -%}
                 <div class="m-follow-on-shop">
                   {% comment %} TODO: enable theme-check once `login_button` is accepted as valid filter {% endcomment %}
@@ -81,7 +83,12 @@
             or section.settings.footer_bottom_menu
             or section.settings.show_country_selector
           %}
-            <div class="m-footer--bottom-right m:flex-1 m:flex m:flex-wrap m:items-left m:justify-left xl:m:w-auto m:w-full xl:m:justify-end m:flex-col md:m:flex-row{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
+            <div class="m-footer--bottom-right m:flex-1 m:flex m:flex-wrap m:justify-center xl:m:w-auto m:w-full xl:m:justify-end m:flex-col md:m:flex-row{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
+              <span class="footer__copyright_infos"
+                ><a href="https://kelvynzucco.com" target="_blank" class="link__dev"
+                  >Desenvolvido por <b>Kelvyn Zucco</b></a
+                ></span
+              >
               {% if section.settings.show_social_links %}
                 {% render 'social-media-links', extra_classes: 'justify-center md:justify-end' %}
               {% endif %}
