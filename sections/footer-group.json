@@ -17,9 +17,9 @@
         "custom_text_8epED8": {
           "type": "custom_text",
           "settings": {
-            "title": "Custom text",
+            "title": "",
             "image_max": "200px",
-            "description": "<p>Enter your email below to be the first to know about new collections and product launches.</p>",
+            "description": "<p>Rua Dona Francisca KM 12, 5 - Pirabeiraba,  Joinville SC</p><p><strong>Atendimento</strong></p><p>Seg a Sex: 9:00 às 18:00<br/>Sábados: 09:00 às 13:00<br/><br/></p>",
             "width": "25%",
             "order_first": false,
             "open_default": false
