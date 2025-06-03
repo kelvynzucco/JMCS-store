@@ -77,7 +77,7 @@
       ],
       "settings": {
         "container": "w-full",
-        "slideshow_height": "medium",
+        "slideshow_height": "adapt",
         "show_overlay": false,
         "dots_position": "bottom",
         "dots_color": "dark",
