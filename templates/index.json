@@ -556,7 +556,7 @@
       "custom_css": [],
       "settings": {
         "heading": "O que dizem nossos clientes?",
-        "heading_size": "h2",
+        "heading_size": "h3",
         "subheading": "Depoimentos",
         "description": "",
         "header_alignment": "left",
