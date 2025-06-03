@@ -448,62 +448,68 @@
     "brands_list_4eHpMa": {
       "type": "brands-list",
       "blocks": {
-        "image_EV4qP6": {
+        "image_ndeHKe": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/Warung.svg",
             "image_by_url": "",
             "image_link": "",
-            "max_width": "100px"
+            "max_width": "150px"
           }
         },
-        "image_7gaCjx": {
+        "image_FMdixM": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/Square_Garden.svg",
             "image_by_url": "",
             "image_link": "",
-            "max_width": "100px"
+            "max_width": "150px"
           }
         },
-        "image_pcRGrk": {
+        "image_q3iCPF": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/Hospital_Sao_Jose.svg",
             "image_by_url": "",
             "image_link": "",
-            "max_width": "100px"
+            "max_width": "150px"
           }
         },
-        "image_HF4dMd": {
+        "image_pWYDhM": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/Sadalla_Amin_Ghanem.svg",
             "image_by_url": "",
             "image_link": "",
-            "max_width": "100px"
+            "max_width": "150px"
           }
         },
-        "image_yaz8mB": {
+        "image_nej4FL": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/Hospital_Dona_Helena.svg",
             "image_by_url": "",
             "image_link": "",
-            "max_width": "100px"
+            "max_width": "150px"
           }
         },
-        "image_7JfdnF": {
+        "image_Jr4NtQ": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/Bola_de_Neve.svg",
             "image_by_url": "",
             "image_link": "",
-            "max_width": "100px"
+            "max_width": "150px"
           }
         }
       },
       "block_order": [
-        "image_EV4qP6",
-        "image_7gaCjx",
-        "image_pcRGrk",
-        "image_HF4dMd",
-        "image_yaz8mB",
-        "image_7JfdnF"
+        "image_ndeHKe",
+        "image_FMdixM",
+        "image_q3iCPF",
+        "image_pWYDhM",
+        "image_nej4FL",
+        "image_Jr4NtQ"
       ],
       "name": "Brands list",
       "settings": {
@@ -514,7 +520,7 @@
         "container": "container-fluid",
         "color_scheme": "dark",
         "item_per_row": 6,
-        "column_gap": 30,
+        "column_gap": 80,
         "row_gap": 30,
         "column_gap_mobile": 10,
         "row_gap_mobile": 10,
