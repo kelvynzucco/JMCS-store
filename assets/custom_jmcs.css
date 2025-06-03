@@ -296,9 +296,22 @@
 .jmcs-footer .m-link-lists .m-link-lists--item {
   line-height: 3;
 }
+
+.jmcs-footer .m-link-lists .m-link-lists--item:hover .m-link {
+  color: var(--blue-primary);
+}
+
+.jmcs-footer .m-link-lists .m-link-lists--item .m-link::after {
+  opacity: 0;
+}
+
 .jmcs-footer .block__location,
 .jmcs-footer .block__schedule {
   line-height: 2.2;
+}
+
+.jmcs-footer .signature-footer .m-footer--bottom-center {
+  line-height: 1.4;
 }
 
 .jmcs-footer .rte p,
@@ -335,11 +348,13 @@
 .link__dev {
   font-size: 10px;
   opacity: 0.6;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, color 0.3s ease;
+  padding: 10px 0 10px 10px;
 }
 
 .link__dev:hover {
   opacity: 1;
+  color: var(--blue-primary);
 }
 
 .jmcs-footer .footer__mobile_item h3 {
@@ -433,6 +448,9 @@
   }
   .jmcs-footer .signature-footer {
     text-align: center;
+  }
+  .link__dev {
+    padding: 16px;
   }
 }
 

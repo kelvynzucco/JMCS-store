@@ -174,7 +174,7 @@
   }
 }
 .m-footer--bottom-left {
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 @media screen and (min-width: 1280px) {
   .m-footer--bottom-left {
@@ -184,7 +184,7 @@
   }
 }
 .m-footer--bottom-center {
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 @media screen and (min-width: 1280px) {
   .m-footer--bottom-center {
