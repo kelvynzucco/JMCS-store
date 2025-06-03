@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Francois+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
 :root {
   --blue-primary: #3546e4;
   --blue-hover: #86a4ef;
@@ -10,7 +12,7 @@
 .m-section__header h2,
 .m-section__subheading {
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 500;
   font-family: var(--font-stack-header);
 }
 
@@ -549,7 +551,7 @@
 }
 
 .jmcs-reviews .m-testimonial__inner .m-testimonial__title {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .jmcs-reviews .m-testimonial__inner .m-testimonial__description {
