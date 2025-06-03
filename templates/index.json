@@ -273,7 +273,7 @@
         "pcard_layout": "",
         "pcard_image_ratio": "",
         "show_vendor": false,
-        "items_per_row": 5,
+        "items_per_row": 4,
         "item_gap": 20,
         "enable_slider": false,
         "show_navigation": false,
