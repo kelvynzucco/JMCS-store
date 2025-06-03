@@ -328,7 +328,7 @@
         "color_scheme": "dark",
         "header_alignment": "left",
         "heading": "Pulseiras do seu jeito",
-        "heading_size": "h2",
+        "heading_size": "h3",
         "subheading": "Como funciona?",
         "description": "",
         "image_position": "right",
@@ -682,7 +682,7 @@
       "name": "Brands list",
       "settings": {
         "heading": "Eles confiam em nós",
-        "heading_size": "h2",
+        "heading_size": "h3",
         "subheading": "Nossos parceiros",
         "header_alignment": "left",
         "container": "container-fluid",
