@@ -21,15 +21,9 @@
             "image_max": "200px",
             "description": "<p>Rua Dona Francisca KM 12, 5 - Pirabeiraba,  Joinville SC</p>",
             "horarios": "<p>Seg a Sex: 9:00 às 18:00<br/>Sábados: 09:00 às 13:00</p>",
-            "width": "25%",
+            "width": "33%",
             "order_first": false,
             "open_default": false
-          }
-        },
-        "spacing_h8KJ3f": {
-          "type": "spacing",
-          "settings": {
-            "width": "25%"
           }
         },
         "49e72833-c68f-4a7b-ab64-3ef0cae99bcb": {
@@ -60,7 +54,7 @@
             "show_email": false,
             "show_phone": false,
             "show_socials_link": true,
-            "width": "33%",
+            "width": "25%",
             "order_first": false,
             "open_default": false
           }
@@ -68,7 +62,6 @@
       },
       "block_order": [
         "custom_text_8epED8",
-        "spacing_h8KJ3f",
         "49e72833-c68f-4a7b-ab64-3ef0cae99bcb",
         "7ebc2f78-975b-4a81-b874-103c3355a866",
         "93571032-b171-4c66-8b3e-96cd91946363"
