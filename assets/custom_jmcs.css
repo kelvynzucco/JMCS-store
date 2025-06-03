@@ -1,5 +1,5 @@
 :root {
-  --blue-primary: #3567e4;
+  --blue-primary: #3546e4;
   --blue-hover: #86a4ef;
   --blue-shadow: rgba(53, 70, 228, 0.68);
   --gradient-start: #04061c;
@@ -7,7 +7,23 @@
   --gradient-end: #04061c;
 }
 
+.m-section__header h2,
+.m-section__subheading {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: var(--font-stack-header);
+}
+
+.m-section__subheading {
+  color: var(--blue-primary);
+  margin-bottom: 8px;
+}
+
 /* HEADER STYLES */
+/* .m-tooltip__content {
+  display: none;
+} */
+
 .m-header__desktop,
 .m-header__mobile {
   border: none;
@@ -522,10 +538,29 @@
 .jmcs-reviews .m-testimonial__inner {
   background-color: #04061c;
   border-radius: 38px;
-  padding: 40px 30px;
+  padding: 40px;
   width: 100%;
   height: 100%;
   min-height: 216px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 216px;
+}
+
+.jmcs-reviews .m-testimonial__inner .m-testimonial__title {
+  font-weight: bold;
+}
+
+.jmcs-reviews .m-testimonial__inner .m-testimonial__description {
+  color: #8f8f8f;
+}
+.jmcs-reviews .m-testimonial__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  gap: 16px;
 }
 
 /* MEDIA QUERIES */
@@ -550,8 +585,18 @@
   .link__dev {
     padding: 16px;
   }
-  .jmcs-reviews .m-slider-controls__button {
-    margin: 10px 0 0 10px;
+}
+
+@media (max-width: 900px) {
+  .jmcs-reviews .m-testimonial__row {
+    flex-direction: column;
+  }
+  .jmcs-reviews .m-testimonial__content,
+  .jmcs-reviews .m-testimonial__name {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
 }
 
