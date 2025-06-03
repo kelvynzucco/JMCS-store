@@ -349,10 +349,9 @@
         "testimonial_7bVRtk": {
           "type": "testimonial",
           "settings": {
-            "title": "Love it so much",
-            "description": "<p>Was I in Hawaii?! No. Did I feel like I was in Hawaii?! No, because it’s snowing outside. But, would I wear this in Hawaii ❤️</p>",
-            "footer": "<p>Jared S.</p>",
-            "image": "shopify://shop_images/AMARELAS.png",
+            "title": "Leandro Gales",
+            "description": "<p>Perfeito, moro no exterior e fiz o pedido com eles para as pulseiras vip da festa da minha filha de 16 anos, foram super atenciosos e me ajudaram com tudo que precisava. Além disso chegou rápido e além da expectativas. Super recomendo</p>",
+            "footer": "",
             "image_text": "",
             "image_link": "",
             "product": ""
@@ -361,9 +360,9 @@
         "testimonial_BaC37W": {
           "type": "testimonial",
           "settings": {
-            "title": "Love it so much",
-            "description": "<p>Always getting compliments from family, friends, and strangers. 🤗 🙌</p>",
-            "footer": "<p>Alyssa A.</p>",
+            "title": "Ana Paula Silva",
+            "description": "<p>Trabalhamos a anos com a JMCS, empresa ótima. Respondem imediatamente, material é da melhor qualidade sem contar o preço que é justo. Entrega rápida sempre.</p>",
+            "footer": "",
             "image_text": "",
             "image_link": "",
             "product": ""
@@ -372,9 +371,163 @@
         "testimonial_X8q9A4": {
           "type": "testimonial",
           "settings": {
-            "title": "Love it so much",
-            "description": "<p>Hands down one of the best shirts I’ve ever owned.  Fits great, feels amazing, seems to stay cool and is somewhat water resistant. </p>",
-            "footer": "<p>Ben B.</p>",
+            "title": "Simone Beinlich",
+            "description": "<p>Trabalho com a JMCS há muitos anos. É uma empresa séria e comprometida, sempre tive um bom atendimento e nunca tive problemas. Recomendo!</p>",
+            "footer": "",
+            "image_text": "",
+            "image_link": "",
+            "product": ""
+          }
+        },
+        "testimonial_6XRVEz": {
+          "type": "testimonial",
+          "settings": {
+            "title": "Gabriel Henrique",
+            "description": "<p>Sempre faço as pulseiras dos nossos eventos com a JCMS, tanto devido sua eficiência e seu comprometimento, quanto pela qualidade do produto.</p>",
+            "footer": "",
+            "image_text": "",
+            "image_link": "",
+            "product": ""
+          }
+        },
+        "testimonial_UKBFGV": {
+          "type": "testimonial",
+          "settings": {
+            "title": "Eloize Marcos",
+            "description": "<p>Sempre proativos, ágeis, material de qualidade e excelente pós vendas!</p>",
+            "footer": "",
+            "image_text": "",
+            "image_link": "",
+            "product": ""
+          }
+        },
+        "testimonial_XCiYbw": {
+          "type": "testimonial",
+          "settings": {
+            "title": "Zelma Zemf",
+            "description": "<p>Sempre prestativos. Rápidos e com qualidade.</p>",
+            "footer": "",
+            "image_text": "",
+            "image_link": "",
+            "product": ""
+          }
+        },
+        "testimonial_a9z4Ca": {
+          "type": "testimonial",
+          "settings": {
+            "title": "Coisas Perdidas Produções",
+            "description": "<p>Atendimento impecável, produto de alta qualidade e preço justo!</p>",
+            "footer": "",
+            "image_text": "",
+            "image_link": "",
+            "product": ""
+          }
+        },
+        "testimonial_Y7TW4g": {
+          "type": "testimonial",
+          "settings": {
+            "title": "Larissa Dalcomune",
+            "description": "<p>Ótimo atendimento, agilidade na confecção e extrema pontualidade na entrega.<br/>Material de ótima qualidade</p>",
+            "footer": "",
+            "image_text": "",
+            "image_link": "",
+            "product": ""
+          }
+        },
+        "testimonial_Dfc8HY": {
+          "type": "testimonial",
+          "settings": {
+            "title": "Atletica Raposas",
+            "description": "<p>Atendimento excelente!!!<br/><br/>Sempre somos muito bem atendidos com prestação de serviço de extrema qualidade.</p>",
+            "footer": "",
+            "image_text": "",
+            "image_link": "",
+            "product": ""
+          }
+        },
+        "testimonial_aw9fHE": {
+          "type": "testimonial",
+          "settings": {
+            "title": "Julia Leitzke",
+            "description": "<p>Atendimento excelente, pedido feito e entrega super rápida!! Super remendo 👏👏👏</p>",
+            "footer": "",
+            "image_text": "",
+            "image_link": "",
+            "product": ""
+          }
+        },
+        "testimonial_jKdmVJ": {
+          "type": "testimonial",
+          "settings": {
+            "title": "The Concept House",
+            "description": "<p>Muito obrigado pela parceria! Produtos e atendimento impecável!</p>",
+            "footer": "",
+            "image_text": "",
+            "image_link": "",
+            "product": ""
+          }
+        },
+        "testimonial_a9NfeH": {
+          "type": "testimonial",
+          "settings": {
+            "title": "Adam Hempkemaier",
+            "description": "<p>Parceiro de confiança, muita qualidade e sempre cumprindo os prazos</p>",
+            "footer": "",
+            "image_text": "",
+            "image_link": "",
+            "product": ""
+          }
+        },
+        "testimonial_ecpWXj": {
+          "type": "testimonial",
+          "settings": {
+            "title": "Daniele Schreiber Mendes",
+            "description": "<p>Empresa top!!!!<br/></p>",
+            "footer": "",
+            "image_text": "",
+            "image_link": "",
+            "product": ""
+          }
+        },
+        "testimonial_7kctBU": {
+          "type": "testimonial",
+          "settings": {
+            "title": "Tiago Ss",
+            "description": "<p>Atendimento muito bom e ótimas opções para eventos!</p>",
+            "footer": "",
+            "image_text": "",
+            "image_link": "",
+            "product": ""
+          }
+        },
+        "testimonial_AfK9PH": {
+          "type": "testimonial",
+          "settings": {
+            "title": "Wilson Eggers",
+            "description": "<p>Sempre bem atendido</p>",
+            "footer": "",
+            "image_text": "",
+            "image_link": "",
+            "product": ""
+          }
+        },
+        "testimonial_eBBfCr": {
+          "type": "testimonial",
+          "settings": {
+            "title": "Alexandre Rudnick",
+            "description": "<p>Ótimo trabalho e agilidade</p>",
+            "footer": "",
+            "image_text": "",
+            "image_link": "",
+            "product": ""
+          }
+        },
+        "testimonial_6JeVQN": {
+          "type": "testimonial",
+          "settings": {
+            "title": "Gustavo Merling",
+            "description": "<p>Ótimo atendimento!</p>",
+            "footer": "",
             "image_text": "",
             "image_link": "",
             "product": ""
@@ -384,7 +537,21 @@
       "block_order": [
         "testimonial_7bVRtk",
         "testimonial_BaC37W",
-        "testimonial_X8q9A4"
+        "testimonial_X8q9A4",
+        "testimonial_6XRVEz",
+        "testimonial_UKBFGV",
+        "testimonial_XCiYbw",
+        "testimonial_a9z4Ca",
+        "testimonial_Y7TW4g",
+        "testimonial_Dfc8HY",
+        "testimonial_aw9fHE",
+        "testimonial_jKdmVJ",
+        "testimonial_a9NfeH",
+        "testimonial_ecpWXj",
+        "testimonial_7kctBU",
+        "testimonial_AfK9PH",
+        "testimonial_eBBfCr",
+        "testimonial_6JeVQN"
       ],
       "custom_css": [],
       "settings": {
@@ -401,7 +568,7 @@
         "show_navigation": true,
         "show_pagination": false,
         "star_color": "#ffd900",
-        "item_color_scheme": "default",
+        "item_color_scheme": "dark",
         "padding_top": 46,
         "padding_bottom": 46,
         "custom_class": "",
