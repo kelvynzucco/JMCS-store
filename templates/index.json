@@ -349,9 +349,9 @@
         "testimonial_7bVRtk": {
           "type": "testimonial",
           "settings": {
-            "title": "Leandro Gales",
-            "description": "<p>Perfeito, moro no exterior e fiz o pedido com eles para as pulseiras vip da festa da minha filha de 16 anos, foram super atenciosos e me ajudaram com tudo que precisava. Além disso chegou rápido e além da expectativas. Super recomendo</p>",
-            "footer": "",
+            "title": "Perfeito, moro no exterior",
+            "description": "<p>e fiz o pedido com eles para as pulseiras vip da festa da minha filha de 16 anos, foram super atenciosos e me ajudaram com tudo que precisava. Além disso chegou rápido e além da expectativas. Super recomendo</p>",
+            "footer": "<p>Leandro Gales</p>",
             "image_text": "",
             "image_link": "",
             "product": ""
@@ -360,9 +360,9 @@
         "testimonial_BaC37W": {
           "type": "testimonial",
           "settings": {
-            "title": "Ana Paula Silva",
-            "description": "<p>Trabalhamos a anos com a JMCS, empresa ótima. Respondem imediatamente, material é da melhor qualidade sem contar o preço que é justo. Entrega rápida sempre.</p>",
-            "footer": "",
+            "title": "Trabalhamos a anos com a JMCS,",
+            "description": "<p>empresa ótima. Respondem imediatamente, material é da melhor qualidade sem contar o preço que é justo. Entrega rápida sempre.</p>",
+            "footer": "<p>Ana Paula Silva</p>",
             "image_text": "",
             "image_link": "",
             "product": ""
@@ -371,9 +371,9 @@
         "testimonial_X8q9A4": {
           "type": "testimonial",
           "settings": {
-            "title": "Simone Beinlich",
-            "description": "<p>Trabalho com a JMCS há muitos anos. É uma empresa séria e comprometida, sempre tive um bom atendimento e nunca tive problemas. Recomendo!</p>",
-            "footer": "",
+            "title": "Trabalho com a JMCS há muitos anos.",
+            "description": "<p>É uma empresa séria e comprometida, sempre tive um bom atendimento e nunca tive problemas. Recomendo!</p>",
+            "footer": "<p>Simone Beinlich</p>",
             "image_text": "",
             "image_link": "",
             "product": ""
@@ -382,9 +382,9 @@
         "testimonial_6XRVEz": {
           "type": "testimonial",
           "settings": {
-            "title": "Gabriel Henrique",
-            "description": "<p>Sempre faço as pulseiras dos nossos eventos com a JCMS, tanto devido sua eficiência e seu comprometimento, quanto pela qualidade do produto.</p>",
-            "footer": "",
+            "title": "Sempre faço as pulseiras dos nossos eventos",
+            "description": "<p>com a JCMS, tanto devido sua eficiência e seu comprometimento, quanto pela qualidade do produto.</p>",
+            "footer": "<p>Gabriel Henrique</p>",
             "image_text": "",
             "image_link": "",
             "product": ""
@@ -393,9 +393,9 @@
         "testimonial_UKBFGV": {
           "type": "testimonial",
           "settings": {
-            "title": "Eloize Marcos",
-            "description": "<p>Sempre proativos, ágeis, material de qualidade e excelente pós vendas!</p>",
-            "footer": "",
+            "title": "Sempre proativos,",
+            "description": "<p>ágeis, material de qualidade e excelente pós vendas!</p>",
+            "footer": "<p>Eloize Marcos</p>",
             "image_text": "",
             "image_link": "",
             "product": ""
@@ -404,9 +404,9 @@
         "testimonial_XCiYbw": {
           "type": "testimonial",
           "settings": {
-            "title": "Zelma Zemf",
-            "description": "<p>Sempre prestativos. Rápidos e com qualidade.</p>",
-            "footer": "",
+            "title": "Sempre prestativos.",
+            "description": "<p>Rápidos e com qualidade.</p>",
+            "footer": "<p>Zelma Zemf</p>",
             "image_text": "",
             "image_link": "",
             "product": ""
@@ -415,9 +415,9 @@
         "testimonial_a9z4Ca": {
           "type": "testimonial",
           "settings": {
-            "title": "Coisas Perdidas Produções",
-            "description": "<p>Atendimento impecável, produto de alta qualidade e preço justo!</p>",
-            "footer": "",
+            "title": "Atendimento impecável,",
+            "description": "<p>produto de alta qualidade e preço justo!</p>",
+            "footer": "<p>Coisas Perdidas Produções</p>",
             "image_text": "",
             "image_link": "",
             "product": ""
@@ -426,9 +426,9 @@
         "testimonial_Y7TW4g": {
           "type": "testimonial",
           "settings": {
-            "title": "Larissa Dalcomune",
-            "description": "<p>Ótimo atendimento, agilidade na confecção e extrema pontualidade na entrega.<br/>Material de ótima qualidade</p>",
-            "footer": "",
+            "title": "Ótimo atendimento,",
+            "description": "<p>agilidade na confecção e extrema pontualidade na entrega.<br/>Material de ótima qualidade</p>",
+            "footer": "<p>Larissa Dalcomune</p>",
             "image_text": "",
             "image_link": "",
             "product": ""
