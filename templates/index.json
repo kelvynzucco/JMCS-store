@@ -327,7 +327,7 @@
       ],
       "settings": {
         "container": "container-fluid",
-        "color_scheme": "",
+        "color_scheme": "dark",
         "header_alignment": "left",
         "heading": "Como Funciona?",
         "heading_size": "h2",
@@ -343,48 +343,6 @@
         "padding_bottom": 0,
         "custom_class": "",
         "animations": "inherit"
-      }
-    },
-    "7ea56e8d-5794-4708-8812-8ee9604a3a21": {
-      "type": "custom-content",
-      "blocks": {
-        "template--15977492021425__7ea56e8d-5794-4708-8812-8ee9604a3a21-1678440566c64de1a8-1": {
-          "type": "image",
-          "settings": {
-            "link": "",
-            "width": "100%",
-            "alignment": "center",
-            "block_custom_class": "",
-            "animations": "zoom-fade"
-          }
-        }
-      },
-      "block_order": [
-        "template--15977492021425__7ea56e8d-5794-4708-8812-8ee9604a3a21-1678440566c64de1a8-1"
-      ],
-      "custom_css": [
-        ".container-full {padding-left: 0; padding-right: 0;}",
-        ".m-button--fixed {border-color: #e2e2e2; padding: 24px 0; margin-bottom: 24px;}",
-        "@media (min-width: 1280px) {.m-image-card__content {padding-top: 115px; }}",
-        "@media (max-width: 767px) {.m-button--fixed {border: none; margin-bottom: 0; justify-content: center; column-gap: 12px; } .m-image-card__content {padding-top: 30px; }}"
-      ],
-      "settings": {
-        "heading": "",
-        "heading_size": "h3",
-        "subheading": "",
-        "description": "",
-        "header_alignment": "center",
-        "container": "container",
-        "color_scheme": "dark",
-        "content_color_scheme": "dark",
-        "enable_parallax": false,
-        "parallax_direction": "vertical",
-        "gap": 0,
-        "gap_mobile": 0,
-        "use_scroll_mobile": false,
-        "padding_top": 90,
-        "padding_bottom": 0,
-        "custom_class": "sf-custom--collection-banner"
       }
     },
     "testimonials_pnyUnX": {
@@ -456,6 +414,48 @@
         "custom_class": "",
         "animations": "inherit"
       }
+    },
+    "7ea56e8d-5794-4708-8812-8ee9604a3a21": {
+      "type": "custom-content",
+      "blocks": {
+        "template--15977492021425__7ea56e8d-5794-4708-8812-8ee9604a3a21-1678440566c64de1a8-1": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "zoom-fade"
+          }
+        }
+      },
+      "block_order": [
+        "template--15977492021425__7ea56e8d-5794-4708-8812-8ee9604a3a21-1678440566c64de1a8-1"
+      ],
+      "custom_css": [
+        ".container-full {padding-left: 0; padding-right: 0;}",
+        ".m-button--fixed {border-color: #e2e2e2; padding: 24px 0; margin-bottom: 24px;}",
+        "@media (min-width: 1280px) {.m-image-card__content {padding-top: 115px; }}",
+        "@media (max-width: 767px) {.m-button--fixed {border: none; margin-bottom: 0; justify-content: center; column-gap: 12px; } .m-image-card__content {padding-top: 30px; }}"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container",
+        "color_scheme": "dark",
+        "content_color_scheme": "dark",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 0,
+        "gap_mobile": 0,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 0,
+        "custom_class": "sf-custom--collection-banner"
+      }
     }
   },
   "order": [
@@ -464,7 +464,7 @@
     "16225316461d1cff80",
     "162251092958fcda7c",
     "collection_tabs_QE4TLj",
-    "7ea56e8d-5794-4708-8812-8ee9604a3a21",
-    "testimonials_pnyUnX"
+    "testimonials_pnyUnX",
+    "7ea56e8d-5794-4708-8812-8ee9604a3a21"
   ]
 }
