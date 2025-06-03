@@ -40,16 +40,46 @@
             "footer_button": "",
             "footer_link": ""
           }
+        },
+        "slider_item_eaBxHe": {
+          "type": "slider_item",
+          "settings": {
+            "background": "shopify://shop_images/JMCS_Banner_Desktop.png",
+            "mb_background": "shopify://shop_images/JMCS_Banner_Mobile.png",
+            "content_in_container": false,
+            "content_position": "left middle",
+            "text_alignment": "center",
+            "text_size": "large",
+            "text_color": "white",
+            "subheading": "",
+            "title": "",
+            "description": "",
+            "image_link": "",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "sf__btn-secondary",
+            "button_size": "",
+            "second_button_text": "",
+            "second_button_link": "",
+            "second_button_style": "m-button--primary",
+            "second_button_size": "",
+            "show_footer": false,
+            "footer_alignment": "end",
+            "footer_text": "",
+            "footer_button": "",
+            "footer_link": ""
+          }
         }
       },
       "block_order": [
-        "1621243260e1af0c20-0"
+        "1621243260e1af0c20-0",
+        "slider_item_eaBxHe"
       ],
       "settings": {
         "container": "w-full",
         "slideshow_height": "medium",
         "show_overlay": false,
-        "dots_position": "right",
+        "dots_position": "bottom",
         "dots_color": "dark",
         "show_dots": true,
         "show_arrows": false,
