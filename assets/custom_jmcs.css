@@ -295,9 +295,12 @@
   line-height: 3;
 }
 
-.jmcs-footer .m-link-lists .m-link-lists--item,
-.jmcs-footer .m-link-lists .m-link-lists--item:hover .m-link {
+.jmcs-footer .m-link-lists .m-link-lists--item {
   line-height: 3;
+}
+
+.jmcs-footer .m-link-lists .m-link-lists--item:hover .m-link {
+  color: var(--blue-primary);
 }
 
 .jmcs-footer .m-link-lists .m-link-lists--item .m-link::after {
