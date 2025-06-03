@@ -226,8 +226,8 @@
         "use_scroll_mobile": true,
         "mobile_gap": 16,
         "hidden_slide_control_mobile": false,
-        "padding_top": 100,
-        "padding_bottom": 0,
+        "padding_top": 90,
+        "padding_bottom": 46,
         "custom_class": "jmcs-categories",
         "animations": "inherit"
       }
@@ -254,11 +254,9 @@
         "162251092958fcda7c-0",
         "162251092958fcda7c-1"
       ],
-      "custom_css": [
-        ".m-section__header {--m-section-header-spacing-bottom: 60px;}"
-      ],
+      "custom_css": [],
       "settings": {
-        "heading": "You are in",
+        "heading": "Você está em",
         "heading_size": "h3",
         "subheading": "",
         "description": "",
@@ -266,26 +264,26 @@
         "container": "container-fluid",
         "color_scheme": "dark",
         "tab_header": "select",
-        "limit": 5,
+        "limit": 4,
         "show_button": true,
         "button_type": "link",
-        "button_label": "Shop All Products",
+        "button_label": "Ver Mais",
         "button_style": "m-button--secondary",
         "button_size": "",
         "pcard_layout": "",
         "pcard_image_ratio": "",
         "show_vendor": false,
         "items_per_row": 5,
-        "item_gap": 30,
+        "item_gap": 20,
         "enable_slider": false,
         "show_navigation": false,
         "show_pagination": false,
         "mobile_disable_slider": false,
         "use_scroll_mobile": true,
         "item_gap_mobile": 16,
-        "padding_top": 100,
-        "padding_bottom": 10,
-        "custom_class": "sf-home__product-tab",
+        "padding_top": 46,
+        "padding_bottom": 46,
+        "custom_class": "",
         "animations": "inherit"
       }
     },
@@ -329,9 +327,9 @@
         "container": "container-fluid",
         "color_scheme": "dark",
         "header_alignment": "left",
-        "heading": "Como Funciona?",
+        "heading": "Pulseiras do seu jeito",
         "heading_size": "h2",
-        "subheading": "Hot This Week",
+        "subheading": "Como funciona?",
         "description": "",
         "image_position": "right",
         "image_ratio": "1/1",
@@ -339,8 +337,8 @@
         "trigger_behavior": "click",
         "autoplay": false,
         "autoplay_duration": 3,
-        "padding_top": 100,
-        "padding_bottom": 0,
+        "padding_top": 46,
+        "padding_bottom": 46,
         "custom_class": "",
         "animations": "inherit"
       }
@@ -388,16 +386,11 @@
         "testimonial_BaC37W",
         "testimonial_X8q9A4"
       ],
-      "custom_css": [
-        ".m-svg-icon {width: 12px; height: 12px;}",
-        ".m-stars {column-gap: 2px;}",
-        "@media (min-width: 1280px) {.m-testimonials__header {margin-bottom: 40px; }}",
-        "@media (max-width: 767px) {.m-testimonials__header {margin-bottom: 24px; } .m-section__header {text-align: center; }}"
-      ],
+      "custom_css": [],
       "settings": {
-        "heading": "Happy Customers",
-        "heading_size": "h3",
-        "subheading": "",
+        "heading": "O que dizem nossos clientes?",
+        "heading_size": "h2",
+        "subheading": "Depoimentos",
         "description": "",
         "header_alignment": "left",
         "container": "container-fluid",
@@ -409,8 +402,8 @@
         "show_pagination": false,
         "star_color": "#ffd900",
         "item_color_scheme": "default",
-        "padding_top": 100,
-        "padding_bottom": 100,
+        "padding_top": 46,
+        "padding_bottom": 46,
         "custom_class": "",
         "animations": "inherit"
       }
@@ -432,12 +425,7 @@
       "block_order": [
         "template--15977492021425__7ea56e8d-5794-4708-8812-8ee9604a3a21-1678440566c64de1a8-1"
       ],
-      "custom_css": [
-        ".container-full {padding-left: 0; padding-right: 0;}",
-        ".m-button--fixed {border-color: #e2e2e2; padding: 24px 0; margin-bottom: 24px;}",
-        "@media (min-width: 1280px) {.m-image-card__content {padding-top: 115px; }}",
-        "@media (max-width: 767px) {.m-button--fixed {border: none; margin-bottom: 0; justify-content: center; column-gap: 12px; } .m-image-card__content {padding-top: 30px; }}"
-      ],
+      "custom_css": [],
       "settings": {
         "heading": "",
         "heading_size": "h3",
@@ -452,9 +440,93 @@
         "gap": 0,
         "gap_mobile": 0,
         "use_scroll_mobile": false,
-        "padding_top": 90,
-        "padding_bottom": 0,
-        "custom_class": "sf-custom--collection-banner"
+        "padding_top": 46,
+        "padding_bottom": 46,
+        "custom_class": ""
+      }
+    },
+    "brands_list_4eHpMa": {
+      "type": "brands-list",
+      "blocks": {
+        "image_EV4qP6": {
+          "type": "image",
+          "settings": {
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": "100px"
+          }
+        },
+        "image_7gaCjx": {
+          "type": "image",
+          "settings": {
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": "100px"
+          }
+        },
+        "image_pcRGrk": {
+          "type": "image",
+          "settings": {
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": "100px"
+          }
+        },
+        "image_HF4dMd": {
+          "type": "image",
+          "settings": {
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": "100px"
+          }
+        },
+        "image_yaz8mB": {
+          "type": "image",
+          "settings": {
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": "100px"
+          }
+        },
+        "image_7JfdnF": {
+          "type": "image",
+          "settings": {
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": "100px"
+          }
+        }
+      },
+      "block_order": [
+        "image_EV4qP6",
+        "image_7gaCjx",
+        "image_pcRGrk",
+        "image_HF4dMd",
+        "image_yaz8mB",
+        "image_7JfdnF"
+      ],
+      "name": "Brands list",
+      "settings": {
+        "heading": "Eles confiam em nós",
+        "heading_size": "h2",
+        "subheading": "Nossos parceiros",
+        "header_alignment": "left",
+        "container": "container-fluid",
+        "color_scheme": "dark",
+        "item_per_row": 6,
+        "column_gap": 30,
+        "row_gap": 30,
+        "column_gap_mobile": 10,
+        "row_gap_mobile": 10,
+        "enable_slider": true,
+        "show_nav": false,
+        "show_pagination": false,
+        "autorotate": true,
+        "autorotate_speed": 3,
+        "padding_top": 46,
+        "padding_bottom": 46,
+        "custom_class": "",
+        "animations": "inherit"
       }
     }
   },
@@ -465,6 +537,7 @@
     "162251092958fcda7c",
     "collection_tabs_QE4TLj",
     "testimonials_pnyUnX",
-    "7ea56e8d-5794-4708-8812-8ee9604a3a21"
+    "7ea56e8d-5794-4708-8812-8ee9604a3a21",
+    "brands_list_4eHpMa"
   ]
 }
