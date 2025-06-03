@@ -437,9 +437,9 @@
         "testimonial_Dfc8HY": {
           "type": "testimonial",
           "settings": {
-            "title": "Atletica Raposas",
-            "description": "<p>Atendimento excelente!!!<br/><br/>Sempre somos muito bem atendidos com prestação de serviço de extrema qualidade.</p>",
-            "footer": "",
+            "title": "Atendimento excelente!!!",
+            "description": "<p>Sempre somos muito bem atendidos com prestação de serviço de extrema qualidade.</p>",
+            "footer": "<p>Atletica Raposas</p>",
             "image_text": "",
             "image_link": "",
             "product": ""
@@ -448,9 +448,9 @@
         "testimonial_aw9fHE": {
           "type": "testimonial",
           "settings": {
-            "title": "Julia Leitzke",
-            "description": "<p>Atendimento excelente, pedido feito e entrega super rápida!! Super remendo 👏👏👏</p>",
-            "footer": "",
+            "title": "Atendimento excelente,",
+            "description": "<p>pedido feito e entrega super rápida!! Super remendo 👏👏👏</p>",
+            "footer": "<p>Julia Leitzke</p>",
             "image_text": "",
             "image_link": "",
             "product": ""
@@ -459,9 +459,9 @@
         "testimonial_jKdmVJ": {
           "type": "testimonial",
           "settings": {
-            "title": "The Concept House",
-            "description": "<p>Muito obrigado pela parceria! Produtos e atendimento impecável!</p>",
-            "footer": "",
+            "title": "Muito obrigado",
+            "description": "<p>pela parceria! Produtos e atendimento impecável!</p>",
+            "footer": "<p>The Concept House</p>",
             "image_text": "",
             "image_link": "",
             "product": ""
@@ -470,9 +470,9 @@
         "testimonial_a9NfeH": {
           "type": "testimonial",
           "settings": {
-            "title": "Adam Hempkemaier",
-            "description": "<p>Parceiro de confiança, muita qualidade e sempre cumprindo os prazos</p>",
-            "footer": "",
+            "title": "Parceiro de confiança,",
+            "description": "<p>muita qualidade e sempre cumprindo os prazos</p>",
+            "footer": "<p>Adam Hempkemaier</p>",
             "image_text": "",
             "image_link": "",
             "product": ""
