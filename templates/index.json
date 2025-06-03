@@ -352,38 +352,15 @@
           "type": "image",
           "settings": {
             "link": "",
-            "width": "50%",
+            "width": "100%",
             "alignment": "center",
             "block_custom_class": "",
             "animations": "zoom-fade"
           }
-        },
-        "5c5877d5-05b2-4a50-81e3-78c3f6d0d833": {
-          "type": "image_card",
-          "settings": {
-            "width": "50%",
-            "color_scheme": "",
-            "content_position": "top_center",
-            "content_alignment": "left",
-            "text_size": "medium",
-            "text_color": "black",
-            "link": "",
-            "title": "The ReLeather Beige Tennis Shoe",
-            "subtitle": "New collection",
-            "description": "",
-            "button_label": "Shop New Collection",
-            "button_style": "m-button--primary",
-            "button_size": "",
-            "button_fixed": true,
-            "use_content_above": true,
-            "block_custom_class": "",
-            "animations": "inherit"
-          }
         }
       },
       "block_order": [
-        "template--15977492021425__7ea56e8d-5794-4708-8812-8ee9604a3a21-1678440566c64de1a8-1",
-        "5c5877d5-05b2-4a50-81e3-78c3f6d0d833"
+        "template--15977492021425__7ea56e8d-5794-4708-8812-8ee9604a3a21-1678440566c64de1a8-1"
       ],
       "custom_css": [
         ".container-full {padding-left: 0; padding-right: 0;}",
@@ -397,7 +374,7 @@
         "subheading": "",
         "description": "",
         "header_alignment": "center",
-        "container": "w-full",
+        "container": "container",
         "color_scheme": "",
         "content_color_scheme": "",
         "enable_parallax": false,
