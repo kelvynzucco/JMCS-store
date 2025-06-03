@@ -635,4 +635,8 @@
   .jmcs-reviews .m-slider-controls__button {
     margin-top: 0;
   }
+  .m-section__header h2,
+  .m-section__subheading {
+    text-align: center;
+  }
 }
