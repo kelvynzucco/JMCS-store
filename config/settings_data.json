@@ -37,6 +37,7 @@
     "img_overlay_opacity": 20,
     "spacing_sections": 0,
     "spacing_sections_mobile": 0,
+    "page_transition": false,
     "animations": "fade-in-up",
     "pcard_layout": "1",
     "pcard_alignment": "left",
