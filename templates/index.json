@@ -571,7 +571,7 @@
         "item_color_scheme": "dark",
         "padding_top": 46,
         "padding_bottom": 46,
-        "custom_class": "",
+        "custom_class": "jmcs-reviews",
         "animations": "inherit"
       }
     },
