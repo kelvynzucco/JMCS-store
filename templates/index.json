@@ -268,15 +268,15 @@
         "162251092958fcda7c-0": {
           "type": "tab",
           "settings": {
-            "title": "best sellers",
-            "collection": "best-sellers-fashion-2024"
+            "title": "Novos",
+            "collection": "frontpage"
           }
         },
         "162251092958fcda7c-1": {
           "type": "tab",
           "settings": {
-            "title": "new arrivals",
-            "collection": "new-arrivals-fashion-2024"
+            "title": "Neoband",
+            "collection": "frontpage"
           }
         }
       },
