@@ -3173,7 +3173,7 @@ m-select-component select {
   .m-select-custom--trigger-icon {
   padding-left: 20px;
 }
-.m-select-custom--custom-width {
+/* .m-select-custom--custom-width {
   min-width: 250px;
 }
 @media screen and (max-width: 1535px) {
@@ -3185,7 +3185,7 @@ m-select-component select {
   .m-select-custom--custom-width {
     min-width: 130px;
   }
-}
+} */
 .m-select-custom--options {
   background-color: rgb(var(--color-background));
   border-radius: 5px;

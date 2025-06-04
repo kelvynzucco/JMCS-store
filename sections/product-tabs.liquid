@@ -172,7 +172,7 @@
             </h2>
           {% endif %}
         {% else %}
-          <div class="m-section__heading {% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
+          <div class="m-section__heading jmcs-section__heading {% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
             {% if section.settings.heading != blank %}
               <h2 class="{{ section.settings.heading_size | default: 'h3' }}">{{ section.settings.heading }}&nbsp;</h2>
             {% endif %}

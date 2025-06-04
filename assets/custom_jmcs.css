@@ -566,6 +566,67 @@
 }
 
 /* Produtos */
+.jmcs-section__heading h2 {
+  text-transform: none !important;
+}
+.jmcs-section__heading m-select-component {
+  font-family: "Francois One", sans-serif;
+}
+.jmcs-section__heading .m-select-custom--options {
+  position: absolute;
+  min-width: 200px;
+  font-size: 24px;
+  line-height: 2.3;
+  margin-top: 16px;
+  border-radius: 24px !important;
+  background-color: rgba(4, 6, 28, 0.92);
+  box-shadow: 0 -10px 56px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.jmcs-section__heading
+  .m-select-custom--options
+  .m-select-custom--option:hover {
+  color: var(--blue-primary);
+}
+
+.jmcs-section__heading .m-select-custom--trigger {
+  gap: 0;
+}
+.jmcs-section__heading .m-select-custom--trigger-icon {
+  padding-left: 6px !important;
+}
+
+.jmcs-section__heading .m-select-custom--trigger-icon,
+.jmcs-section__heading .m-select-custom--trigger-text {
+  color: var(--blue-primary) !important;
+}
+
+.jmcs-section__heading .m-select-custom:after {
+  height: 1px !important;
+  background: linear-gradient(
+    to right,
+    var(--gradient-mid),
+    var(--blue-primary)
+  );
+}
+
+.jmcs-section__heading .m-select-custom--option {
+  border-bottom: 1px solid;
+  border-image: linear-gradient(
+      to right,
+      var(--gradient-mid),
+      var(--blue-primary)
+    )
+    1;
+  border-image-slice: 1;
+}
+
+.jmcs-section__heading .m-select-custom--option:last-child {
+  border: none;
+}
+
 .m-button--secondary {
   box-shadow: none !important;
   border: none;
@@ -597,7 +658,6 @@
   transition: background 0.3s ease;
 }
 
-/* botão normal */
 .jmcs-button_inner .m-button {
   display: inline-block;
   background-color: #04061c;
