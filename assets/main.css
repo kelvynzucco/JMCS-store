@@ -3259,6 +3259,8 @@ m-select-component select {
   opacity: 1;
   visibility: visible;
   top: 100%;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 .m-select-custom.isActive .m-select-custom--options-top {
   bottom: 100%;
