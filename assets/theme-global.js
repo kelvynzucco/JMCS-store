@@ -76,11 +76,13 @@ MinimogTheme.initWhenVisible = function (options) {
 
     const loadingDesignMode = fader.dataset.designMode === "true";
 
-    document.querySelectorAll("a[href^=mailto], a[href^=tel]").forEach((link) => {
-      link.addEventListener("click", () => {
-        ignore_beforeunload = true;
+    document
+      .querySelectorAll("a[href^=mailto], a[href^=tel]")
+      .forEach((link) => {
+        link.addEventListener("click", () => {
+          ignore_beforeunload = true;
+        });
       });
-    });
 
     if (loadingDesignMode && Shopify.designMode) {
       fader.classList.add("m-page-transition--design-mode");
@@ -134,7 +136,7 @@ class CountdownTimer {
       {
         addZeroPrefix: true,
         loop: false,
-        callback: () => { },
+        callback: () => {},
       },
       options
     );
@@ -206,7 +208,7 @@ class CountdownTimer {
 window.MinimogTheme.CountdownTimer = CountdownTimer;
 
 class Tabs {
-  constructor(container, cb = () => { }) {
+  constructor(container, cb = () => {}) {
     this.selectors = {
       tabHeaders: [".m-tab-header"],
       tabContents: [".m-tab-content"],
@@ -242,7 +244,11 @@ class Tabs {
   setActiveTab(tabIndex) {
     const { tabHeaders, tabContents } = this.domNodes;
 
-    if (tabContents.length && tabIndex !== -1 && this.currentActiveIndex !== tabIndex) {
+    if (
+      tabContents.length &&
+      tabIndex !== -1 &&
+      this.currentActiveIndex !== tabIndex
+    ) {
       let currHeader, newHeader, newTab;
 
       currHeader = tabHeaders && tabHeaders[this.currentActiveIndex];
@@ -250,12 +256,22 @@ class Tabs {
 
       if (this.customSelect && newHeader) {
         const tabHeaderStyle = this.customSelect.dataset.tabHeader;
-        tabHeaderStyle === "select" && this.customSelect.updateCustomSelectChecked(tabIndex, newHeader.innerHTML);
+        tabHeaderStyle === "select" &&
+          this.customSelect.updateCustomSelectChecked(
+            tabIndex,
+            newHeader.innerHTML
+          );
         if (MinimogTheme.config.mqlMobile) {
-          this.customSelect.updateCustomSelectChecked(tabIndex, newHeader.innerHTML);
+          this.customSelect.updateCustomSelectChecked(
+            tabIndex,
+            newHeader.innerHTML
+          );
         }
         document.addEventListener("matchMobile", () =>
-          this.customSelect.updateCustomSelectChecked(tabIndex, newHeader.innerHTML)
+          this.customSelect.updateCustomSelectChecked(
+            tabIndex,
+            newHeader.innerHTML
+          )
         );
       }
 
@@ -303,12 +319,22 @@ Shopify.addListener = function (target, eventName, callback) {
     : target.attachEvent("on" + eventName, callback);
 };
 
-Shopify.CountryProvinceSelector = function (country_domid, province_domid, options) {
+Shopify.CountryProvinceSelector = function (
+  country_domid,
+  province_domid,
+  options
+) {
   this.countryEl = document.getElementById(country_domid);
   this.provinceEl = document.getElementById(province_domid);
-  this.provinceContainer = document.getElementById(options["hideElement"] || province_domid);
+  this.provinceContainer = document.getElementById(
+    options["hideElement"] || province_domid
+  );
 
-  Shopify.addListener(this.countryEl, "change", Shopify.bind(this.countryHandler, this));
+  Shopify.addListener(
+    this.countryEl,
+    "change",
+    Shopify.bind(this.countryHandler, this)
+  );
 
   this.initCountry();
   this.initProvince();
@@ -416,7 +442,12 @@ function trapFocus(container, elementToFocus = container) {
   removeTrapFocus();
 
   trapFocusHandlers.focusin = (event) => {
-    if (event.target !== container && event.target !== last && event.target !== first) return;
+    if (
+      event.target !== container &&
+      event.target !== last &&
+      event.target !== first
+    )
+      return;
 
     document.addEventListener("keydown", trapFocusHandlers.keydown);
   };
@@ -434,7 +465,10 @@ function trapFocus(container, elementToFocus = container) {
     }
 
     //  On the first focusable element and tab backward, focus the last element.
-    if ((event.target === container || event.target === first) && event.shiftKey) {
+    if (
+      (event.target === container || event.target === first) &&
+      event.shiftKey
+    ) {
       event.preventDefault();
       last.focus();
     }
@@ -552,7 +586,12 @@ function formatMoney(cents, format) {
   const placeholderRegex = /\{\{\s*(\w+)\s*\}\}/;
   const formatString = format || moneyFormat;
 
-  function formatWithDelimiters(number, precision = 2, thousands = ",", decimal = ".") {
+  function formatWithDelimiters(
+    number,
+    precision = 2,
+    thousands = ",",
+    decimal = "."
+  ) {
     if (isNaN(number) || number == null) {
       return 0;
     }
@@ -560,7 +599,10 @@ function formatMoney(cents, format) {
     number = (number / 100.0).toFixed(precision);
 
     const parts = number.split(".");
-    const dollarsAmount = parts[0].replace(/(\d)(?=(\d\d\d)+(?!\d))/g, `$1${thousands}`);
+    const dollarsAmount = parts[0].replace(
+      /(\d)(?=(\d\d\d)+(?!\d))/g,
+      `$1${thousands}`
+    );
     const centsAmount = parts[1] ? decimal + parts[1] : "";
 
     return dollarsAmount + centsAmount;
@@ -587,7 +629,8 @@ function formatMoney(cents, format) {
 function validateForm(form) {
   const missingFields = [];
   if (!form) return missingFields;
-  const fieldSelectors = '[data-product-custom-field] [name][required]:not([hidden]):not([type="hidden"])';
+  const fieldSelectors =
+    '[data-product-custom-field] [name][required]:not([hidden]):not([type="hidden"])';
   const requiredFields = form.querySelectorAll(fieldSelectors);
   requiredFields.forEach((field) => {
     field.classList.remove("form-control--warning");
@@ -619,7 +662,9 @@ function generateDomeFromStringNew(value, selector = "div") {
 }
 
 function fetchCountDown(collectionID) {
-  const appURL = MinimogSettings.foxKitBaseUrl ? `https://${MinimogSettings.foxKitBaseUrl}` : "";
+  const appURL = MinimogSettings.foxKitBaseUrl
+    ? `https://${MinimogSettings.foxKitBaseUrl}`
+    : "";
 
   return new Promise((resolve, reject) => {
     let requestUrl = `${appURL}/api/public/countdown?shop=${window.Shopify.shop}&collectionIds=${collectionID}`;
@@ -631,15 +676,19 @@ function fetchCountDown(collectionID) {
   });
 }
 
-function loadAssetsNew(files = [], id, callback = () => { }, options = {}) {
+function loadAssetsNew(files = [], id, callback = () => {}, options = {}) {
   const unique = id ? id : Math.random().toString(36).slice(2);
-  if (!window.MinimogLibs.loadjs.isDefined(id)) window.MinimogLibs.loadjs(files, unique);
+  if (!window.MinimogLibs.loadjs.isDefined(id))
+    window.MinimogLibs.loadjs(files, unique);
   window.MinimogLibs.loadjs.ready(unique, callback);
 }
 
 function pauseAllMedia(container = document) {
   container.querySelectorAll(".js-youtube").forEach((video) => {
-    video.contentWindow.postMessage('{"event":"command","func":"' + "pauseVideo" + '","args":""}', "*");
+    video.contentWindow.postMessage(
+      '{"event":"command","func":"' + "pauseVideo" + '","args":""}',
+      "*"
+    );
   });
   container.querySelectorAll(".js-vimeo").forEach((video) => {
     video.contentWindow.postMessage('{"method":"pause"}', "*");
@@ -699,10 +748,20 @@ function loadCSS(href, target = document.head) {
   });
 }
 
-function addEventDelegate({ context = document.documentElement, event = "click", selector, handler, capture = false }) {
+function addEventDelegate({
+  context = document.documentElement,
+  event = "click",
+  selector,
+  handler,
+  capture = false,
+}) {
   const listener = function (e) {
     // loop parent nodes from the target to the delegation node
-    for (let target = e.target; target && target !== this; target = target.parentNode) {
+    for (
+      let target = e.target;
+      target && target !== this;
+      target = target.parentNode
+    ) {
       if (target.matches(selector)) {
         handler.call(target, e, target);
         break;
@@ -760,7 +819,9 @@ function getSizedImageUrl(src, size) {
     return removeProtocol(src);
   }
 
-  var match = src.match(/\.(jpg|jpeg|gif|png|webp|bmp|bitmap|tiff|tif)(\?v=\d+)?$/i);
+  var match = src.match(
+    /\.(jpg|jpeg|gif|png|webp|bmp|bitmap|tiff|tif)(\?v=\d+)?$/i
+  );
 
   if (match) {
     var prefix = src.split(match[0]);
@@ -778,7 +839,12 @@ function removeProtocol(path) {
 
 function updateParam(key, value) {
   var { location } = window;
-  var baseUrl = [location.protocol, "//", location.host, location.pathname].join("");
+  var baseUrl = [
+    location.protocol,
+    "//",
+    location.host,
+    location.pathname,
+  ].join("");
 
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
@@ -824,7 +890,9 @@ function refreshProductReview() {
 (function () {
   const popularSearchItems = document.querySelectorAll("[data-ps-item]");
   if (popularSearchItems) {
-    popularSearchItems.forEach((itm) => (itm.href = createSearchLink(itm.dataset.psQuery)));
+    popularSearchItems.forEach(
+      (itm) => (itm.href = createSearchLink(itm.dataset.psQuery))
+    );
   }
 })();
 
@@ -895,7 +963,10 @@ function spinner(className = "") {
 function fetchConfig(type = "json") {
   return {
     method: "POST",
-    headers: { "Content-Type": "application/json", Accept: `application/${type}` },
+    headers: {
+      "Content-Type": "application/json",
+      Accept: `application/${type}`,
+    },
   };
 }
 
@@ -941,10 +1012,14 @@ class DeferredMedia extends HTMLElement {
   loadContent(focus = true) {
     if (!this.getAttribute("loaded")) {
       const content = document.createElement("div");
-      content.appendChild(this.querySelector("template").content.firstElementChild.cloneNode(true));
+      content.appendChild(
+        this.querySelector("template").content.firstElementChild.cloneNode(true)
+      );
 
       this.setAttribute("loaded", true);
-      const deferredElement = this.appendChild(content.querySelector("video, model-viewer, iframe"));
+      const deferredElement = this.appendChild(
+        content.querySelector("video, model-viewer, iframe")
+      );
       this.deferredElement = deferredElement;
 
       if (focus) deferredElement.focus();
@@ -1018,7 +1093,9 @@ class ResponsiveImage extends HTMLElement {
   initIntersectionObserver() {
     if (this.observer) return;
     const rootMargin = "10px";
-    this.observer = new IntersectionObserver(this.observerCallback, { rootMargin });
+    this.observer = new IntersectionObserver(this.observerCallback, {
+      rootMargin,
+    });
     this.observer.observe(this);
   }
   disconnectObserver() {
@@ -1057,7 +1134,8 @@ class ProductRecommendations extends HTMLElement {
           const recommendations = html.querySelector("product-recommendations");
           if (recommendations && recommendations.innerHTML.trim().length) {
             this.innerHTML = recommendations.innerHTML;
-            this.totalProducts = recommendations.querySelectorAll(".m-product-card").length;
+            this.totalProducts =
+              recommendations.querySelectorAll(".m-product-card").length;
 
             this.initByScreenSize();
             document.addEventListener("matchMobile", () => {
@@ -1073,12 +1151,17 @@ class ProductRecommendations extends HTMLElement {
         });
     };
     if ("IntersectionObserver" in window) {
-      new IntersectionObserver(handleIntersection.bind(this), { rootMargin: "0px 0px 400px 0px" }).observe(this);
+      new IntersectionObserver(handleIntersection.bind(this), {
+        rootMargin: "0px 0px 400px 0px",
+      }).observe(this);
     }
   }
 
   initByScreenSize() {
-    const { gridContainer, slideControls } = queryDomNodes(this.selectors, this);
+    const { gridContainer, slideControls } = queryDomNodes(
+      this.selectors,
+      this
+    );
 
     if (MinimogTheme.config.mqlMobile) {
       this.initSlider();
@@ -1086,10 +1169,14 @@ class ProductRecommendations extends HTMLElement {
       gridContainer && gridContainer.classList.remove("swiper-container");
       slideControls && slideControls.classList.add("m:hidden");
       if (this.swiper) this.swiper.destroy(false, true);
-      gridContainer && gridContainer.parentNode.classList.add("m-mixed-layout--mobile-scroll");
+      gridContainer &&
+        gridContainer.parentNode.classList.add("m-mixed-layout--mobile-scroll");
     } else {
       gridContainer && gridContainer.classList.add("swiper-container");
-      gridContainer && gridContainer.parentNode.classList.remove("m-mixed-layout--mobile-scroll");
+      gridContainer &&
+        gridContainer.parentNode.classList.remove(
+          "m-mixed-layout--mobile-scroll"
+        );
       slideControls && slideControls.classList.remove("m:hidden");
       this.initSlider();
     }
@@ -1097,7 +1184,10 @@ class ProductRecommendations extends HTMLElement {
 
   initSlider() {
     let __this = this;
-    const { gridContainer, slideControls } = queryDomNodes(this.selectors, this);
+    const { gridContainer, slideControls } = queryDomNodes(
+      this.selectors,
+      this
+    );
     if (this.enableSlider && this.totalProducts > this.itemsPerPage) {
       this.slider = new MinimogLibs.Swiper(gridContainer, {
         slidesPerView: this.itemsPerPage >= 2 ? 2 : 1,
@@ -1119,12 +1209,21 @@ class ProductRecommendations extends HTMLElement {
             this.slideToLoop(this.lastActive);
             setTimeout(() => {
               // Calculate controls position
-              const firstItem = __this.querySelector(".m-image") || __this.querySelector(".m-placeholder-svg");
-              const prevButton = slideControls && slideControls.querySelector(".m-slider-controls__button-prev");
-              const nextButton = slideControls && slideControls.querySelector(".m-slider-controls__button-next");
+              const firstItem =
+                __this.querySelector(".m-image") ||
+                __this.querySelector(".m-placeholder-svg");
+              const prevButton =
+                slideControls &&
+                slideControls.querySelector(".m-slider-controls__button-prev");
+              const nextButton =
+                slideControls &&
+                slideControls.querySelector(".m-slider-controls__button-next");
               if (firstItem && slideControls) {
                 const itemHeight = firstItem.clientHeight;
-                slideControls.style.setProperty("--offset-top", parseInt(itemHeight) / 2 + "px");
+                slideControls.style.setProperty(
+                  "--offset-top",
+                  parseInt(itemHeight) / 2 + "px"
+                );
 
                 prevButton.classList.remove("m:hidden");
                 nextButton.classList.remove("m:hidden");
@@ -1138,13 +1237,17 @@ class ProductRecommendations extends HTMLElement {
         slideControls && slideControls.classList.remove("m:hidden");
         const prevBtn = this.querySelector(".m-slider-controls__button-prev");
         const nextBtn = this.querySelector(".m-slider-controls__button-next");
-        prevBtn && prevBtn.addEventListener("click", () => this.slider.slidePrev());
-        nextBtn && nextBtn.addEventListener("click", () => this.slider.slideNext());
+        prevBtn &&
+          prevBtn.addEventListener("click", () => this.slider.slidePrev());
+        nextBtn &&
+          nextBtn.addEventListener("click", () => this.slider.slideNext());
       }
 
       this.swiper = gridContainer?.swiper;
     } else {
-      const innerContainer = gridContainer.querySelector(".m-mixed-layout__inner");
+      const innerContainer = gridContainer.querySelector(
+        ".m-mixed-layout__inner"
+      );
       innerContainer && innerContainer.classList.remove("swiper-wrapper");
       slideControls && slideControls.classList.add("m:hidden");
       gridContainer && gridContainer.classList.remove("swiper-container");
@@ -1173,27 +1276,38 @@ if (!customElements.get("video-component")) {
         if (this.autoPlay) {
           this.loadContent();
         } else {
-          poster && poster.addEventListener("click", this.loadContent.bind(this));
+          poster &&
+            poster.addEventListener("click", this.loadContent.bind(this));
         }
       }
 
       loadContent() {
         if (!this.getAttribute("loaded")) {
           const content = document.createElement("div");
-          content.appendChild(this.querySelector("template").content.firstElementChild.cloneNode(true));
+          content.appendChild(
+            this.querySelector("template").content.firstElementChild.cloneNode(
+              true
+            )
+          );
 
           this.setAttribute("loaded", true);
-          const deferredElement = this.appendChild(content.querySelector("video, model-viewer, iframe"));
+          const deferredElement = this.appendChild(
+            content.querySelector("video, model-viewer, iframe")
+          );
           this.deferredElement = deferredElement;
 
           if (this.autoPlay) return;
 
           if (this.deferredElement.classList.contains("js-youtube")) {
-            const symbol = this.deferredElement.src.indexOf("?") > -1 ? "&" : "?";
-            this.deferredElement.src += symbol + `autoplay=1${this.muted ? "&mute=1" : ""}`;
+            const symbol =
+              this.deferredElement.src.indexOf("?") > -1 ? "&" : "?";
+            this.deferredElement.src +=
+              symbol + `autoplay=1${this.muted ? "&mute=1" : ""}`;
           } else if (this.deferredElement.classList.contains("js-vimeo")) {
-            const symbol = this.deferredElement.src.indexOf("?") > -1 ? "&" : "?";
-            this.deferredElement.src += symbol + `autoplay=1${this.muted ? "&mute=1" : ""}`;
+            const symbol =
+              this.deferredElement.src.indexOf("?") > -1 ? "&" : "?";
+            this.deferredElement.src +=
+              symbol + `autoplay=1${this.muted ? "&mute=1" : ""}`;
           } else {
             this.deferredElement.play();
           }
@@ -1395,7 +1509,12 @@ if (!customElements.get("collapsible-tab")) {
       this.trigger = this.querySelector("[data-trigger]");
       this.content = this.querySelector("[data-content]");
       this.collapsedHeight = "0px";
-      this.defaultElements = ["a", "button", "input:not(.focus-none)", "[data-trigger]"];
+      this.defaultElements = [
+        "a",
+        "button",
+        "input:not(.focus-none)",
+        "[data-trigger]",
+      ];
       this.oneAtATime = true;
       if (this.dataset.oneOpen) {
         this.oneAtATime = this.dataset.oneOpen === "true";
@@ -1451,14 +1570,18 @@ if (!customElements.get("product-form")) {
         this.domNodes.inputId.disabled = false;
         this.cart = document.querySelector("m-cart-drawer");
         this.cartPage = document.querySelector("m-cart");
-        this.customFields = document.querySelectorAll(this.selectors.customFields);
+        this.customFields = document.querySelectorAll(
+          this.selectors.customFields
+        );
         if (this.domNodes.dynamicCheckout) this.enable_dynamic_checkout = true;
         this.form.addEventListener("submit", this.onSubmitHandler.bind(this));
         if (this.domNodes.dynamicCheckout && this.customFields) {
           this.domNodes.dynamicCheckout.addEventListener(
             "click",
             (e) => {
-              const missing = validateForm(this.form.closest(".m-main-product--info"));
+              const missing = validateForm(
+                this.form.closest(".m-main-product--info")
+              );
               if (missing && missing.length > 0) {
                 e.stopPropagation();
                 window.MinimogTheme.Notification.show({
@@ -1482,7 +1605,9 @@ if (!customElements.get("product-form")) {
       onSubmitHandler(evt) {
         evt.preventDefault();
         this.toggleSpinner(true);
-        const missing = validateForm(this.form.closest(".m-main-product--info"));
+        const missing = validateForm(
+          this.form.closest(".m-main-product--info")
+        );
 
         if (missing && missing.length > 0) {
           console.warn("Missing field(s): ", missing);
@@ -1531,7 +1656,9 @@ if (!customElements.get("product-form")) {
               if (variantId === "" || variantId === null) {
                 this.handleErrorMessageVariantPicker();
                 return window.MinimogTheme.Notification.show({
-                  target: this.domNodes.errorWrapper ? this.domNodes.errorWrapper : document.body,
+                  target: this.domNodes.errorWrapper
+                    ? this.domNodes.errorWrapper
+                    : document.body,
                   method: "appendChild",
                   type: "error",
                   message: window.MinimogStrings.selectVariant,
@@ -1540,7 +1667,9 @@ if (!customElements.get("product-form")) {
                 });
               } else {
                 return window.MinimogTheme.Notification.show({
-                  target: this.domNodes.errorWrapper ? this.domNodes.errorWrapper : document.body,
+                  target: this.domNodes.errorWrapper
+                    ? this.domNodes.errorWrapper
+                    : document.body,
                   method: "appendChild",
                   type: "error",
                   message: response.message,
@@ -1559,30 +1688,38 @@ if (!customElements.get("product-form")) {
                   message: MinimogStrings.itemAdded,
                   delay: 400,
                 });
-                window.MinimogEvents.emit(MinimogTheme.pubSubEvents.openCartDrawer);
+                window.MinimogEvents.emit(
+                  MinimogTheme.pubSubEvents.openCartDrawer
+                );
               } else {
                 window.MinimogTheme.Notification.show({
-                  target: this.domNodes.errorWrapper ? this.domNodes.errorWrapper : document.body,
+                  target: this.domNodes.errorWrapper
+                    ? this.domNodes.errorWrapper
+                    : document.body,
                   method: "appendChild",
                   type: "success",
                   message: MinimogStrings.itemAdded,
                   last: 3000,
                   sticky: !this.domNodes.errorWrapper,
                 });
-                fetchJSON(window.Shopify.routes.root + "cart.json").then((cart) => {
-                  if (cart) {
-                    const count = cart.item_count;
-                    const cartCounts = document.querySelectorAll(".m-cart-count-bubble");
-                    cartCounts.forEach((cartCount) => {
-                      if (count > 0) {
-                        cartCount.textContent = count;
-                        cartCount.classList.remove("m:hidden");
-                      } else {
-                        cartCount.classList.add("m:hidden");
-                      }
-                    });
+                fetchJSON(window.Shopify.routes.root + "cart.json").then(
+                  (cart) => {
+                    if (cart) {
+                      const count = cart.item_count;
+                      const cartCounts = document.querySelectorAll(
+                        ".m-cart-count-bubble"
+                      );
+                      cartCounts.forEach((cartCount) => {
+                        if (count > 0) {
+                          cartCount.textContent = count;
+                          cartCount.classList.remove("m:hidden");
+                        } else {
+                          cartCount.classList.add("m:hidden");
+                        }
+                      });
+                    }
                   }
-                });
+                );
               }
               document.dispatchEvent(
                 new CustomEvent("product-ajax:added", {
@@ -1591,7 +1728,10 @@ if (!customElements.get("product-form")) {
                   },
                 })
               );
-              window.MinimogEvents.emit(MinimogTheme.pubSubEvents.cartUpdate, response);
+              window.MinimogEvents.emit(
+                MinimogTheme.pubSubEvents.cartUpdate,
+                response
+              );
             } else {
               window.location = MinimogSettings.routes.cart;
             }
@@ -1603,19 +1743,29 @@ if (!customElements.get("product-form")) {
           .finally(() => {
             this.toggleSpinner(false);
             if (this.cart) {
-              const cartDrawerItems = this.cart.querySelector("m-cart-drawer-items");
-              if (this.cart.classList.contains("m-cart--empty")) this.cart.classList.remove("m-cart--empty");
-              if (cartDrawerItems && cartDrawerItems.classList.contains("m-cart--empty"))
+              const cartDrawerItems = this.cart.querySelector(
+                "m-cart-drawer-items"
+              );
+              if (this.cart.classList.contains("m-cart--empty"))
+                this.cart.classList.remove("m-cart--empty");
+              if (
+                cartDrawerItems &&
+                cartDrawerItems.classList.contains("m-cart--empty")
+              )
                 cartDrawerItems.classList.remove("m-cart--empty");
             }
             if (this.cartPage) {
-              if (this.cartPage.classList.contains("m-cart--empty")) this.cartPage.classList.remove("m-cart--empty");
+              if (this.cartPage.classList.contains("m-cart--empty"))
+                this.cartPage.classList.remove("m-cart--empty");
             }
           });
       }
       handleErrorMessageVariantPicker() {
-        const variantPicker = this.productInfo && this.productInfo.querySelector("variant-picker");
-        const options = variantPicker && variantPicker.querySelectorAll("[data-selected-value]");
+        const variantPicker =
+          this.productInfo && this.productInfo.querySelector("variant-picker");
+        const options =
+          variantPicker &&
+          variantPicker.querySelectorAll("[data-selected-value]");
 
         options &&
           options.forEach((option) => {
@@ -1703,7 +1853,10 @@ if (!customElements.get("m-video-component")) {
         script.onload = resolve;
         script.onerror = reject;
         script.async = true;
-        script.src = videoType === "youtube" ? "//www.youtube.com/iframe_api" : "//player.vimeo.com/api/player.js";
+        script.src =
+          videoType === "youtube"
+            ? "//www.youtube.com/iframe_api"
+            : "//player.vimeo.com/api/player.js";
       });
     }
 
@@ -1991,7 +2144,8 @@ if (!customElements.get("m-select-component")) {
 
     initSelect() {
       this.classList.remove("m:hidden");
-      const { elSelectNative, elSelectCustom, elSelectCustomBox } = this.domNodes;
+      const { elSelectNative, elSelectCustom, elSelectCustomBox } =
+        this.domNodes;
 
       elSelectCustomBox.addEventListener("click", () => {
         const isClose = !elSelectCustom.classList.contains("isActive");
@@ -2032,9 +2186,13 @@ if (!customElements.get("m-select-component")) {
     updateCustomSelectChecked(value, text) {
       const { elSelectCustomOpts, elSelectCustomTriggerText } = this.domNodes;
       const prevValue = this.optionChecked;
-      const elPrevOption = elSelectCustomOpts.querySelector(`[data-value="${prevValue}"`);
+      const elPrevOption = elSelectCustomOpts.querySelector(
+        `[data-value="${prevValue}"`
+      );
 
-      const elOption = elSelectCustomOpts.querySelector(`[data-value="${value}"`);
+      const elOption = elSelectCustomOpts.querySelector(
+        `[data-value="${value}"`
+      );
 
       if (elPrevOption) {
         elPrevOption.classList.remove("isActive");
@@ -2071,9 +2229,18 @@ if (!customElements.get("m-instagram")) {
       const { MinimogThemeScripts } = window;
       const { accessToken, imagesCount, position } = this.dataset;
       if (accessToken) {
-        loadAssetsNew([MinimogThemeScripts.instagram], "instagram-module", () => {
-          new MinimogTheme.Instagram(this, accessToken, imagesCount, position);
-        });
+        loadAssetsNew(
+          [MinimogThemeScripts.instagram],
+          "instagram-module",
+          () => {
+            new MinimogTheme.Instagram(
+              this,
+              accessToken,
+              imagesCount,
+              position
+            );
+          }
+        );
       }
     }
   }
@@ -2093,11 +2260,22 @@ if (!customElements.get("m-aside-instagram")) {
         const { accessToken, imagesCount, position } = container.dataset;
         if (accessToken) {
           const { MinimogThemeScripts } = window;
-          loadAssetsNew([MinimogThemeScripts.instagram], "instagram-module-blog", () => {
-            new MinimogTheme.Instagram(container, accessToken, imagesCount, position);
-          });
+          loadAssetsNew(
+            [MinimogThemeScripts.instagram],
+            "instagram-module-blog",
+            () => {
+              new MinimogTheme.Instagram(
+                container,
+                accessToken,
+                imagesCount,
+                position
+              );
+            }
+          );
         } else {
-          console.warn("Failed to init Instagram section! Missing Access Token");
+          console.warn(
+            "Failed to init Instagram section! Missing Access Token"
+          );
         }
       }
     }
@@ -2131,15 +2309,20 @@ class MQuantityInput extends HTMLElement {
     event.preventDefault();
     const previousValue = this.input.value;
 
-    event.target.closest("button").name === "plus" ? this.input.stepUp() : this.input.stepDown();
-    if (previousValue !== this.input.value) this.input.dispatchEvent(this.changeEvent);
+    event.target.closest("button").name === "plus"
+      ? this.input.stepUp()
+      : this.input.stepDown();
+    if (previousValue !== this.input.value)
+      this.input.dispatchEvent(this.changeEvent);
   }
 
   validateQtyRules() {
     const value = parseInt(this.input.value);
     if (this.input.min) {
       const min = parseInt(this.input.min);
-      const buttonMinus = this.querySelector(".m-quantity__button[name='minus']");
+      const buttonMinus = this.querySelector(
+        ".m-quantity__button[name='minus']"
+      );
       buttonMinus.classList.toggle("m:disabled", value <= min);
     }
     if (this.input.max) {
@@ -2168,7 +2351,10 @@ class ProductRecentlyViewed extends HTMLElement {
       }
 
       // Save to localStorage
-      window.localStorage.setItem(cookieName, JSON.stringify(items.slice(0, 20)));
+      window.localStorage.setItem(
+        cookieName,
+        JSON.stringify(items.slice(0, 20))
+      );
     }
   }
 }
