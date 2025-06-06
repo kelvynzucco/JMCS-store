@@ -722,7 +722,7 @@
         "row_gap": 30,
         "column_gap_mobile": 10,
         "row_gap_mobile": 10,
-        "enable_slider": true,
+        "enable_slider": false,
         "show_nav": false,
         "show_pagination": false,
         "autorotate": true,
