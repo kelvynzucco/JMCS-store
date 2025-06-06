@@ -156,9 +156,9 @@
   endif
 %}
 {%- if column_wrapper -%}<div class="m:column">{%- endif -%}
-<div class="m-product-card-gradientborder">
+<div class="m-product-card-gradientborder {% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
   <div
-    class="{{ product_card_classes }}{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}"
+    class="{{ product_card_classes }}"
     data-view="card"
     {% if sold_number != blank %}
       data-sold-number="{{ sold_number }}"
@@ -388,128 +388,127 @@
       {% endif %}
     </div>
     <div class="m-product-card__content m:text-{{ pcard_alignment }}">
-      <div class="m-product-card__info">
-        {%- if show_vendor -%}
-          <span class="m-product-card__vendor">{{ product.vendor }}</span>
-        {%- endif -%}
-        {% if show_title == true %}
-          <h3 class="m-product-card__title">
-            <a
-              href="{{ product_url }}"
-              class="m-product-card__name{% if settings.uppercase_prd_name %} m:uppercase{% endif %}"
-            >
+      <a
+        href="{{ product_url }}"
+        class="m-product-card__name{% if settings.uppercase_prd_name %} m:uppercase{% endif %}"
+      >
+        <div class="m-product-card__info">
+          {%- if show_vendor -%}
+            <span class="m-product-card__vendor">{{ product.vendor }}</span>
+          {%- endif -%}
+          {% if show_title == true %}
+            <h3 class="m-product-card__title">
               {{ product.title }}
-            </a>
-          </h3>
-          {% assign unidades = product.metafields.custom.unidades | plus: 0 %}
-          {% if unidades > 0 %}
+            </h3>
             <p class="jmcs-product-unit">
-              {{ unidades }}
-              {% if unidades == 1 %}Unidade{% else %}Unidades{% endif %}
+              {% assign unidades = product.metafields.custom.unidades | plus: 0 %}
+              {% if unidades > 0 %}
+                {{ unidades }}
+                {% if unidades == 1 %}Unidade{% else %}Unidades{% endif %}
+              {% endif %}
             </p>
           {% endif %}
-        {% endif %}
-        {% if settings.show_review_badge %}
-          <div class="m-product-card__reviews m:text-color-body">
-            {% render 'product-reviews-app__badge', product: product %}
+          {% if settings.show_review_badge %}
+            <div class="m-product-card__reviews m:text-color-body">
+              {% render 'product-reviews-app__badge', product: product %}
+            </div>
+          {% endif %}
+
+          <div class="m-product-card__price">
+            {% render 'product-prices', product: product, is_product_card: true %}
           </div>
-        {% endif %}
+          {% if product.has_only_default_variant == false and show_variant_options %}
+            {% render 'product-card-option',
+              product: product,
+              show_variant_options: show_variant_options,
+              pcard_alignment: pcard_alignment
+            %}
+          {% endif %}
+          {%- if show_inventory and selected_variant.inventory_management != blank -%}
+            {%- liquid
+              assign inventory_threshold = settings.low_inventory_threshold
+              assign show_inventory_count = settings.show_inventory_count
+              assign inventory_visibility = settings.inventory_visibility
+              assign inventory_hide_backordered = settings.inventory_hide_backordered
 
-        <div class="m-product-card__price">
-          {% render 'product-prices', product: product, is_product_card: true %}
-        </div>
-        {% if product.has_only_default_variant == false and show_variant_options %}
-          {% render 'product-card-option',
-            product: product,
-            show_variant_options: show_variant_options,
-            pcard_alignment: pcard_alignment
-          %}
-        {% endif %}
-        {%- if show_inventory and selected_variant.inventory_management != blank -%}
-          {%- liquid
-            assign inventory_threshold = settings.low_inventory_threshold
-            assign show_inventory_count = settings.show_inventory_count
-            assign inventory_visibility = settings.inventory_visibility
-            assign inventory_hide_backordered = settings.inventory_hide_backordered
+              assign total = 0
+              assign inventory_policy = ''
+              for variant in product.variants
+                if variant.inventory_quantity > 0
+                  assign total = total | plus: variant.inventory_quantity
+                endif
+                if variant.inventory_policy == 'continue'
+                  assign inventory_policy = 'continue'
+                endif
+              endfor
 
-            assign total = 0
-            assign inventory_policy = ''
-            for variant in product.variants
-              if variant.inventory_quantity > 0
-                assign total = total | plus: variant.inventory_quantity
-              endif
-              if variant.inventory_policy == 'continue'
-                assign inventory_policy = 'continue'
-              endif
-            endfor
-
-            if total <= 0
-              if inventory_policy == 'continue'
-                assign status = 'backordered'
-              elsif product.available
-                assign status = 'instock'
+              if total <= 0
+                if inventory_policy == 'continue'
+                  assign status = 'backordered'
+                elsif product.available
+                  assign status = 'instock'
+                else
+                  assign status = 'outofstock'
+                endif
+              elsif total <= inventory_threshold
+                assign status = 'low'
               else
-                assign status = 'outofstock'
+                assign status = 'normal'
               endif
-            elsif total <= inventory_threshold
-              assign status = 'low'
-            else
-              assign status = 'normal'
-            endif
 
-            assign show = false
-            if inventory_visibility == 'always'
-              assign show = true
-              if status == 'backordered' and inventory_hide_backordered
+              assign show = false
+              if inventory_visibility == 'always'
+                assign show = true
+                if status == 'backordered' and inventory_hide_backordered
+                  assign show = false
+                endif
+              else
+                if status == 'low'
+                  assign show = true
+                endif
+              endif
+
+              if status == 'outofstock'
                 assign show = false
               endif
-            else
-              if status == 'low'
-                assign show = true
+
+              assign show_inventory_number = true
+              if show_inventory_count == 'never' or total <= 0 or show_inventory_count == 'low_inventory' and status != 'low'
+                assign show_inventory_number = false
               endif
-            endif
-
-            if status == 'outofstock'
-              assign show = false
-            endif
-
-            assign show_inventory_number = true
-            if show_inventory_count == 'never' or total <= 0 or show_inventory_count == 'low_inventory' and status != 'low'
-              assign show_inventory_number = false
-            endif
-          -%}
-          {%- if show == true -%}
-            <div class="m-product-inventory m-product-card__inventory m:text-sm" data-status="{{ status }}">
-              <div class="m-product-inventory__inner">
-                <span class="m-product-inventory__text">
-                  <span class="m-product-inventory__pin"></span>
-                  <span class="m-product-inventory__status">
-                    {% liquid
-                      case status
-                        when 'backordered'
-                          render 'new-locale', key: 'products.product.backordered'
-                        when 'low'
-                          if show_inventory_number
-                            render 'new-locale', key: 'products.product.inventory_low_quantity_html', param: '{{ quantity }}', value: total
+            -%}
+            {%- if show == true -%}
+              <div class="m-product-inventory m-product-card__inventory m:text-sm" data-status="{{ status }}">
+                <div class="m-product-inventory__inner">
+                  <span class="m-product-inventory__text">
+                    <span class="m-product-inventory__pin"></span>
+                    <span class="m-product-inventory__status">
+                      {% liquid
+                        case status
+                          when 'backordered'
+                            render 'new-locale', key: 'products.product.backordered'
+                          when 'low'
+                            if show_inventory_number
+                              render 'new-locale', key: 'products.product.inventory_low_quantity_html', param: '{{ quantity }}', value: total
+                            else
+                              render 'new-locale', key: 'products.product.low_stock'
+                            endif
                           else
-                            render 'new-locale', key: 'products.product.low_stock'
-                          endif
-                        else
-                          if show_inventory_number
-                            render 'new-locale', key: 'products.product.inventory_quantity_html', param: '{{ quantity }}', value: total
-                          else
-                            echo 'products.product.in_stock' | t
-                          endif
-                      endcase
-                    %}
+                            if show_inventory_number
+                              render 'new-locale', key: 'products.product.inventory_quantity_html', param: '{{ quantity }}', value: total
+                            else
+                              echo 'products.product.in_stock' | t
+                            endif
+                        endcase
+                      %}
+                    </span>
                   </span>
-                </span>
+                </div>
               </div>
-            </div>
+            {%- endif -%}
           {%- endif -%}
-        {%- endif -%}
-      </div>
-
+        </div>
+      </a>
       <div class="m-product-card__content-footer">
         {%- if show_desc -%}
           <div class="m-product-card__description">

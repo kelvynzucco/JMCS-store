@@ -44,8 +44,15 @@ class ProductList {
     this.productHandles.forEach((hdl) => {
       const node = productNodes[hdl];
       if (node) {
-        if (productList.parentNode.classList.contains("foxkit-related-products__grid")) {
-          if (this.productHandles && this.productHandles.length > this.productsPerRow) {
+        if (
+          productList.parentNode.classList.contains(
+            "foxkit-related-products__grid"
+          )
+        ) {
+          if (
+            this.productHandles &&
+            this.productHandles.length > this.productsPerRow
+          ) {
             productList && productList.appendChild(node);
           } else {
             productList && productList.style.setProperty("display", "none");
@@ -53,13 +60,15 @@ class ProductList {
             gridContainer && gridContainer.appendChild(node);
           }
         } else {
-          if (!this.enableSlider) productList.classList.remove("swiper-wrapper");
+          if (!this.enableSlider)
+            productList.classList.remove("swiper-wrapper");
           productList && productList.appendChild(node);
         }
       }
     });
 
-    MinimogTheme.CompareProduct && MinimogTheme.CompareProduct.setCompareButtonsState();
+    MinimogTheme.CompareProduct &&
+      MinimogTheme.CompareProduct.setCompareButtonsState();
     MinimogTheme.Wishlist && MinimogTheme.Wishlist.setWishlistButtonsState();
 
     setTimeout(() => {
@@ -79,16 +88,29 @@ class ProductList {
     this.currentScreen = screen;
 
     if (screen === "desktop") {
-      gridContainer && gridContainer.parentNode.classList.remove("m-mixed-layout--mobile-scroll");
+      gridContainer &&
+        gridContainer.parentNode.classList.remove(
+          "m-mixed-layout--mobile-scroll"
+        );
 
-      if (this.enableSlider && this.productHandles && this.productHandles.length > this.productsPerRow) {
+      if (
+        this.enableSlider &&
+        this.productHandles &&
+        this.productHandles.length > this.productsPerRow
+      ) {
         gridContainer && gridContainer.classList.add("swiper-container");
         sliderControl && sliderControl.classList.remove("m:hidden", "hidden");
         const _container = this.container;
-        const controlsContainer = this.container.querySelector(".m-slider-controls");
-        const prevButton = controlsContainer && controlsContainer.querySelector(".m-slider-controls__button-prev");
-        const nextButton = controlsContainer && controlsContainer.querySelector(".m-slider-controls__button-next");
-        const slideItemsLength = gridContainer.querySelector(".swiper-wrapper").childElementCount;
+        const controlsContainer =
+          this.container.querySelector(".m-slider-controls");
+        const prevButton =
+          controlsContainer &&
+          controlsContainer.querySelector(".m-slider-controls__button-prev");
+        const nextButton =
+          controlsContainer &&
+          controlsContainer.querySelector(".m-slider-controls__button-next");
+        const slideItemsLength =
+          gridContainer.querySelector(".swiper-wrapper").childElementCount;
 
         this.slider = new MinimogLibs.Swiper(gridContainer, {
           slidesPerView: 2,
@@ -112,7 +134,10 @@ class ProductList {
                 const firstItem = _container.querySelector(".m-image");
                 if (firstItem && controlsContainer) {
                   const itemHeight = firstItem.clientHeight;
-                  controlsContainer.style.setProperty("--offset-top", parseInt(itemHeight) / 2 + "px");
+                  controlsContainer.style.setProperty(
+                    "--offset-top",
+                    parseInt(itemHeight) / 2 + "px"
+                  );
                 }
               }, 200);
             },
@@ -132,15 +157,20 @@ class ProductList {
         });
 
         if (this.slider) {
-          prevButton && prevButton.addEventListener("click", () => this.slider.slidePrev());
-          nextButton && nextButton.addEventListener("click", () => this.slider.slideNext());
+          prevButton &&
+            prevButton.addEventListener("click", () => this.slider.slidePrev());
+          nextButton &&
+            nextButton.addEventListener("click", () => this.slider.slideNext());
         }
         this.swiper = gridContainer && gridContainer.swiper;
       }
     } else {
       if (this.swiper) this.swiper.destroy(false, true);
       gridContainer.classList.remove("swiper-container");
-      gridContainer.parentNode.classList.add("m-mixed-layout", "m-mixed-layout--mobile-scroll");
+      gridContainer.parentNode.classList.add(
+        "m-mixed-layout",
+        "m-mixed-layout--mobile-scroll"
+      );
       sliderControl && sliderControl.classList.add("m:hidden", "hidden");
       productList.classList.add("m-mixed-layout__inner");
     }

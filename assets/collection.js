@@ -56,12 +56,16 @@ class Collection {
     this.initMobileSorting();
     this.initProducts();
     this.sideEffectEventsAdded = true;
-    MinimogEvents.subscribe("ON_PRODUCT_LIST_UPDATED", () => refreshProductReview());
+    MinimogEvents.subscribe("ON_PRODUCT_LIST_UPDATED", () =>
+      refreshProductReview()
+    );
 
     // Handle sticky toolbar on mobile
     this.handleStickyToolbar();
     document.addEventListener("matchMobile", () => this.handleStickyToolbar());
-    document.addEventListener("unmatchMobile", () => this.handleStickyToolbar());
+    document.addEventListener("unmatchMobile", () =>
+      this.handleStickyToolbar()
+    );
   };
 
   setData = () => {
@@ -69,13 +73,15 @@ class Collection {
     // Grid view data
     this.sectionId = section.dataset.sectionId;
     this.paginationType = section.dataset.paginationType;
-    this.totalPages = productContainer && Number(productContainer.dataset.totalPages);
+    this.totalPages =
+      productContainer && Number(productContainer.dataset.totalPages);
     this.view = section.dataset.view;
     // TODO: get from URL Search Params
     this.activeCol = null;
     this.currentPage = 1;
     this.initialCol = Number(section.dataset.initialColumn);
-    this.cachedCol = Number(window.localStorage.getItem(this.STORAGE_KEY)) || this.initialCol;
+    this.cachedCol =
+      Number(window.localStorage.getItem(this.STORAGE_KEY)) || this.initialCol;
     this.showColSwitchers = section.dataset.showColSwitchers === "true";
     // Filters data
     this.enableFilters = section.dataset.enableFilters === "true";
@@ -104,7 +110,10 @@ class Collection {
     window.requestAnimationFrame(this.initAccordions);
     openSidebar.addEventListener("click", this.openSidebarFilter);
     closeSidebar.addEventListener("click", this.closeSidebarFilter);
-    sidebar.addEventListener("click", (e) => e.target === sidebar && this.closeSidebarFilter());
+    sidebar.addEventListener(
+      "click",
+      (e) => e.target === sidebar && this.closeSidebarFilter()
+    );
   };
 
   initMobileSorting = () => {
@@ -112,7 +121,10 @@ class Collection {
     const { openSorting, closeSorting, sortingWrapper } = this.mbSortingNodes;
     openSorting.addEventListener("click", this.openMobileSorting);
     closeSorting.addEventListener("click", this.closeMobileSorting);
-    sortingWrapper.addEventListener("click", (e) => e.target === sortingWrapper && this.closeMobileSorting());
+    sortingWrapper.addEventListener(
+      "click",
+      (e) => e.target === sortingWrapper && this.closeMobileSorting()
+    );
   };
 
   openMobileSorting = () => {
@@ -136,8 +148,9 @@ class Collection {
     const { filtersWrapper } = this.domNodes;
     filtersWrapper.classList.remove("acc-initialized");
     this.accordions = new MinimogLibs.Accordion(filtersWrapper, {
-      presetContentHeight: window.innerWidth > 1280 && this.filtersPosition !== "fixed",
-      callback: () => filtersWrapper.style.setProperty('opacity', '1')
+      presetContentHeight:
+        window.innerWidth > 1280 && this.filtersPosition !== "fixed",
+      callback: () => filtersWrapper.style.setProperty("opacity", "1"),
     });
   };
 
@@ -202,7 +215,12 @@ class Collection {
   };
 
   initLoadMore = () => {
-    if (this.paginationType === "paginate" || this.totalPages <= 1 || this.view === "search") return;
+    if (
+      this.paginationType === "paginate" ||
+      this.totalPages <= 1 ||
+      this.view === "search"
+    )
+      return;
 
     const { loadMoreBtn } = this.domNodes;
     loadMoreBtn.addEventListener("click", this.loadMoreProducts);
@@ -227,10 +245,17 @@ class Collection {
 
     const { productContainer, loadMoreBtn } = this.domNodes;
     this.toggleLoading(true);
-    fetchSection(this.sectionId, { fromCache: true, params: { page: nextPage } })
+    fetchSection(this.sectionId, {
+      fromCache: true,
+      params: { page: nextPage },
+    })
       .then((productGridHTML) => {
-        const productNodes = productGridHTML.querySelectorAll("[data-product-container] .m-product-item");
-        productNodes.forEach((prodNode) => productContainer.appendChild(prodNode));
+        const productNodes = productGridHTML.querySelectorAll(
+          "[data-product-container] .m-product-item"
+        );
+        productNodes.forEach((prodNode) =>
+          productContainer.appendChild(prodNode)
+        );
         this.initProducts();
       })
       .catch((err) => console.error(`Failed to load more products.`, err))
@@ -240,13 +265,15 @@ class Collection {
         this.currentPage = nextPage;
         if (nextPage >= this.totalPages) {
           loadMoreBtn.parentNode.remove();
-          this.infiniteLoadingObserver && this.infiniteLoadingObserver.unobserve(loadMoreBtn);
+          this.infiniteLoadingObserver &&
+            this.infiniteLoadingObserver.unobserve(loadMoreBtn);
         }
       });
   };
 
   initProducts = () => {
-    MinimogTheme.CompareProduct && MinimogTheme.CompareProduct.setCompareButtonsState();
+    MinimogTheme.CompareProduct &&
+      MinimogTheme.CompareProduct.setCompareButtonsState();
     MinimogTheme.Wishlist && MinimogTheme.Wishlist.setWishlistButtonsState();
   };
 
@@ -277,13 +304,20 @@ class Collection {
         ) {
           toolbar.classList.remove("scroll-up");
           toolbar.classList.add("scroll-down");
-        } else if (currentScroll < lastScroll && toolbar.classList.contains("scroll-down")) {
+        } else if (
+          currentScroll < lastScroll &&
+          toolbar.classList.contains("scroll-down")
+        ) {
           toolbar.classList.remove("scroll-down");
           toolbar.classList.add("scroll-up");
         }
         lastScroll = currentScroll;
       } else {
-        toolbar.classList.remove("scroll-up", "m-collection-toolbar--sticky", "scroll-down");
+        toolbar.classList.remove(
+          "scroll-up",
+          "m-collection-toolbar--sticky",
+          "scroll-down"
+        );
       }
     });
   }
