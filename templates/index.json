@@ -736,7 +736,7 @@
         "show_nav": false,
         "show_pagination": false,
         "autorotate": true,
-        "autorotate_speed": 3,
+        "autorotate_speed": 2,
         "padding_top": 46,
         "padding_bottom": 90,
         "custom_class": "",
