@@ -401,7 +401,13 @@
               {{ product.title }}
             </a>
           </h3>
-          <p class="jmcs-product-unit">{{ product.metafields.custom.unidades }} Unidades</p>
+          {% assign unidades = product.metafields.custom.unidades | plus: 0 %}
+          {% if unidades > 0 %}
+            <p class="jmcs-product-unit">
+              {{ unidades }}
+              {% if unidades == 1 %}Unidade{% else %}Unidades{% endif %}
+            </p>
+          {% endif %}
         {% endif %}
         {% if settings.show_review_badge %}
           <div class="m-product-card__reviews m:text-color-body">
