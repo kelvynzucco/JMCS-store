@@ -156,66 +156,43 @@
   endif
 %}
 {%- if column_wrapper -%}<div class="m:column">{%- endif -%}
-<div
-  class="{{ product_card_classes }}{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}"
-  data-view="card"
-  {% if sold_number != blank %}
-    data-sold-number="{{ sold_number }}"
-  {% endif %}
-  data-product-id="{{ product.id }}"
-  {% if animated %}
-    data-cascade
-    style="--animation-order: {{ index }};"
-  {% endif %}
->
-  <div class="m-product-card__media">
-    <a
-      class="m-product-card__link m:block m:w-full"
-      href="{{ product_url }}"
-      aria-label="{{ product.title | default: 'product title' }}"
-    >
-      {% if preview_image != blank or first_media_type == 'video' %}
-        {% unless show_video %}
-          <div class="m-product-card__main-image">
-            {%- liquid
-              assign asp_rat = image_ratio | default: preview_image.aspect_ratio
-              if asp_rat == 'original'
-                assign asp_rat = preview_image.aspect_ratio
-              endif
-              assign alt = alt | default: preview_image.alt | escape
-            -%}
-            {%- capture sizes -%}(min-width: {{ settings.container_width }}px) {{ settings.container_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2){%- endcapture -%}
-            <responsive-image class="m-image" style="--aspect-ratio: {{ asp_rat }}">
-              {{
-                preview_image
-                | image_url: width: 1100
-                | image_tag:
-                  loading: loading,
-                  fetchpriority: fetchpriority,
-                  class: 'm:w-full m:h-full',
-                  alt: alt,
-                  sizes: sizes,
-                  widths: '165, 360, 535, 750, 940, 1100'
-              }}
-            </responsive-image>
-          </div>
-
-          {%- if second_image != blank -%}
-            <div class="m-product-card__hover-image">
+<div class="m-product-card-gradientborder">
+  <div
+    class="{{ product_card_classes }}{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}"
+    data-view="card"
+    {% if sold_number != blank %}
+      data-sold-number="{{ sold_number }}"
+    {% endif %}
+    data-product-id="{{ product.id }}"
+    {% if animated %}
+      data-cascade
+      style="--animation-order: {{ index }};"
+    {% endif %}
+  >
+    <div class="m-product-card__media">
+      <a
+        class="m-product-card__link m:block m:w-full"
+        href="{{ product_url }}"
+        aria-label="{{ product.title | default: 'product title' }}"
+      >
+        {% if preview_image != blank or first_media_type == 'video' %}
+          {% unless show_video %}
+            <div class="m-product-card__main-image">
               {%- liquid
-                assign asp_rat = image_ratio | default: second_image.aspect_ratio
+                assign asp_rat = image_ratio | default: preview_image.aspect_ratio
                 if asp_rat == 'original'
-                  assign asp_rat = second_image.aspect_ratio
+                  assign asp_rat = preview_image.aspect_ratio
                 endif
-                assign alt = alt | default: second_image.alt | escape
+                assign alt = alt | default: preview_image.alt | escape
               -%}
               {%- capture sizes -%}(min-width: {{ settings.container_width }}px) {{ settings.container_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2){%- endcapture -%}
               <responsive-image class="m-image" style="--aspect-ratio: {{ asp_rat }}">
                 {{
-                  second_image
+                  preview_image
                   | image_url: width: 1100
                   | image_tag:
-                    loading: 'lazy',
+                    loading: loading,
+                    fetchpriority: fetchpriority,
                     class: 'm:w-full m:h-full',
                     alt: alt,
                     sizes: sizes,
@@ -223,344 +200,378 @@
                 }}
               </responsive-image>
             </div>
-          {%- endif -%}
+
+            {%- if second_image != blank -%}
+              <div class="m-product-card__hover-image">
+                {%- liquid
+                  assign asp_rat = image_ratio | default: second_image.aspect_ratio
+                  if asp_rat == 'original'
+                    assign asp_rat = second_image.aspect_ratio
+                  endif
+                  assign alt = alt | default: second_image.alt | escape
+                -%}
+                {%- capture sizes -%}(min-width: {{ settings.container_width }}px) {{ settings.container_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2){%- endcapture -%}
+                <responsive-image class="m-image" style="--aspect-ratio: {{ asp_rat }}">
+                  {{
+                    second_image
+                    | image_url: width: 1100
+                    | image_tag:
+                      loading: 'lazy',
+                      class: 'm:w-full m:h-full',
+                      alt: alt,
+                      sizes: sizes,
+                      widths: '165, 360, 535, 750, 940, 1100'
+                  }}
+                </responsive-image>
+              </div>
+            {%- endif -%}
+          {% else %}
+            <m-video-component
+              class="m:block m-product-card__video"
+              data-type="mp4"
+              style="--aspect-ratio: {{ image_ratio }}"
+            >
+              {{
+                product.media.first
+                | media_tag:
+                  image_size: '1500px',
+                  autoplay: true,
+                  loop: true,
+                  controls: false,
+                  muted: true,
+                  playsinline: true
+              }}
+            </m-video-component>
+          {% endunless %}
         {% else %}
-          <m-video-component
-            class="m:block m-product-card__video"
-            data-type="mp4"
-            style="--aspect-ratio: {{ image_ratio }}"
-          >
-            {{
-              product.media.first
-              | media_tag:
-                image_size: '1500px',
-                autoplay: true,
-                loop: true,
-                controls: false,
-                muted: true,
-                playsinline: true
-            }}
-          </m-video-component>
+          {% if pcard_default_image != blank %}
+            {%- liquid
+              assign asp_rat = image_ratio | default: pcard_default_image.aspect_ratio
+              if asp_rat == 'original'
+                assign asp_rat = pcard_default_image.aspect_ratio
+              endif
+              assign alt = alt | default: pcard_default_image.alt | escape
+            -%}
+            {%- capture sizes -%}(min-width: {{ settings.container_width }}px) {{ settings.container_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2){%- endcapture -%}
+            <responsive-image class="m-image" style="--aspect-ratio: {{ asp_rat }}">
+              {{
+                pcard_default_image
+                | image_url: width: 1100
+                | image_tag:
+                  loading: 'lazy',
+                  class: 'm:w-full m:h-full',
+                  alt: alt,
+                  sizes: sizes,
+                  widths: '165, 360, 535, 750, 940, 1100'
+              }}
+            </responsive-image>
+          {% else %}
+            <div style="--aspect-ratio: {{ image_ratio }}">
+              {{ 'product-1' | placeholder_svg_tag: 'm-placeholder-svg' }}
+            </div>
+          {% endif %}
+        {% endif %}
+      </a>
+      <div class="m-product-card__tags">
+        {% if settings.show_badge_sale %}
+          {% for tag in product.tags %}
+            {% if tag contains 'tag__' %}
+              {%- liquid
+                assign tag_content = tag | split: '__' | last
+                assign type = tag_content | split: '_' | first
+                assign tag_name = tag_content | split: '_' | last
+                assign color_scheme_class = 'm-gradient m-color-'
+                case type
+                  when 'sale':
+                    assign color_scheme_class = color_scheme_class | append: settings.sale_badge_color_scheme
+                  when 'new':
+                    assign color_scheme_class = color_scheme_class | append: settings.new_badge_color_scheme
+                  when 'hot':
+                    assign color_scheme_class = color_scheme_class | append: settings.hot_badge_color_scheme
+                endcase
+              -%}
+              <span class="m-product-card__tag-name m-product-tag m-product-tag--{{ type }} {{ color_scheme_class }}">
+                {{- tag_name -}}
+              </span>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        {% assign custom_badge_class = 'm-product-card__tag-name m-product-tag m-product-tag--preorder m-gradient m-color-'
+          | append: settings.preorder_badge_color_scheme
+        %}
+        {% capture foxkit_preorder_badge %}{% render 'foxkit-preorder-badge', product: product, static: true, custom_class: custom_badge_class %}{% endcapture %}
+        {% unless foxkit_preorder_badge contains 'Liquid error' %}
+          {{ foxkit_preorder_badge }}
         {% endunless %}
-      {% else %}
-        {% if pcard_default_image != blank %}
-          {%- liquid
-            assign asp_rat = image_ratio | default: pcard_default_image.aspect_ratio
-            if asp_rat == 'original'
-              assign asp_rat = pcard_default_image.aspect_ratio
+        {% if show_on_sale_badge %}
+          <span class="m-product-card__tag-name m-product-tag m-product-tag--sale m-gradient m-color-{{ settings.sale_badge_color_scheme }}">
+            {%- if settings.on_sale_badge == 'show_text' -%}
+              {{ 'products.product.on_sale' | t }}
+            {%- elsif settings.on_sale_badge == 'show_percentage' -%}
+              {{ discount | append: '%' | prepend: '-' }}
+            {%- endif -%}
+          </span>
+        {% endif %}
+      </div>
+      {%- if settings.show_badge_soldout -%}
+        <span
+          class="m-product-tag m-product-tag--soldout m-gradient m-color-{{ settings.soldout_badge_color_scheme }}"
+          {% unless sold_out %}
+            style="display: none;"
+          {% endunless %}
+        >
+          {{- 'products.product.sold_out' | t -}}
+        </span>
+      {%- endif -%}
+
+      {%- if show_quickview_button or show_wishlist_button or show_compare_button or show_cart_button -%}
+        <div class="m-product-card__action m-product-card__action--top m-product-card__addons m:display-flex">
+          {% liquid
+            assign tooltips = 'compare,quickview'
+            assign tooltip_items = tooltips | split: ','
+
+            if show_cart_button
+              render 'tooltip', type: 'add-to-cart', section: section, product: product, class_name: 'm-tooltip--top m-product-card__atc-button'
             endif
-            assign alt = alt | default: pcard_default_image.alt | escape
-          -%}
-          {%- capture sizes -%}(min-width: {{ settings.container_width }}px) {{ settings.container_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2){%- endcapture -%}
-          <responsive-image class="m-image" style="--aspect-ratio: {{ asp_rat }}">
-            {{
-              pcard_default_image
-              | image_url: width: 1100
-              | image_tag:
-                loading: 'lazy',
-                class: 'm:w-full m:h-full',
-                alt: alt,
-                sizes: sizes,
-                widths: '165, 360, 535, 750, 940, 1100'
-            }}
-          </responsive-image>
-        {% else %}
-          <div style="--aspect-ratio: {{ image_ratio }}">
-            {{ 'product-1' | placeholder_svg_tag: 'm-placeholder-svg' }}
+          %}
+
+          {%- if show_wishlist_button -%}
+            {% assign wishlist_app = settings.wishlist_app %}
+            {% if wishlist_app == 'growave' %}
+              <div class="m-tooltip m-wishlist-button m-button--icon m-tooltip--style-1 m-tooltip--left">
+                <span class="m-tooltip-icon m:block">
+                  {% comment %} theme-check-disable {% endcomment %}
+                  {% capture the_snippet_fave_icon %}{% render 'ssw-widget-faveicon' with product.id %}{% endcapture %}
+                  {% unless the_snippet_fave_icon contains 'Liquid error' %}
+                    {{ the_snippet_fave_icon }}
+                  {% else %}
+                    {% render 'mm-ssw-widget-faveicon' with product.id %}
+                  {% endunless %}
+                  {% comment %} theme-check-enable {% endcomment %}
+                </span>
+                <div class="m-tooltip__content " data-revert-text="">
+                  {{ 'products.product.add_to_wishlist' | t }}
+                </div>
+              </div>
+            {% else %}
+              {% liquid
+                render 'tooltip', type: 'wishlist', product: product, class_name: 'm-tooltip--left'
+              %}
+            {% endif %}
+          {%- endif -%}
+
+          {%- for tooltip in tooltip_items -%}
+            {%- assign settings_key = 'show_' | append: tooltip | append: '_button' | replace: 'add-to-cart', 'cart' -%}
+            {%- if [settings_key] -%}
+              {% render 'tooltip', type: tooltip, section: section, product: product, class_name: 'm-tooltip--left' %}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {% liquid
+        assign metafields_time = product.metafields.global.minimog_countdown
+        if settings.show_countdown and metafields_time != blank
+          render 'countdown-timer', time: metafields_time, separator: false, short_label: true, extra_classes: 'm-product-card__countdown m:hidden'
+        endif
+      %}
+
+      {%- if sold_out == false -%}
+        <div class="m-product-card__action m:hidden lg:m:block">
+          {% render 'product-card-quick-add-btn',
+            product: product,
+            quick_add_text: quick_add_text,
+            section: section,
+            button_style: 'white'
+          %}
+        </div>
+      {% endif %}
+    </div>
+    <div class="m-product-card__content m:text-{{ pcard_alignment }}">
+      <div class="m-product-card__info">
+        {%- if show_vendor -%}
+          <span class="m-product-card__vendor">{{ product.vendor }}</span>
+        {%- endif -%}
+        {% if show_title == true %}
+          <h3 class="m-product-card__title">
+            <a
+              href="{{ product_url }}"
+              class="m-product-card__name{% if settings.uppercase_prd_name %} m:uppercase{% endif %}"
+            >
+              {{ product.title }}
+            </a>
+          </h3>
+        {% endif %}
+        {% if settings.show_review_badge %}
+          <div class="m-product-card__reviews m:text-color-body">
+            {% render 'product-reviews-app__badge', product: product %}
           </div>
         {% endif %}
-      {% endif %}
-    </a>
-    <div class="m-product-card__tags">
-      {% if settings.show_badge_sale %}
-        {% for tag in product.tags %}
-          {% if tag contains 'tag__' %}
-            {%- liquid
-              assign tag_content = tag | split: '__' | last
-              assign type = tag_content | split: '_' | first
-              assign tag_name = tag_content | split: '_' | last
-              assign color_scheme_class = 'm-gradient m-color-'
-              case type
-                when 'sale':
-                  assign color_scheme_class = color_scheme_class | append: settings.sale_badge_color_scheme
-                when 'new':
-                  assign color_scheme_class = color_scheme_class | append: settings.new_badge_color_scheme
-                when 'hot':
-                  assign color_scheme_class = color_scheme_class | append: settings.hot_badge_color_scheme
-              endcase
-            -%}
-            <span class="m-product-card__tag-name m-product-tag m-product-tag--{{ type }} {{ color_scheme_class }}">
-              {{- tag_name -}}
-            </span>
-          {% endif %}
-        {% endfor %}
-      {% endif %}
-      {% assign custom_badge_class = 'm-product-card__tag-name m-product-tag m-product-tag--preorder m-gradient m-color-'
-        | append: settings.preorder_badge_color_scheme
-      %}
-      {% capture foxkit_preorder_badge %}{% render 'foxkit-preorder-badge', product: product, static: true, custom_class: custom_badge_class %}{% endcapture %}
-      {% unless foxkit_preorder_badge contains 'Liquid error' %}
-        {{ foxkit_preorder_badge }}
-      {% endunless %}
-      {% if show_on_sale_badge %}
-        <span class="m-product-card__tag-name m-product-tag m-product-tag--sale m-gradient m-color-{{ settings.sale_badge_color_scheme }}">
-          {%- if settings.on_sale_badge == 'show_text' -%}
-            {{ 'products.product.on_sale' | t }}
-          {%- elsif settings.on_sale_badge == 'show_percentage' -%}
-            {{ discount | append: '%' | prepend: '-' }}
-          {%- endif -%}
-        </span>
-      {% endif %}
-    </div>
-    {%- if settings.show_badge_soldout -%}
-      <span
-        class="m-product-tag m-product-tag--soldout m-gradient m-color-{{ settings.soldout_badge_color_scheme }}"
-        {% unless sold_out %}
-          style="display: none;"
-        {% endunless %}
-      >
-        {{- 'products.product.sold_out' | t -}}
-      </span>
-    {%- endif -%}
 
-    {%- if show_quickview_button or show_wishlist_button or show_compare_button or show_cart_button -%}
-      <div class="m-product-card__action m-product-card__action--top m-product-card__addons m:display-flex">
-        {% liquid
-          assign tooltips = 'compare,quickview'
-          assign tooltip_items = tooltips | split: ','
-
-          if show_cart_button
-            render 'tooltip', type: 'add-to-cart', section: section, product: product, class_name: 'm-tooltip--top m-product-card__atc-button'
-          endif
-        %}
-
-        {%- if show_wishlist_button -%}
-          {% assign wishlist_app = settings.wishlist_app %}
-          {% if wishlist_app == 'growave' %}
-            <div class="m-tooltip m-wishlist-button m-button--icon m-tooltip--style-1 m-tooltip--left">
-              <span class="m-tooltip-icon m:block">
-                {% comment %} theme-check-disable {% endcomment %}
-                {% capture the_snippet_fave_icon %}{% render 'ssw-widget-faveicon' with product.id %}{% endcapture %}
-                {% unless the_snippet_fave_icon contains 'Liquid error' %}
-                  {{ the_snippet_fave_icon }}
-                {% else %}
-                  {% render 'mm-ssw-widget-faveicon' with product.id %}
-                {% endunless %}
-                {% comment %} theme-check-enable {% endcomment %}
-              </span>
-              <div class="m-tooltip__content " data-revert-text="">
-                {{ 'products.product.add_to_wishlist' | t }}
-              </div>
-            </div>
-          {% else %}
-            {% liquid
-              render 'tooltip', type: 'wishlist', product: product, class_name: 'm-tooltip--left'
-            %}
-          {% endif %}
-        {%- endif -%}
-
-        {%- for tooltip in tooltip_items -%}
-          {%- assign settings_key = 'show_' | append: tooltip | append: '_button' | replace: 'add-to-cart', 'cart' -%}
-          {%- if [settings_key] -%}
-            {% render 'tooltip', type: tooltip, section: section, product: product, class_name: 'm-tooltip--left' %}
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-    {%- endif -%}
-
-    {% liquid
-      assign metafields_time = product.metafields.global.minimog_countdown
-      if settings.show_countdown and metafields_time != blank
-        render 'countdown-timer', time: metafields_time, separator: false, short_label: true, extra_classes: 'm-product-card__countdown m:hidden'
-      endif
-    %}
-
-    {%- if sold_out == false -%}
-      <div class="m-product-card__action m:hidden lg:m:block">
-        {% render 'product-card-quick-add-btn',
-          product: product,
-          quick_add_text: quick_add_text,
-          section: section,
-          button_style: 'white'
-        %}
-      </div>
-    {% endif %}
-  </div>
-  <div class="m-product-card__content m:text-{{ pcard_alignment }}">
-    <div class="m-product-card__info">
-      {%- if show_vendor -%}
-        <span class="m-product-card__vendor">{{ product.vendor }}</span>
-      {%- endif -%}
-      {% if show_title == true %}
-        <h3 class="m-product-card__title">
-          <a
-            href="{{ product_url }}"
-            class="m-product-card__name{% if settings.uppercase_prd_name %} m:uppercase{% endif %}"
-          >
-            {{ product.title }}
-          </a>
-        </h3>
-      {% endif %}
-      {% if settings.show_review_badge %}
-        <div class="m-product-card__reviews m:text-color-body">
-          {% render 'product-reviews-app__badge', product: product %}
+        <div class="m-product-card__price">
+          {% render 'product-prices', product: product, is_product_card: true %}
         </div>
-      {% endif %}
+        {% if product.has_only_default_variant == false and show_variant_options %}
+          {% render 'product-card-option',
+            product: product,
+            show_variant_options: show_variant_options,
+            pcard_alignment: pcard_alignment
+          %}
+        {% endif %}
+        {%- if show_inventory and selected_variant.inventory_management != blank -%}
+          {%- liquid
+            assign inventory_threshold = settings.low_inventory_threshold
+            assign show_inventory_count = settings.show_inventory_count
+            assign inventory_visibility = settings.inventory_visibility
+            assign inventory_hide_backordered = settings.inventory_hide_backordered
 
-      <div class="m-product-card__price">
-        {% render 'product-prices', product: product, is_product_card: true %}
-      </div>
-      {% if product.has_only_default_variant == false and show_variant_options %}
-        {% render 'product-card-option',
-          product: product,
-          show_variant_options: show_variant_options,
-          pcard_alignment: pcard_alignment
-        %}
-      {% endif %}
-      {%- if show_inventory and selected_variant.inventory_management != blank -%}
-        {%- liquid
-          assign inventory_threshold = settings.low_inventory_threshold
-          assign show_inventory_count = settings.show_inventory_count
-          assign inventory_visibility = settings.inventory_visibility
-          assign inventory_hide_backordered = settings.inventory_hide_backordered
+            assign total = 0
+            assign inventory_policy = ''
+            for variant in product.variants
+              if variant.inventory_quantity > 0
+                assign total = total | plus: variant.inventory_quantity
+              endif
+              if variant.inventory_policy == 'continue'
+                assign inventory_policy = 'continue'
+              endif
+            endfor
 
-          assign total = 0
-          assign inventory_policy = ''
-          for variant in product.variants
-            if variant.inventory_quantity > 0
-              assign total = total | plus: variant.inventory_quantity
-            endif
-            if variant.inventory_policy == 'continue'
-              assign inventory_policy = 'continue'
-            endif
-          endfor
-
-          if total <= 0
-            if inventory_policy == 'continue'
-              assign status = 'backordered'
-            elsif product.available
-              assign status = 'instock'
+            if total <= 0
+              if inventory_policy == 'continue'
+                assign status = 'backordered'
+              elsif product.available
+                assign status = 'instock'
+              else
+                assign status = 'outofstock'
+              endif
+            elsif total <= inventory_threshold
+              assign status = 'low'
             else
-              assign status = 'outofstock'
+              assign status = 'normal'
             endif
-          elsif total <= inventory_threshold
-            assign status = 'low'
-          else
-            assign status = 'normal'
-          endif
 
-          assign show = false
-          if inventory_visibility == 'always'
-            assign show = true
-            if status == 'backordered' and inventory_hide_backordered
+            assign show = false
+            if inventory_visibility == 'always'
+              assign show = true
+              if status == 'backordered' and inventory_hide_backordered
+                assign show = false
+              endif
+            else
+              if status == 'low'
+                assign show = true
+              endif
+            endif
+
+            if status == 'outofstock'
               assign show = false
             endif
-          else
-            if status == 'low'
-              assign show = true
+
+            assign show_inventory_number = true
+            if show_inventory_count == 'never' or total <= 0 or show_inventory_count == 'low_inventory' and status != 'low'
+              assign show_inventory_number = false
             endif
-          endif
-
-          if status == 'outofstock'
-            assign show = false
-          endif
-
-          assign show_inventory_number = true
-          if show_inventory_count == 'never' or total <= 0 or show_inventory_count == 'low_inventory' and status != 'low'
-            assign show_inventory_number = false
-          endif
-        -%}
-        {%- if show == true -%}
-          <div class="m-product-inventory m-product-card__inventory m:text-sm" data-status="{{ status }}">
-            <div class="m-product-inventory__inner">
-              <span class="m-product-inventory__text">
-                <span class="m-product-inventory__pin"></span>
-                <span class="m-product-inventory__status">
-                  {% liquid
-                    case status
-                      when 'backordered'
-                        render 'new-locale', key: 'products.product.backordered'
-                      when 'low'
-                        if show_inventory_number
-                          render 'new-locale', key: 'products.product.inventory_low_quantity_html', param: '{{ quantity }}', value: total
+          -%}
+          {%- if show == true -%}
+            <div class="m-product-inventory m-product-card__inventory m:text-sm" data-status="{{ status }}">
+              <div class="m-product-inventory__inner">
+                <span class="m-product-inventory__text">
+                  <span class="m-product-inventory__pin"></span>
+                  <span class="m-product-inventory__status">
+                    {% liquid
+                      case status
+                        when 'backordered'
+                          render 'new-locale', key: 'products.product.backordered'
+                        when 'low'
+                          if show_inventory_number
+                            render 'new-locale', key: 'products.product.inventory_low_quantity_html', param: '{{ quantity }}', value: total
+                          else
+                            render 'new-locale', key: 'products.product.low_stock'
+                          endif
                         else
-                          render 'new-locale', key: 'products.product.low_stock'
-                        endif
-                      else
-                        if show_inventory_number
-                          render 'new-locale', key: 'products.product.inventory_quantity_html', param: '{{ quantity }}', value: total
-                        else
-                          echo 'products.product.in_stock' | t
-                        endif
-                    endcase
-                  %}
+                          if show_inventory_number
+                            render 'new-locale', key: 'products.product.inventory_quantity_html', param: '{{ quantity }}', value: total
+                          else
+                            echo 'products.product.in_stock' | t
+                          endif
+                      endcase
+                    %}
+                  </span>
                 </span>
-              </span>
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+
+      <div class="m-product-card__content-footer">
+        {%- if show_desc -%}
+          <div class="m-product-card__description">
+            {{ product.description | strip_html | truncatewords: 15, '...' }}
+          </div>
+        {%- endif -%}
+        {%- if show_quickview_button or show_wishlist_button or show_compare_button or show_cart_button -%}
+          <div class="m-product-card__action">
+            {% render 'product-card-quick-add-btn',
+              product: product,
+              quick_add_text: quick_add_text,
+              section: section
+            %}
+            <div class="m-product-card__action-icons">
+              {% liquid
+                assign tooltips = 'compare,quickview,'
+                assign tooltip_items = tooltips | split: ','
+
+                if show_cart_button
+                  render 'tooltip', type: 'add-to-cart', section: section, product: product, class_name: 'm-tooltip--top m-product-card__atc-button'
+                endif
+              %}
+
+              {%- if show_wishlist_button -%}
+                {% assign wishlist_app = settings.wishlist_app %}
+                {% if wishlist_app == 'growave' %}
+                  <div class="m-tooltip m-wishlist-button m-button--icon m-tooltip--style-1 m-tooltip--top">
+                    <span class="m-tooltip-icon m:block">
+                      {% comment %} theme-check-disable {% endcomment %}
+                      {% capture the_snippet_fave_icon %}{% render 'ssw-widget-faveicon' with product.id %}{% endcapture %}
+                      {% unless the_snippet_fave_icon contains 'Liquid error' %}
+                        {{ the_snippet_fave_icon }}
+                      {% else %}
+                        {% render 'mm-ssw-widget-faveicon' with product.id %}
+                      {% endunless %}
+                      {% comment %} theme-check-enable {% endcomment %}
+                    </span>
+                    <div class="m-tooltip__content " data-revert-text="">
+                      {{ 'products.product.add_to_wishlist' | t }}
+                    </div>
+                  </div>
+                {% else %}
+                  {% liquid
+                    render 'tooltip', type: 'wishlist', product: product, class_name: 'm-tooltip--top'
+                  %}
+                {% endif %}
+              {%- endif -%}
+
+              {%- for tooltip in tooltip_items -%}
+                {%- assign settings_key = 'show_'
+                  | append: tooltip
+                  | append: '_button'
+                  | replace: 'add-to-cart', 'cart'
+                -%}
+                {%- if [settings_key] -%}
+                  {% render 'tooltip',
+                    type: tooltip,
+                    section: section,
+                    product: product,
+                    class_name: 'm-tooltip--top'
+                  %}
+                {%- endif -%}
+              {%- endfor -%}
             </div>
           </div>
         {%- endif -%}
-      {%- endif -%}
+      </div>
     </div>
-
-    <div class="m-product-card__content-footer">
-      {%- if show_desc -%}
-        <div class="m-product-card__description">
-          {{ product.description | strip_html | truncatewords: 15, '...' }}
-        </div>
-      {%- endif -%}
-      {%- if show_quickview_button or show_wishlist_button or show_compare_button or show_cart_button -%}
-        <div class="m-product-card__action">
-          {% render 'product-card-quick-add-btn', product: product, quick_add_text: quick_add_text, section: section %}
-          <div class="m-product-card__action-icons">
-            {% liquid
-              assign tooltips = 'compare,quickview,'
-              assign tooltip_items = tooltips | split: ','
-
-              if show_cart_button
-                render 'tooltip', type: 'add-to-cart', section: section, product: product, class_name: 'm-tooltip--top m-product-card__atc-button'
-              endif
-            %}
-
-            {%- if show_wishlist_button -%}
-              {% assign wishlist_app = settings.wishlist_app %}
-              {% if wishlist_app == 'growave' %}
-                <div class="m-tooltip m-wishlist-button m-button--icon m-tooltip--style-1 m-tooltip--top">
-                  <span class="m-tooltip-icon m:block">
-                    {% comment %} theme-check-disable {% endcomment %}
-                    {% capture the_snippet_fave_icon %}{% render 'ssw-widget-faveicon' with product.id %}{% endcapture %}
-                    {% unless the_snippet_fave_icon contains 'Liquid error' %}
-                      {{ the_snippet_fave_icon }}
-                    {% else %}
-                      {% render 'mm-ssw-widget-faveicon' with product.id %}
-                    {% endunless %}
-                    {% comment %} theme-check-enable {% endcomment %}
-                  </span>
-                  <div class="m-tooltip__content " data-revert-text="">
-                    {{ 'products.product.add_to_wishlist' | t }}
-                  </div>
-                </div>
-              {% else %}
-                {% liquid
-                  render 'tooltip', type: 'wishlist', product: product, class_name: 'm-tooltip--top'
-                %}
-              {% endif %}
-            {%- endif -%}
-
-            {%- for tooltip in tooltip_items -%}
-              {%- assign settings_key = 'show_'
-                | append: tooltip
-                | append: '_button'
-                | replace: 'add-to-cart', 'cart'
-              -%}
-              {%- if [settings_key] -%}
-                {% render 'tooltip', type: tooltip, section: section, product: product, class_name: 'm-tooltip--top' %}
-              {%- endif -%}
-            {%- endfor -%}
-          </div>
-        </div>
-      {%- endif -%}
-    </div>
+    <input hidden name="id" required value="{{ variant_id }}" data-selected-variant="{{ selected_variant_id }}">
   </div>
-  <input hidden name="id" required value="{{ variant_id }}" data-selected-variant="{{ selected_variant_id }}">
 </div>
 {%- if column_wrapper -%}</div>{%- endif -%}
