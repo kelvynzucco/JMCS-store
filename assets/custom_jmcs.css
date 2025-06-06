@@ -749,6 +749,13 @@
   min-height: 46px;
 }
 
+/* Carrinho */
+.m-cart-drawer-item__image {
+  border-radius: 18px;
+  border: none !important;
+  box-shadow: none !important;
+}
+
 /* MEDIA QUERIES */
 @media (max-width: 1549px) {
   .jmcs-reviews .m-slider-controls__button {
