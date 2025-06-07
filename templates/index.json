@@ -346,12 +346,40 @@
             "heading_size": "h4",
             "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tristique velit eu mattis laoreet. Donec dapibus ultricies tincidunt. In eu sapien mi.</p>"
           }
+        },
+        "image_tRmxQ4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/product-2.png"
+          }
+        },
+        "image_idM9tb": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Festas_Particulares.png"
+          }
+        },
+        "image_XXixCT": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Assembleias_e_Seminarios.png"
+          }
+        },
+        "image_QCRary": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Shows_e_Eventos.png"
+          }
         }
       },
       "block_order": [
         "collection_eFtpUk",
         "collection_cKdkpL",
-        "collection_ntC6EY"
+        "collection_ntC6EY",
+        "image_tRmxQ4",
+        "image_idM9tb",
+        "image_XXixCT",
+        "image_QCRary"
       ],
       "name": "Passo a Passo",
       "settings": {
