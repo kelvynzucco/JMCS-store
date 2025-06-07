@@ -317,10 +317,10 @@
         "animations": "inherit"
       }
     },
-    "collection_tabs_QE4TLj": {
-      "type": "collection-tabs",
+    "passo_a_passo_JP8mP8": {
+      "type": "passo-a-passo",
       "blocks": {
-        "collection_Yy3bMf": {
+        "collection_eFtpUk": {
           "type": "collection",
           "settings": {
             "collection": "",
@@ -329,7 +329,7 @@
             "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tristique velit eu mattis laoreet. Donec dapibus ultricies tincidunt. In eu sapien mi.</p>"
           }
         },
-        "collection_EhyPJ6": {
+        "collection_cKdkpL": {
           "type": "collection",
           "settings": {
             "collection": "",
@@ -338,7 +338,7 @@
             "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tristique velit eu mattis laoreet. Donec dapibus ultricies tincidunt. In eu sapien mi.</p>"
           }
         },
-        "collection_PEi4at": {
+        "collection_ntC6EY": {
           "type": "collection",
           "settings": {
             "collection": "",
@@ -349,26 +349,27 @@
         }
       },
       "block_order": [
-        "collection_Yy3bMf",
-        "collection_EhyPJ6",
-        "collection_PEi4at"
+        "collection_eFtpUk",
+        "collection_cKdkpL",
+        "collection_ntC6EY"
       ],
+      "name": "Passo a Passo",
       "settings": {
         "container": "container-fluid",
         "color_scheme": "dark",
         "header_alignment": "left",
-        "heading": "Pulseiras do seu jeito",
+        "heading": "Passo a Passo",
         "heading_size": "h3",
-        "subheading": "Como funciona?",
+        "subheading": "",
         "description": "",
         "image_position": "right",
         "image_ratio": "1/1",
         "prefix_header": "ordinal_number",
-        "trigger_behavior": "click",
-        "autoplay": false,
-        "autoplay_duration": 3,
-        "padding_top": 46,
-        "padding_bottom": 46,
+        "trigger_behavior": "hover",
+        "autoplay": true,
+        "autoplay_duration": 5,
+        "padding_top": 50,
+        "padding_bottom": 50,
         "custom_class": "",
         "animations": "inherit"
       }
@@ -749,7 +750,7 @@
     "16225125199f82d8fe",
     "16225316461d1cff80",
     "162251092958fcda7c",
-    "collection_tabs_QE4TLj",
+    "passo_a_passo_JP8mP8",
     "testimonials_pnyUnX",
     "7ea56e8d-5794-4708-8812-8ee9604a3a21",
     "brands_list_4eHpMa"
