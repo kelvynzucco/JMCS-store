@@ -1,5 +1,7 @@
-{{ 'collection-tabs.css' | asset_url | stylesheet_tag }}
-<script src="{{ 'passo-a-passo.js' | asset_url }}" defer="defer"></script>
+{{ 'passo-a-passo.css' | asset_url | stylesheet_tag }}
+{{ 'swiper-bundle.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'swiper-bundle.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'passos.js' | asset_url }}" defer="defer"></script>
 
 {% liquid
   assign container = section.settings.container
@@ -8,28 +10,9 @@
   endif
 
   assign image_width = 'm:w-full md:m:w-1/2 lg:m:w-1/2'
-
   assign image_aspect_ratio = section.settings.image_ratio
-  if section.settings.image_ratio == 'adapt'
-    assign first_block = section.blocks | first
-    assign first_image = blank
-
-    if first_block.settings.image != blank
-      assign first_image = first_block.settings.image
-    else
-      assign first_collection = collections[first_block.settings.collection]
-      if first_collection.image != blank
-        assign first_image = first_collection.image
-      elsif first_collection.products.first and first_collection.products.first.images != empty
-        assign first_image = first_collection.products.first.featured_image
-      endif
-    endif
-
-    if first_image != blank
-      assign image_aspect_ratio = first_image.aspect_ratio
-    else
-      assign image_aspect_ratio = '1/1'
-    endif
+  if image_aspect_ratio == 'adapt'
+    assign image_aspect_ratio = '1/1'
   endif
 
   assign animation_effect = settings.animations
@@ -50,10 +33,24 @@
 
 <style>
   #m-collection-tabs--{{ section.id }} {
-    --section-padding-top: {{ section.settings.padding_top }}px ;
+    --section-padding-top: {{ section.settings.padding_top }}px;
     --section-padding-bottom: {{ section.settings.padding_bottom }}px;
   }
+  .m-collection-tab__image {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+  }
+  .swiper--passo-a-passo {
+    position: relative;
+  }
+  .swiper-pagination {
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+  }
 </style>
+
 <section
   id="m-collection-tabs--{{ section.id }}"
   class="{{ classes }}"
@@ -65,6 +62,7 @@
       section_settings: section.settings,
       custom_classes: 'm:flex m:flex-col md:m:hidden'
     %}
+
     <div class="{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
       <collection-tabs
         class="m:flex items-center flex-wrap{% if section.settings.image_position == 'right' %} m:flex-row-reverse{% endif %}"
@@ -73,34 +71,35 @@
         data-trigger-behavior="{{ section.settings.trigger_behavior | default: 'hover' }}"
       >
         <div class="m-collection-tab__images {{ image_width }}" style="--aspect-ratio: {{ image_aspect_ratio }}">
-          {%- for block in section.blocks %}
-            {% liquid
-              assign collection = collections[block.settings.collection]
+          <!-- Imagens associadas às abas -->
+          {% for block in section.blocks %}
+            {% if block.type == 'collection' and block.settings.image != blank %}
+              <div
+                class="m-collection-tab__image m:blocks-radius m-card {% unless forloop.first %} m:hidden {% endunless %}"
+                data-block-id="{{ block.id }}"
+              >
+                {% render 'responsive-image', image: block.settings.image, aspect_ratio: image_aspect_ratio %}
+              </div>
+            {% endif %}
+          {% endfor %}
 
-              assign tab_image = blank
-              if block.settings.image != blank
-                assign tab_image = block.settings.image
-              elsif collection.image != blank
-                assign tab_image = collection.image
-              elsif collection.products.first and collection.products.first.images != empty
-                assign tab_image = collection.products.first.featured_image
-              endif
-            %}
-            <div
-              class="m-collection-tab__image m:blocks-radius m-card m:block{% if forloop.first %} is-active{% endif %}"
-              data-block-id="{{ block.id }}"
-            >
-              {%- if tab_image != blank -%}
-                {% render 'responsive-image', image: tab_image, aspect_ratio: image_aspect_ratio %}
-              {%- else -%}
-                <div class="m-image" style="--aspect-ratio: {{ image_aspect_ratio }}">
-                  {% capture current %}{% cycle 1, 2, 3 %}{% endcapture %}
-                  {{ 'collection-' | append: current | placeholder_svg_tag: 'm-placeholder-svg' }}
-                </div>
-              {%- endif -%}
+          <!-- Slider independente -->
+          {% if section.settings.enable_slider %}
+            <div class="swiper-container swiper--passo-a-passo">
+              <div class="swiper-wrapper">
+                {% for block in section.blocks %}
+                  {% if block.type == 'image' and block.settings.image != blank %}
+                    <div class="swiper-slide m:blocks-radius m-card">
+                      {% render 'responsive-image', image: block.settings.image, aspect_ratio: image_aspect_ratio %}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+              <div class="swiper-pagination"></div>
             </div>
-          {%- endfor -%}
+          {% endif %}
         </div>
+
         <div class="m-collection-tab__content flex-1">
           {% render 'index-section-header',
             animation_effect: animation_effect,
@@ -109,16 +108,18 @@
           %}
           <div class="m-collection-tab__content-wrap" data-first-level>
             {% for block in section.blocks %}
-              {% render 'collection-tab',
-                block_settings: block.settings,
-                icon: block.settings.icon,
-                open: forloop.first,
-                id: block.id,
-                attrs: block.shopify_attributes,
-                index: forloop.index,
-                animated: animated,
-                animation_effect: animation_effect
-              %}
+              {% if block.type == 'collection' %}
+                {% render 'collection-tab',
+                  block_settings: block.settings,
+                  icon: block.settings.icon,
+                  open: forloop.first,
+                  id: block.id,
+                  attrs: block.shopify_attributes,
+                  index: forloop.index,
+                  animated: animated,
+                  animation_effect: animation_effect
+                %}
+              {% endif %}
             {% endfor %}
           </div>
         </div>
@@ -148,18 +149,9 @@
       "label": "Container type",
       "default": "container-fluid",
       "options": [
-        {
-          "value": "container-fluid",
-          "label": "Default"
-        },
-        {
-          "value": "w-full",
-          "label": "Full width"
-        },
-        {
-          "value": "container",
-          "label": "Use container box"
-        }
+        { "value": "container-fluid", "label": "Default" },
+        { "value": "w-full", "label": "Full width" },
+        { "value": "container", "label": "Use container box" }
       ]
     },
     {
@@ -177,14 +169,8 @@
       "label": "Heading alignment",
       "default": "center",
       "options": [
-        {
-          "value": "left",
-          "label": "Left"
-        },
-        {
-          "value": "center",
-          "label": "Center"
-        }
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
       ]
     },
     {
@@ -199,14 +185,8 @@
       "label": "Section header",
       "default": "h3",
       "options": [
-        {
-          "label": "Medium",
-          "value": "h3"
-        },
-        {
-          "label": "Large",
-          "value": "h2"
-        }
+        { "label": "Medium", "value": "h3" },
+        { "label": "Large", "value": "h2" }
       ]
     },
     {
@@ -226,18 +206,11 @@
     {
       "type": "select",
       "id": "image_position",
-      "info": "Position is automatically optimized for mobile.",
       "label": "Desktop image position",
       "default": "left",
       "options": [
-        {
-          "value": "left",
-          "label": "Left"
-        },
-        {
-          "value": "right",
-          "label": "Right"
-        }
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
       ]
     },
     {
@@ -246,23 +219,17 @@
       "label": "Image ratio",
       "default": "1/1",
       "options": [
-        {
-          "label": "Adapt to first image",
-          "value": "adapt"
-        },
-        {
-          "label": "Square (1:1)",
-          "value": "1/1"
-        },
-        {
-          "label": "Portrait (3:4)",
-          "value": "3/4"
-        },
-        {
-          "label": "Lanscape (4:3)",
-          "value": "4/3"
-        }
+        { "label": "Adapt to first image", "value": "adapt" },
+        { "label": "Square (1:1)", "value": "1/1" },
+        { "label": "Portrait (3:4)", "value": "3/4" },
+        { "label": "Lanscape (4:3)", "value": "4/3" }
       ]
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_slider",
+      "label": "Ativar slider de imagens",
+      "default": true
     },
     {
       "type": "select",
@@ -270,14 +237,8 @@
       "label": "Prefix header",
       "default": "ordinal_number",
       "options": [
-        {
-          "value": "ordinal_number",
-          "label": "Ordinal number"
-        },
-        {
-          "value": "icon",
-          "label": "Icon"
-        }
+        { "value": "ordinal_number", "label": "Ordinal number" },
+        { "value": "icon", "label": "Icon" }
       ]
     },
     {
@@ -286,21 +247,15 @@
       "label": "Trigger open tab",
       "default": "hover",
       "options": [
-        {
-          "value": "click",
-          "label": "Click"
-        },
-        {
-          "value": "hover",
-          "label": "Hover"
-        }
+        { "value": "click", "label": "Click" },
+        { "value": "hover", "label": "Hover" }
       ]
     },
     {
       "type": "checkbox",
       "id": "autoplay",
-      "default": false,
-      "label": "Auto-rotate content"
+      "label": "Auto-rotate content",
+      "default": false
     },
     {
       "type": "range",
@@ -355,26 +310,11 @@
       "label": "Visible in the view animation",
       "default": "inherit",
       "options": [
-        {
-          "value": "inherit",
-          "label": "Inherit global setting"
-        },
-        {
-          "value": "fade-in",
-          "label": "Fade in"
-        },
-        {
-          "value": "fade-in-up",
-          "label": "Fade in up"
-        },
-        {
-          "value": "fade-in-left",
-          "label": "Fade in left"
-        },
-        {
-          "value": "fade-in-right",
-          "label": "Fade in right"
-        }
+        { "value": "inherit", "label": "Inherit global setting" },
+        { "value": "fade-in", "label": "Fade in" },
+        { "value": "fade-in-up", "label": "Fade in up" },
+        { "value": "fade-in-left", "label": "Fade in left" },
+        { "value": "fade-in-right", "label": "Fade in right" }
       ]
     }
   ],
@@ -383,61 +323,34 @@
       "type": "collection",
       "name": "Collection",
       "settings": [
-        {
-          "id": "collection",
-          "type": "collection",
-          "label": "Collection"
-        },
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image",
-          "info": "Leave blank to use collection's image"
-        },
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "Heading",
-          "info": "Leave blank to use collection's title"
-        },
+        { "id": "collection", "type": "collection", "label": "Collection" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "heading", "label": "Heading" },
         {
           "type": "select",
           "id": "heading_size",
           "label": "Heading size",
           "default": "h4",
           "options": [
-            {
-              "label": "Extra small",
-              "value": "h5"
-            },
-            {
-              "label": "Small",
-              "value": "h4"
-            },
-            {
-              "label": "Medium",
-              "value": "h3"
-            },
-            {
-              "label": "Large",
-              "value": "h2"
-            },
-            {
-              "label": "Extra large",
-              "value": "h1"
-            }
+            { "label": "Extra small", "value": "h5" },
+            { "label": "Small", "value": "h4" },
+            { "label": "Medium", "value": "h3" },
+            { "label": "Large", "value": "h2" },
+            { "label": "Extra large", "value": "h1" }
           ]
         },
-        {
-          "type": "richtext",
-          "id": "text",
-          "label": "Text",
-          "info": "Leave blank to use collection's description"
-        },
+        { "type": "richtext", "id": "text", "label": "Text" },
+        { "type": "image_picker", "id": "icon", "label": "Icon" }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Imagem do Slider",
+      "settings": [
         {
           "type": "image_picker",
-          "id": "icon",
-          "label": "Icon"
+          "id": "image",
+          "label": "Imagem"
         }
       ]
     }
@@ -446,15 +359,12 @@
     {
       "name": "Passo a Passo",
       "blocks": [
-        {
-          "type": "collection"
-        },
-        {
-          "type": "collection"
-        },
-        {
-          "type": "collection"
-        }
+        { "type": "collection" },
+        { "type": "collection" },
+        { "type": "collection" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" }
       ]
     }
   ]

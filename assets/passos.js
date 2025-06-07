@@ -1,3 +1,11 @@
+function queryDomNodes(selectors, context) {
+  const nodes = {};
+  for (const [key, selector] of Object.entries(selectors)) {
+    nodes[key] = Array.from(context.querySelectorAll(selector));
+  }
+  return nodes;
+}
+
 if (!customElements.get("collection-tabs")) {
   class CollectionTabs extends HTMLElement {
     constructor() {
@@ -11,11 +19,7 @@ if (!customElements.get("collection-tabs")) {
     init() {
       this.domNodes = queryDomNodes(this.selectors, this);
       this.isPausing = false;
-      this.autoplay =
-        this.dataset.autoplay && this.dataset.autoplay === "true"
-          ? true
-          : false;
-      // Duration in secs.
+      this.autoplay = this.dataset.autoplay === "true";
       this.autoplayDuration = this.dataset.autoplayDuration
         ? parseInt(this.dataset.autoplayDuration)
         : 5;
@@ -23,15 +27,13 @@ if (!customElements.get("collection-tabs")) {
       this.tabActiveIndex = 0;
       this.totalTabs = this.domNodes.collapsibleTabs.length;
       this.hoverToOpen =
-        this.dataset.triggerBehavior &&
         this.dataset.triggerBehavior === "hover" &&
-        window.matchMedia("(hover: hover)").matches
-          ? true
-          : false;
+        window.matchMedia("(hover: hover)").matches;
     }
 
     connectedCallback() {
       this.init();
+
       if (this.autoplay) {
         this.style.setProperty(
           "--autoplay-duration",
@@ -39,17 +41,7 @@ if (!customElements.get("collection-tabs")) {
         );
         this.initAutoplay();
 
-        window.MinimogEvents.subscribe(
-          "ON_COLLAPSIBLE_TAB_OPENED",
-          (collapsibleTab) => {
-            if (collapsibleTab.classList.contains("collection-tab")) {
-              const collectionTabs = collapsibleTab.closest("collection-tabs");
-              collectionTabs && collectionTabs.onTabOpened(collapsibleTab);
-            }
-          }
-        );
-
-        this.observer = new IntersectionObserver((entries, observer) => {
+        this.observer = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               this.isPausing = false;
@@ -63,12 +55,26 @@ if (!customElements.get("collection-tabs")) {
         this.observer.observe(this);
       }
 
-      window.MinimogEvents.subscribe(
+      window.MinimogEvents?.subscribe?.(
+        "ON_COLLAPSIBLE_TAB_OPENED",
+        (collapsibleTab) => {
+          if (collapsibleTab.classList.contains("collection-tab")) {
+            const collectionTabs = collapsibleTab.closest("collection-tabs");
+            if (collectionTabs === this) {
+              this.onTabOpened(collapsibleTab);
+            }
+          }
+        }
+      );
+
+      window.MinimogEvents?.subscribe?.(
         "ON_COLLAPSIBLE_TAB_SELECTED",
         (collapsibleTab) => {
           if (collapsibleTab.classList.contains("collection-tab")) {
             const collectionTabs = collapsibleTab.closest("collection-tabs");
-            collectionTabs && collectionTabs.onElementSelected(collapsibleTab);
+            if (collectionTabs === this) {
+              this.onElementSelected(collapsibleTab);
+            }
           }
         }
       );
@@ -84,15 +90,18 @@ if (!customElements.get("collection-tabs")) {
     }
 
     onElementSelected(collapsibleTab) {
-      this.domNodes.images &&
-        this.domNodes.images.forEach((image, index) => {
-          if (collapsibleTab.dataset.blockId === image.dataset.blockId) {
-            this.tabActiveIndex = index;
-            image.classList.add("is-active");
-          } else {
-            image.classList.remove("is-active");
-          }
-        });
+      const index = this.domNodes.collapsibleTabs.indexOf(collapsibleTab);
+      if (index !== -1) {
+        this.tabActiveIndex = index;
+      }
+
+      this.domNodes.images.forEach((image) => {
+        if (collapsibleTab.dataset.blockId === image.dataset.blockId) {
+          image.classList.add("is-active");
+        } else {
+          image.classList.remove("is-active");
+        }
+      });
     }
 
     onTabOpened(collapsibleTab) {
@@ -111,15 +120,22 @@ if (!customElements.get("collection-tabs")) {
     openNextTab() {
       this.tabActiveIndex =
         this.totalTabs <= this.tabActiveIndex + 1 ? 0 : this.tabActiveIndex + 1;
-      this.domNodes.collapsibleTabs[this.tabActiveIndex].toggle();
+      this.domNodes.collapsibleTabs[this.tabActiveIndex].toggle?.();
     }
 
     onMouseEnterCollapsibleTabs(event) {
-      event.target.toggle(event);
+      const collapsibleTab = event.target;
+      const index = this.domNodes.collapsibleTabs.indexOf(collapsibleTab);
+      if (index !== -1) {
+        this.tabActiveIndex = index;
+        collapsibleTab.toggle?.(event);
+      }
     }
 
     disconnectedCallback() {
-      this.observer && this.observer.disconnect();
+      if (this.observer) {
+        this.observer.disconnect();
+      }
       if (this.hoverToOpen) {
         this.domNodes.collapsibleTabs.forEach((collapsibleTab) => {
           collapsibleTab.removeEventListener(
@@ -130,5 +146,35 @@ if (!customElements.get("collection-tabs")) {
       }
     }
   }
+
   customElements.define("collection-tabs", CollectionTabs);
 }
+
+function initPassoSwiper() {
+  if (typeof Swiper === "undefined") {
+    console.warn("Swiper não carregado.");
+    return;
+  }
+
+  document.querySelectorAll(".swiper--passo-a-passo").forEach((slider) => {
+    if (!slider.classList.contains("swiper-initialized")) {
+      new Swiper(slider, {
+        loop: true,
+        pagination: {
+          el: slider.querySelector(".swiper-pagination"),
+          clickable: true,
+        },
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        on: {
+          init: () => slider.classList.add("swiper-initialized"),
+        },
+      });
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", initPassoSwiper);
+document.addEventListener("shopify:section:load", initPassoSwiper);
