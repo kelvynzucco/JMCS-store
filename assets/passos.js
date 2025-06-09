@@ -176,5 +176,31 @@ function initPassoSwiper() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", initPassoSwiper);
-document.addEventListener("shopify:section:load", initPassoSwiper);
+document.addEventListener("DOMContentLoaded", () => {
+  initPassoSwiper();
+  initTabClassWatcher();
+});
+document.addEventListener("shopify:section:load", () => {
+  initPassoSwiper();
+  initTabClassWatcher();
+});
+
+function initTabClassWatcher() {
+  document.querySelectorAll(".block-collection-tab").forEach((block) => {
+    const tab = block.querySelector(".collection-tab");
+
+    if (!tab) return;
+
+    const update = () => {
+      block.classList.toggle(
+        "is-tab-expanded",
+        tab.classList.contains("is-expanded")
+      );
+    };
+
+    update(); // Estado inicial
+
+    const observer = new MutationObserver(update);
+    observer.observe(tab, { attributes: true, attributeFilter: ["class"] });
+  });
+}

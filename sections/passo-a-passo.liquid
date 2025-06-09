@@ -31,26 +31,6 @@
   assign classes = classes | append: ' m-collection-tabs--image-' | append: section.settings.image_position | append: ' m-gradient' | append: ' m-color-' | append: section.settings.color_scheme
 %}
 
-<style>
-  #m-collection-tabs--{{ section.id }} {
-    --section-padding-top: {{ section.settings.padding_top }}px;
-    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
-  }
-  .m-collection-tab__image {
-    display: block;
-    width: 100%;
-    object-fit: cover;
-  }
-  .swiper--passo-a-passo {
-    position: relative;
-  }
-  .swiper-pagination {
-    position: absolute;
-    bottom: 10px;
-    text-align: center;
-  }
-</style>
-
 <section
   id="m-collection-tabs--{{ section.id }}"
   class="{{ classes }}"
@@ -66,9 +46,6 @@
     <div class="{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
       <collection-tabs
         class="jmcs-collection-tabs-container m:flex items-center flex-wrap{% if section.settings.image_position == 'right' %} m:flex-row-reverse{% endif %}"
-        data-autoplay="{{ section.settings.autoplay }}"
-        data-autoplay-duration="{{ section.settings.autoplay_duration | default: 5 }}"
-        data-trigger-behavior="{{ section.settings.trigger_behavior | default: 'hover' }}"
       >
         <div class="m-collection-tab__images {{ image_width }}" style="--aspect-ratio: {{ image_aspect_ratio }}">
           <!-- Imagens associadas às abas -->
@@ -105,7 +82,7 @@
             section_settings: section.settings,
             custom_classes: 'm:hidden md:m:flex md:m:flex-col'
           %}
-          <div class="m-collection-tab__content-wrap" data-first-level>
+          <div class="jmcs-collection-wrap m-collection-tab__content-wrap" data-first-level>
             {% for block in section.blocks %}
               {% if block.type == 'collection' %}
                 {% render 'collection-tab',
