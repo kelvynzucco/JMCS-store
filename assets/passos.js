@@ -166,7 +166,7 @@ function initPassoSwiper() {
         },
         autoplay: {
           delay: 3000,
-          disableOnInteraction: false,
+          disableOnInteraction: true,
         },
         on: {
           init: () => slider.classList.add("swiper-initialized"),
