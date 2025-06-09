@@ -395,7 +395,7 @@
         "enable_slider": true,
         "prefix_header": "ordinal_number",
         "trigger_behavior": "click",
-        "autoplay": false,
+        "autoplay": true,
         "autoplay_duration": 5,
         "padding_top": 50,
         "padding_bottom": 50,
