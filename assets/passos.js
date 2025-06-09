@@ -198,7 +198,7 @@ function initTabClassWatcher() {
       );
     };
 
-    update(); // Estado inicial
+    update();
 
     const observer = new MutationObserver(update);
     observer.observe(tab, { attributes: true, attributeFilter: ["class"] });

@@ -30,7 +30,12 @@
   endif
   assign classes = classes | append: ' m-collection-tabs--image-' | append: section.settings.image_position | append: ' m-gradient' | append: ' m-color-' | append: section.settings.color_scheme
 %}
-
+<style>
+  #m-collection-tabs--{{ section.id }} {
+    --section-padding-top: {{ section.settings.padding_top }}px ;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+</style>
 <section
   id="m-collection-tabs--{{ section.id }}"
   class="{{ classes }}"
