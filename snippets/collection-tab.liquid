@@ -53,9 +53,7 @@
     {% else %}
       {%- liquid 
       assign ordinal_number = index | append: '.'
-      if index < 10
-        assign ordinal_number = ordinal_number | prepend: '0'
-      endif
+      
       -%}
       <span class="collapsible__button-icon m:text-base">{{ ordinal_number }}</span>
     {% endif %}

@@ -749,6 +749,13 @@
   min-height: 46px;
 }
 
+/* Passo a passo */
+.jmcs-block-inner .collapsible__button-icon {
+  color: var(--blue-primary);
+  font-size: 20px;
+  font-weight: 900;
+}
+
 /* Carrinho */
 .m-cart-drawer-item__image {
   border-radius: 18px;
