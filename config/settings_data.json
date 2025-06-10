@@ -41,7 +41,7 @@
     "loading_design_mode": false,
     "loading_size": 50,
     "animations": "none",
-    "animation_duration": 0.1,
+    "animation_duration": 0.3,
     "pcard_layout": "1",
     "pcard_alignment": "center",
     "pcard_image_ratio": "1/1",
