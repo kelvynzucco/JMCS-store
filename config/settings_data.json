@@ -38,6 +38,7 @@
     "spacing_sections": 0,
     "spacing_sections_mobile": 0,
     "page_transition": false,
+    "loading_design_mode": true,
     "animations": "fade-in-up",
     "pcard_layout": "1",
     "pcard_alignment": "center",
