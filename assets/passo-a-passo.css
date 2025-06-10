@@ -121,7 +121,7 @@
   background-color: #04061c;
   border-radius: 38px;
   padding: 16px 20px;
-  transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
+  transition: all 0.3s linear;
 }
 
 .jmcs-collection-wrap .jmcs-block-inner:hover {
