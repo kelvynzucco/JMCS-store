@@ -440,12 +440,7 @@
 .tcustomizer-btn--edit-option:hover {
   color: rgb(var(--color-foreground));
 }
-.m-cart-item__remove::after,
-.m-cart-item__remove::before,
-.tcustomizer-btn--edit-option::after,
-.tcustomizer-btn--edit-option::before {
-  bottom: 3px;
-}
+
 .m-cart-item {
   flex-wrap: wrap;
   align-items: center;
