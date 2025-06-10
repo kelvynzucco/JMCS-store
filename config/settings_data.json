@@ -40,7 +40,7 @@
     "page_transition": false,
     "loading_design_mode": false,
     "loading_size": 50,
-    "animations": "fade-in",
+    "animations": "none",
     "animation_duration": 0.3,
     "pcard_layout": "1",
     "pcard_alignment": "center",
