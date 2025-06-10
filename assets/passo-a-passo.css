@@ -38,7 +38,7 @@
 }
 
 .m-collection-tabs .collapsible__content-inner {
-  padding: 0 50px 15px 40px;
+  padding: 0 50px 15px 30px;
 }
 
 .m-collection-tabs .collapsible__button {
@@ -49,7 +49,7 @@
 }
 
 .m-collection-tabs .collapsible__button-icon {
-  min-width: 28px;
+  min-width: 12px;
   margin: 0 12px 0 0;
   flex-shrink: 0;
 }
@@ -96,6 +96,15 @@
 .swiper--passo-a-passo {
   border-radius: 38px;
 }
+.swiper-border {
+  padding: 1px;
+  border-radius: 38px;
+  background: linear-gradient(
+    to bottom,
+    var(--blue-primary),
+    var(--gradient-mid)
+  );
+}
 
 .jmcs-collection-wrap .block-collection-tab {
   margin-bottom: 20px;
@@ -112,6 +121,7 @@
   background-color: #04061c;
   border-radius: 38px;
   padding: 16px 20px;
+  transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
 }
 
 .jmcs-collection-wrap .jmcs-block-inner:hover {
@@ -120,6 +130,7 @@
     var(--gradient-mid),
     var(--blue-primary)
   );
+  box-shadow: 0 0 90.5px -26px rgba(53, 70, 228, 0.57);
 }
 
 .jmcs-collection-wrap .block-collection-tab {

@@ -2346,9 +2346,17 @@ textarea:not(
 .container {
   width: 100%;
   margin: 0 auto;
-  padding: 0 15px;
   max-width: var(--container-width, 1280px);
 }
+
+.container {
+  width: 100%;
+  max-width: calc(
+    var(--fluid-container-width, 1620px) + var(--fluid-container-offset) * 2
+  );
+  padding: 0 15px;
+}
+
 .container-fluid {
   width: 100%;
   margin: 0 auto;
@@ -2358,6 +2366,9 @@ textarea:not(
   );
 }
 @media screen and (min-width: 1280px) {
+  .container {
+    padding: 0 var(--fluid-container-offset, 60px);
+  }
   .container-fluid {
     padding: 0 var(--fluid-container-offset, 60px);
   }

@@ -517,7 +517,8 @@
 }
 .jmcs-reviews .swiper-slide {
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: box-shadow 0.3s ease, opacity 0.3s ease;
+  border-radius: 38px;
 }
 .jmcs-reviews .swiper-slide.swiper-slide-active,
 .jmcs-reviews .swiper-slide.swiper-slide-next {
@@ -653,6 +654,10 @@
   transition: background 0.3s ease;
 }
 
+.jmcs-button_inner:hover {
+  box-shadow: 0 0 90.5px -12px rgba(53, 70, 228, 0.57);
+}
+
 .jmcs-button_inner .m-button {
   display: inline-block;
   background-color: #04061c;
@@ -754,6 +759,24 @@
   color: var(--blue-primary);
   font-size: 20px;
   font-weight: 900;
+}
+
+/* banner-cta */
+.jmcs-banner-cta .m-slide__media {
+  border-radius: 38px;
+}
+
+.jmcs-banner-cta .m-slide {
+  padding: 1px;
+  border-radius: 38px;
+  background: linear-gradient(to top, var(--gradient-mid), var(--blue-primary));
+}
+.jmcs-banner-cta .swiper-container {
+  transition: box-shadow 0.3s ease;
+  border-radius: 38px;
+}
+.jmcs-banner-cta .swiper-container:hover {
+  box-shadow: 0 0 90.5px -26px rgba(53, 70, 228, 0.57);
 }
 
 /* Carrinho */
