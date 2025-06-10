@@ -630,7 +630,7 @@
         "star_color": "#ffd900",
         "item_color_scheme": "dark",
         "padding_top": 46,
-        "padding_bottom": 46,
+        "padding_bottom": 92,
         "custom_class": "jmcs-reviews",
         "animations": "inherit"
       }
@@ -781,7 +781,7 @@
         "show_pagination": false,
         "autorotate": true,
         "autorotate_speed": 2,
-        "padding_top": 46,
+        "padding_top": 90,
         "padding_bottom": 90,
         "custom_class": "",
         "animations": "inherit"
