@@ -2263,10 +2263,10 @@ textarea:not(
 }
 .form-field {
   padding: 6px 12px;
-  border: var(--inputs-border-width) solid rgb(var(--color-border));
+  border: 1px solid var(--blue-primary);
   border-radius: var(--inputs-radius);
-  background-color: rgb(var(--color-form-field));
-  color: rgb(var(--color-form-field-text));
+  background-color: rgba(4, 6, 28, 0.9);
+  color: var(--white-mid);
   width: 100%;
   outline: none;
   line-height: 2;

@@ -11,7 +11,12 @@
         required
         placeholder="{{ 'contact.ask-form.name' | t }}*"
       >
-      <input type="text" class="form-field form-field--input" name="contact[phone]" placeholder="{{ 'contact.ask-form.phone' | t }}">
+      <input
+        type="text"
+        class="form-field form-field--input"
+        name="contact[phone]"
+        placeholder="{{ 'contact.ask-form.phone' | t }}"
+      >
       <input
         type="email"
         class="form-field form-field--input"
@@ -23,11 +28,13 @@
       <textarea
         class="form-field form-field--input"
         name="contact[question]"
-        rows="4"
+        rows="1"
         required
         placeholder="{{ 'contact.ask-form.message' | t }}*"
       ></textarea>
-      <p class="m-form-ask-question__note m:text-left m:text-color-subtext">* {{ 'contact.ask-form.required-fields' | t }}</p>
+      <p class="m-form-ask-question__note m:text-left m:text-color-subtext">
+        * {{ 'contact.ask-form.required-fields' | t }}
+      </p>
       <button type="submit" class="m-button m-button--primary">{{ 'contact.ask-form.send' | t }}</button>
     </div>
     {% if form.posted_successfully? %}

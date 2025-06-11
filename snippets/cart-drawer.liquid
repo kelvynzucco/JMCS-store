@@ -174,17 +174,19 @@
             </div>
             {% assign show_terms = true %}
           {% endif %}
-          <button
-            type="submit"
-            form="cart-drawer-form"
-            class="m-button m-button--primary m:w-full"
-            name="checkout"
-            {% if show_terms %}
-              data-terms-action disabled
-            {% endif %}
-          >
-            <span>{{ 'cart.general.checkout' | t }}</span>
-          </button>
+          <div class="cart-drawer-form-inner">
+            <button
+              type="submit"
+              form="cart-drawer-form"
+              class="m-button m-button--primary m:w-full"
+              name="checkout"
+              {% if show_terms %}
+                data-terms-action disabled
+              {% endif %}
+            >
+              <span>{{ 'cart.general.checkout' | t }}</span>
+            </button>
+          </div>
           {%- if settings.cart_drawer_show_accelerated_button and additional_checkout_buttons -%}
             <div class="additional-checkout-buttons m:w-full">
               {{ content_for_additional_checkout_buttons }}
