@@ -72,7 +72,7 @@
       "settings": {
         "container": "container",
         "layout": "layout-4",
-        "show_atwl": true,
+        "show_atwl": false,
         "enable_history_state": true,
         "enable_variant_group_images": false,
         "disable_selected_variant_default": false,
