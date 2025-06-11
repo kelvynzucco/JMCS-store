@@ -50,12 +50,12 @@
             "show_social": true
           }
         },
-        "trust_badge_NyBMd4": {
+        "trust_badge_RAzUDE": {
           "type": "trust_badge",
           "settings": {
             "trust_badges_text": "<p>Segurança Garantida</p>",
-            "trust_badges_image": "shopify://shop_images/JMCS-logo.svg",
-            "trust_badges_image_width": "60%",
+            "trust_badges_image": "shopify://shop_images/cards.svg",
+            "trust_badges_image_width": "50%",
             "position": "below"
           }
         }
@@ -67,7 +67,7 @@
         "variant_picker",
         "buy_buttons",
         "addons",
-        "trust_badge_NyBMd4"
+        "trust_badge_RAzUDE"
       ],
       "settings": {
         "container": "container",
