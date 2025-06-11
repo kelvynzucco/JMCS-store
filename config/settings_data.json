@@ -124,7 +124,7 @@
           "form_field_label": "#04061c",
           "tooltip": "#e6e8f9",
           "tooltip_label": "#04061c",
-          "border": "#4e5699"
+          "border": "#3546e4"
         }
       },
       "dark": {
@@ -146,7 +146,7 @@
           "form_field_label": "#04061c",
           "tooltip": "#e6e8f9",
           "tooltip_label": "#04061c",
-          "border": "#4e5699"
+          "border": "#3546e4"
         }
       },
       "footer": {
