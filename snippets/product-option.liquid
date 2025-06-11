@@ -98,26 +98,27 @@
               </div>
               <div class="m-product-option--content">
                 <div class="m:inline-flex m:flex-wrap">
-                  <select
-                    id="Option-{{ section.id }}-{{ forloop.index0 }}"
-                    name="options[{{ option.name | escape }}]"
-                    form="{{ product_form_id }}"
-                  >
-                    <option value="" disabled>{{ option.name }}</option>
-                    {%- for value in option.values -%}
-                      <option
-                        value="{{ value | escape }}"
-                        class="m-product-option--node"
-                        data-value="{{- value | escape -}}"
-                        data-option-position="{{ option.position }}"
-                        {% if option.selected_value == value %}
-                          selected="selected"
-                        {% endif %}
-                      >
-                        {{- value -}}
-                      </option>
-                    {%- endfor -%}
-                  </select>
+                  <div class="option-content-inner">
+                    <select
+                      id="Option-{{ section.id }}-{{ forloop.index0 }}"
+                      name="options[{{ option.name | escape }}]"
+                      form="{{ product_form_id }}"
+                    >
+                      {%- for value in option.values -%}
+                        <option
+                          value="{{ value | escape }}"
+                          class="m-product-option--node"
+                          data-value="{{- value | escape -}}"
+                          data-option-position="{{ option.position }}"
+                          {% if option.selected_value == value %}
+                            selected="selected"
+                          {% endif %}
+                        >
+                          {{- value -}}
+                        </option>
+                      {%- endfor -%}
+                    </select>
+                  </div>
                 </div>
               </div>
             </variant-select>

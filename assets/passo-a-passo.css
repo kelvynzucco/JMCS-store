@@ -111,7 +111,7 @@
   padding: 1px;
   border-radius: 38px;
   background: linear-gradient(
-    to bottom,
+    to left,
     var(--blue-primary),
     var(--gradient-mid)
   );
@@ -121,15 +121,11 @@
   background-color: #04061c;
   border-radius: 38px;
   padding: 16px 20px;
-  transition: all 0.3s linear;
+  transition: background 0.3s linear;
 }
 
 .jmcs-collection-wrap .jmcs-block-inner:hover {
-  background: linear-gradient(
-    to right,
-    var(--gradient-mid),
-    var(--blue-primary)
-  );
+  background-color: #04061c00;
   box-shadow: 0 0 90.5px -26px rgba(53, 70, 228, 0.57);
 }
 

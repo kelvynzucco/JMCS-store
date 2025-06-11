@@ -5261,8 +5261,7 @@ deferred-media {
 }
 .m-product-option--dropdown select {
   height: 44px;
-  border: 1px solid rgb(var(--color-border));
-  border-radius: 4px;
+  border-radius: 999px;
   padding: 0 40px 0 16px;
   cursor: pointer;
   width: 100%;

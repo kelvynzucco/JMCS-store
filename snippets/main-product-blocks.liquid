@@ -88,6 +88,13 @@
         {% if settings.review_app == 'ali_reviews' %}
           <div product-id="{{ product.id }}" class="alr-display-review-badge"></div>
         {% endif %}
+        <p class="product-unit-quickview">
+          {% assign unidades = product.metafields.custom.unidades | plus: 0 %}
+          {% if unidades > 0 %}
+            {{ unidades }}
+            {% if unidades == 1 %}Unidade{% else %}Unidades{% endif %}
+          {% endif %}
+        </p>
       {%- when 'price' -%}
         <div class="product-block-group--price">
           {% render 'product-prices',

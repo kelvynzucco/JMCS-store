@@ -9,17 +9,24 @@
   data-color-scheme="m-color-{{ settings.drawer_popup_color_scheme }}"
   data-view="quick-view"
   data-section-id="{{ section.id }}"
-  style="--column-gap: 30px;"
 >
-  <product-recently-viewed data-product-id="{{ product.id }}" class="m:hidden"></product-recently-viewed>
+  {% comment %} <product-recently-viewed data-product-id="{{ product.id }}" class="m:hidden"></product-recently-viewed> {% endcomment %}
   <div class="m-product-quickview--media m:column m:w-full md:m:w-1/2">
-    {% render 'product-media',
-      product: product,
-      section: section,
-      media_layout: 'layout-4',
-      show_nav: true,
-      show_thumbnails: false
-    %}
+    {% comment %}
+      {% render 'product-media',
+        product: product,
+        section: section,
+        media_layout: 'layout-4',
+        show_nav: true,
+        show_thumbnails: false
+      %}
+    {% endcomment %}
+    <img
+      src="{{ product.featured_image | img_url: 'large' }}"
+      alt="{{ product.title }}"
+      width="{{ product.featured_image.width | default: 300 }}"
+      height="{{ product.featured_image.height | default: 300 }}"
+    >
   </div>
   <div class="m-product-quickview--info m:column m-scrollbar--vertical m:display-flex m:w-full md:m:w-1/2">
     <div class="m-product-info--wrapper m:w-full">
@@ -30,6 +37,13 @@
           </h1>
         </div>
       </div>
+      <p class="product-unit-quickview">
+        {% assign unidades = product.metafields.custom.unidades | plus: 0 %}
+        {% if unidades > 0 %}
+          {{ unidades }}
+          {% if unidades == 1 %}Unidade{% else %}Unidades{% endif %}
+        {% endif %}
+      </p>
       <div class="main-product__block main-product__block-price">
         {% render 'product-prices',
           use_variant: true,
@@ -39,52 +53,54 @@
           price_text_size: 'm:text-xl md:m:text-2xl'
         %}
       </div>
-      <div class="main-product__block main-product__block-description">
-        {{ product.description | strip_html | truncatewords: 15 }}
-        <a class="m-product-quickview--viewmore m:block" href="{{ product.url }}">
-          {{- 'products.product.view_details' | t -}}
-        </a>
-      </div>
-      <div class="main-product__block main-product__block-inventory_status">
-        {% liquid
-          assign inventory_threshold = settings.low_inventory_threshold
-          assign show_inventory_count = settings.show_inventory_count
-          assign inventory_visibility = settings.inventory_visibility
-        %}
-        <m-product-inventory
-          class="m-product-inventory m:block"
-          data-product-id="{{ product.id }}"
-          data-normal-text=""
-          data-low-text=""
-          data-outofstock-text=""
-          data-backordered-text="{%- render 'new-locale', key: 'products.product.backordered' -%}"
-          data-hide-stock-backordered="{%- if settings.inventory_hide_backordered -%}true{%- else -%}false{%- endif -%}"
-          data-inventory-threshold="{{ inventory_threshold }}"
-          data-show-inventory-count="{{ show_inventory_count }}"
-          data-inventory-visibility="{{ inventory_visibility }}"
-          data-status=""
-          data-variant-available="{{ current_variant.available }}"
-          data-inventory-quantity="{{ current_variant.inventory_quantity | at_least: 0 }}"
-          data-inventory-policy="{{ current_variant.inventory_policy | escape }}"
-          data-total="100"
-        >
-          <div class="m-product-inventory__inner">
-            <span class="m-product-inventory__text">
-              <span class="m-product-inventory__pin"></span>
-              <span class="m-product-inventory__status"></span>
-            </span>
-            <span class="m-product-inventory__message"></span>
-          </div>
-          <script type="application/json">
-            [
-              {%- for variant in product.variants -%}
-                {"id":{{- variant.id -}},"inventory_quantity":{{- variant.inventory_quantity | at_least: 0 -}},"available":{{- variant.available -}}, "inventory_policy":"{{- variant.inventory_policy -}}"}
-                {%- unless forloop.last -%},{%- endunless -%}
-              {%- endfor -%}
-            ]
-          </script>
-        </m-product-inventory>
-      </div>
+      {% comment %}
+        <div class="main-product__block main-product__block-description">
+          {{ product.description | strip_html | truncatewords: 15 }}
+          <a class="m-product-quickview--viewmore m:block" href="{{ product.url }}">
+            {{- 'products.product.view_details' | t -}}
+          </a>
+        </div>
+        <div class="main-product__block main-product__block-inventory_status">
+          {% liquid
+            assign inventory_threshold = settings.low_inventory_threshold
+            assign show_inventory_count = settings.show_inventory_count
+            assign inventory_visibility = settings.inventory_visibility
+          %}
+          <m-product-inventory
+            class="m-product-inventory m:block"
+            data-product-id="{{ product.id }}"
+            data-normal-text=""
+            data-low-text=""
+            data-outofstock-text=""
+            data-backordered-text="{%- render 'new-locale', key: 'products.product.backordered' -%}"
+            data-hide-stock-backordered="{%- if settings.inventory_hide_backordered -%}true{%- else -%}false{%- endif -%}"
+            data-inventory-threshold="{{ inventory_threshold }}"
+            data-show-inventory-count="{{ show_inventory_count }}"
+            data-inventory-visibility="{{ inventory_visibility }}"
+            data-status=""
+            data-variant-available="{{ current_variant.available }}"
+            data-inventory-quantity="{{ current_variant.inventory_quantity | at_least: 0 }}"
+            data-inventory-policy="{{ current_variant.inventory_policy | escape }}"
+            data-total="100"
+          >
+            <div class="m-product-inventory__inner">
+              <span class="m-product-inventory__text">
+                <span class="m-product-inventory__pin"></span>
+                <span class="m-product-inventory__status"></span>
+              </span>
+              <span class="m-product-inventory__message"></span>
+            </div>
+            <script type="application/json">
+              [
+                {%- for variant in product.variants -%}
+                  {"id":{{- variant.id -}},"inventory_quantity":{{- variant.inventory_quantity | at_least: 0 -}},"available":{{- variant.available -}}, "inventory_policy":"{{- variant.inventory_policy -}}"}
+                  {%- unless forloop.last -%},{%- endunless -%}
+                {%- endfor -%}
+              ]
+            </script>
+          </m-product-inventory>
+        </div>
+      {% endcomment %}
       {% render 'product-form',
         section: section,
         section_id: section.id,
