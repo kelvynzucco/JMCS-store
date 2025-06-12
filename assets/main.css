@@ -3032,8 +3032,7 @@ sup {
   min-height: 46px;
   border: 1px solid rgb(var(--color-border));
   border-radius: var(--inputs-radius);
-  background: rgb(var(--color-form-field));
-  color: rgb(var(--color-form-field-text));
+  color: white;
 }
 .m-quantity__button {
   width: 46px;

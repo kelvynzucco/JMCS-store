@@ -191,15 +191,17 @@
               </div>
               {% assign show_terms = true %}
             {% endif %}
-            <div
-              class="m-cart__checkout-button{% if show_terms %} show-terms-conditions{% endif %}"
-              {% if show_terms %}
-                data-terms-action disabled
-              {% endif %}
-            >
-              <button type="submit" name="checkout" class="m:w-full m-button m-button--primary">
-                <span>{{ 'cart.general.checkout' | t | upcase }}</span>
-              </button>
+            <div class="cart-drawer-form-inner">
+              <div
+                class="m-cart__checkout-button{% if show_terms %} show-terms-conditions{% endif %}"
+                {% if show_terms %}
+                  data-terms-action disabled
+                {% endif %}
+              >
+                <button type="submit" name="checkout" class="m:w-full m-button m-button--primary">
+                  <span>{{ 'cart.general.checkout' | t | upcase }}</span>
+                </button>
+              </div>
             </div>
             {%- if additional_checkout_buttons -%}
               <div class="additional-checkout-buttons m:w-full">

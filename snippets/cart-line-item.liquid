@@ -35,6 +35,13 @@
         <a class="m-cart-item__title" href="{{ item.url }}" data-role="product-title">
           {{ item.product.title }}
         </a>
+        <p class="product-unit-cartdrawer">
+          {% assign unidades = item.product.metafields.custom.unidades | plus: 0 %}
+          {% if unidades > 0 %}
+            {{ unidades }}
+            {% if unidades == 1 %}Unidade{% else %}Unidades{% endif %}
+          {% endif %}
+        </p>
         {%- liquid
           assign variant_options = 'template ' | split: ' '
           if item.product.has_only_default_variant != true

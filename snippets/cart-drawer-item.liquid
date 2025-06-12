@@ -19,56 +19,56 @@
       <a href="{{- item.url -}}" class="m-cart-item__title">
         {{- item.product.title -}}
       </a>
+      <div class="product-properties-drawer">
+        <p class="product-unit-cartdrawer">
+          {% assign unidades = item.product.metafields.custom.unidades | plus: 0 %}
+          {% if unidades > 0 %}
+            {{ unidades }}
+            {% if unidades == 1 %}Unidade{% else %}Unidades{% endif %}
+          {% endif %}
+        </p>
 
-      <p class="product-unit-cartdrawer">
-        {% assign unidades = item.product.metafields.custom.unidades | plus: 0 %}
-        {% if unidades > 0 %}
-          {{ unidades }}
-          {% if unidades == 1 %}Unidade{% else %}Unidades{% endif %}
-        {% endif %}
-      </p>
-
-      <div class="m-cart-drawer-item__variant m:text-color-subtext">
-        {%- unless item.product.has_only_default_variant -%}
-          {%- for option in item.options_with_values -%}
-            <p class="m-cart-item__option m:text-sm">
-              <span class="m:font-medium">
-                {{- option.name -}}
-                :
+        <div class="m-cart-drawer-item__variant m:text-color-subtext">
+          {%- unless item.product.has_only_default_variant -%}
+            {%- for option in item.options_with_values -%}
+              <p class="m-cart-item__option m:text-sm">
+                <span class="m:font-medium">
+                  {{- option.name -}}
+                  :
+                </span>
+                {{- option.value -}}
+              </p>
+            {%- endfor -%}
+          {%- endunless -%}
+          {% comment %}Properties{% endcomment %}
+          {%- liquid
+            assign property_size = item.properties | size
+            assign properties = 'template ' | split: ' '
+            if property_size > 0
+              assign properties = item.properties
+            endif
+          -%}
+          {%- for p in properties -%}
+            {%- assign property_first_char = p.first | slice: 0 -%}
+            <p
+              class="m-cart-item__property m:text-sm{% if property_size == 0 or p.last == blank or property_first_char == '_' %} m:hidden{% endif %}"
+              data-cart-item-property
+            >
+              <span class="m:font-medium" data-cart-item-property-name>{{ p.first }}: </span>
+              {%- comment -%}
+                Check if there was an uploaded file associated
+              {%- endcomment -%}
+              <span data-cart-item-property-value>
+                {%- if p.last contains '/uploads/' -%}
+                  <a href="{{ p.last }}" data-role="product-upload" target="_blank">{{ p.last | split: '/' | last }}</a>
+                {%- else -%}
+                  {{ p.last }}
+                {%- endif -%}
               </span>
-              {{- option.value -}}
             </p>
           {%- endfor -%}
-        {%- endunless -%}
-        {% comment %}Properties{% endcomment %}
-        {%- liquid
-          assign property_size = item.properties | size
-          assign properties = 'template ' | split: ' '
-          if property_size > 0
-            assign properties = item.properties
-          endif
-        -%}
-        {%- for p in properties -%}
-          {%- assign property_first_char = p.first | slice: 0 -%}
-          <p
-            class="m-cart-item__property m:text-sm{% if property_size == 0 or p.last == blank or property_first_char == '_' %} m:hidden{% endif %}"
-            data-cart-item-property
-          >
-            <span class="m:font-medium" data-cart-item-property-name>{{ p.first }}: </span>
-            {%- comment -%}
-              Check if there was an uploaded file associated
-            {%- endcomment -%}
-            <span data-cart-item-property-value>
-              {%- if p.last contains '/uploads/' -%}
-                <a href="{{ p.last }}" data-role="product-upload" target="_blank">{{ p.last | split: '/' | last }}</a>
-              {%- else -%}
-                {{ p.last }}
-              {%- endif -%}
-            </span>
-          </p>
-        {%- endfor -%}
+        </div>
       </div>
-
       <div class="m-cart-item__price">
         {%- if item.original_price != item.final_price -%}
           <div class="m-cart-item__price-discounted">
