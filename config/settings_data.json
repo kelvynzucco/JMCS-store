@@ -45,6 +45,7 @@
     "pcard_layout": "1",
     "pcard_alignment": "center",
     "pcard_image_ratio": "1/1",
+    "show_swatch_option": false,
     "show_quickview_button": false,
     "show_wishlist_button": false,
     "show_compare_button": false,
