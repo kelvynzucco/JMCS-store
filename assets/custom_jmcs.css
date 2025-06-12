@@ -738,7 +738,8 @@ select {
   flex-wrap: wrap;
 }
 
-.m-product-card__action-wrapper button {
+.m-product-card__action-wrapper button,
+.m-product-card__action-wrapper a {
   background: rgba(4, 6, 28, 0.7);
   color: var(--white-mid);
   min-height: 46px;
@@ -750,7 +751,9 @@ select {
   -webkit-backdrop-filter: blur(4px);
 }
 .m-product-card__action-wrapper button:hover,
-.m-product-card__action-wrapper button:focus {
+.m-product-card__action-wrapper button:focus,
+.m-product-card__action-wrapper a:hover,
+.m-product-card__action-wrapper a:focus {
   background: rgba(53, 70, 228, 0.7);
   color: white;
   border: rgba(53, 70, 228, 0.7) !important;
@@ -970,6 +973,10 @@ select {
 }
 
 /* outros */
+.product-unit-cartdrawer {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
 .form-field::placeholder {
   color: var(--white-mid);
 }
