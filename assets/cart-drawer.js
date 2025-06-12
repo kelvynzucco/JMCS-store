@@ -9,7 +9,9 @@ class MCartDrawer extends HTMLElement {
     this.setHeaderCartIconAccessibility();
     this.cartDrawerCloseIcon.addEventListener("click", this.close.bind(this));
     this.addEventListener("click", (event) => {
-      if (event.target.closest(".m-cart-drawer__inner") !== this.cartDrawerInner) {
+      if (
+        event.target.closest(".m-cart-drawer__inner") !== this.cartDrawerInner
+      ) {
         this.close();
       }
     });
@@ -50,13 +52,17 @@ class MCartDrawer extends HTMLElement {
   }
 
   renderContents(parsedState) {
-    this.classList.contains("m-cart--empty") && this.classList.remove("m-cart--empty");
+    this.classList.contains("m-cart--empty") &&
+      this.classList.remove("m-cart--empty");
     this.productId = parsedState.id;
     this.getSectionsToRender().forEach((section) => {
       const sectionElement = section.selector
         ? document.querySelector(section.selector)
         : document.getElementById(section.id);
-      sectionElement.innerHTML = this.getSectionInnerHTML(parsedState.sections[section.id], section.selector);
+      sectionElement.innerHTML = this.getSectionInnerHTML(
+        parsedState.sections[section.id],
+        section.selector
+      );
     });
     setTimeout(() => {
       this.open();
@@ -88,13 +94,19 @@ class MCartDrawer extends HTMLElement {
             const sectionElement = section.selector
               ? document.querySelector(section.selector)
               : document.getElementById(section.id);
-            sectionElement.innerHTML = this.getSectionInnerHTML(responseText, section.selector);
+            sectionElement.innerHTML = this.getSectionInnerHTML(
+              responseText,
+              section.selector
+            );
           } else {
             if (updateFooter) {
               const sectionElement = section.selector
                 ? document.querySelector(section.selector)
                 : document.getElementById(section.id);
-              sectionElement.innerHTML = this.getSectionInnerHTML(responseText, section.selector);
+              sectionElement.innerHTML = this.getSectionInnerHTML(
+                responseText,
+                section.selector
+              );
             }
           }
         });
@@ -109,7 +121,9 @@ class MCartDrawer extends HTMLElement {
   }
 
   getSectionInnerHTML(html, selector = ".shopify-section") {
-    return new DOMParser().parseFromString(html, "text/html").querySelector(selector).innerHTML;
+    return new DOMParser()
+      .parseFromString(html, "text/html")
+      .querySelector(selector).innerHTML;
   }
 
   getSectionsToRender() {
@@ -138,7 +152,9 @@ class MCartDrawer extends HTMLElement {
   }
 
   getSectionDOM(html, selector = ".shopify-section") {
-    return new DOMParser().parseFromString(html, "text/html").querySelector(selector);
+    return new DOMParser()
+      .parseFromString(html, "text/html")
+      .querySelector(selector);
   }
 
   setActiveElement(element) {

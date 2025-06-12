@@ -106,18 +106,16 @@
             assign show_terms = true
           endif
         %}
-        {% comment %}
-          {% if enable_dynamic_checkout %}
-            <div
-              class="m-product-dynamic-checkout buy-one-click show-add-to-cart"
-              {% if show_terms %}
-                data-terms-action disabled
-              {% endif %}
-            >
-              {{ form | payment_button }}
-            </div>
-          {% endif %}
-        {% endcomment %}
+        {% if enable_dynamic_checkout %}
+          <div
+            class="m-product-dynamic-checkout buy-one-click show-add-to-cart"
+            {% if show_terms %}
+              data-terms-action disabled
+            {% endif %}
+          >
+            {{ form | payment_button }}
+          </div>
+        {% endif %}
       </div>
       {% unless template == 'quickview' %}
         <div class="m-product-form-message"></div>

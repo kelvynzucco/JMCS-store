@@ -1047,7 +1047,7 @@
   color: #86a4ef;
 }
 .m-search-form--full:hover {
-  filter: drop-shadow(0 0 5.6px rgba(53, 70, 228, 0.68));
+  filter: drop-shadow(0 0 10px rgba(53, 70, 228, 0.3));
 }
 
 .m-search-form__label {

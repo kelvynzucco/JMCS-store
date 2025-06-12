@@ -126,55 +126,57 @@
       <div class="m-cart-drawer-item__quantity m:flex m:items-center">
         {%- if gift_wrap_id == null or item.id != gift_wrap_id -%}
           {%- if item.properties._parentKey == blank -%}
-            <m-quantity-input class="m-quantity">
-              <button
-                class="m-quantity__button"
-                name="minus"
-                type="button"
-                aria-label="{{ 'products.product.decrease_quantity' | t: title: item.product.title }}"
-              >
-                <svg
-                  fill="currentColor"
-                  stroke="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 384 512"
+            <div class="m-quantity-inner">
+              <m-quantity-input class="m-quantity">
+                <button
+                  class="m-quantity__button"
+                  name="minus"
+                  type="button"
+                  aria-label="{{ 'products.product.decrease_quantity' | t: title: item.product.title }}"
                 >
-                  <path d="M376 232H8c-4.42 0-8 3.58-8 8v32c0 4.42 3.58 8 8 8h368c4.42 0 8-3.58 8-8v-32c0-4.42-3.58-8-8-8z"/>
-                </svg>
-              </button>
-              <input
-                class="m-quantity__input"
-                type="number"
-                data-quantity-variant-id="{{ item.variant.id }}"
-                name="updates[]"
-                value="{{ item.quantity }}"
-                {% # theme-check-disable %}
-                data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
-                min="{{ item.variant.quantity_rule.min }}"
-                {% if item.variant.quantity_rule.max != null %}
-                  max="{{ item.variant.quantity_rule.max }}"
-                {% endif %}
-                step="{{ item.variant.quantity_rule.increment }}"
-                {% # theme-check-enable %}
-                id="MinimogDrawer-quantity-{{ item.index | plus: 1 }}"
-                data-index="{{ item.index | plus: 1 }}"
-              >
-              <button
-                class="m-quantity__button"
-                name="plus"
-                type="button"
-                aria-label="{{ 'products.product.increase_quantity' | t: title: item.product.title }}"
-              >
-                <svg
-                  fill="currentColor"
-                  stroke="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 384 512"
+                  <svg
+                    fill="currentColor"
+                    stroke="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 384 512"
+                  >
+                    <path d="M376 232H8c-4.42 0-8 3.58-8 8v32c0 4.42 3.58 8 8 8h368c4.42 0 8-3.58 8-8v-32c0-4.42-3.58-8-8-8z"/>
+                  </svg>
+                </button>
+                <input
+                  class="m-quantity__input"
+                  type="number"
+                  data-quantity-variant-id="{{ item.variant.id }}"
+                  name="updates[]"
+                  value="{{ item.quantity }}"
+                  {% # theme-check-disable %}
+                  data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
+                  min="{{ item.variant.quantity_rule.min }}"
+                  {% if item.variant.quantity_rule.max != null %}
+                    max="{{ item.variant.quantity_rule.max }}"
+                  {% endif %}
+                  step="{{ item.variant.quantity_rule.increment }}"
+                  {% # theme-check-enable %}
+                  id="MinimogDrawer-quantity-{{ item.index | plus: 1 }}"
+                  data-index="{{ item.index | plus: 1 }}"
                 >
-                  <path d="M376 232H216V72c0-4.42-3.58-8-8-8h-32c-4.42 0-8 3.58-8 8v160H8c-4.42 0-8 3.58-8 8v32c0 4.42 3.58 8 8 8h160v160c0 4.42 3.58 8 8 8h32c4.42 0 8-3.58 8-8V280h160c4.42 0 8-3.58 8-8v-32c0-4.42-3.58-8-8-8z"/>
-                </svg>
-              </button>
-            </m-quantity-input>
+                <button
+                  class="m-quantity__button"
+                  name="plus"
+                  type="button"
+                  aria-label="{{ 'products.product.increase_quantity' | t: title: item.product.title }}"
+                >
+                  <svg
+                    fill="currentColor"
+                    stroke="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 384 512"
+                  >
+                    <path d="M376 232H216V72c0-4.42-3.58-8-8-8h-32c-4.42 0-8 3.58-8 8v160H8c-4.42 0-8 3.58-8 8v32c0 4.42 3.58 8 8 8h160v160c0 4.42 3.58 8 8 8h32c4.42 0 8-3.58 8-8V280h160c4.42 0 8-3.58 8-8v-32c0-4.42-3.58-8-8-8z"/>
+                  </svg>
+                </button>
+              </m-quantity-input>
+            </div>
           {%- endif -%}
         {%- else -%}
           <m-gift-wrapping-input
