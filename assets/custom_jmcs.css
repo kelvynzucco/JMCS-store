@@ -950,6 +950,11 @@ select {
   outline: none;
 }
 
+.m-tab-content__inner .rte {
+  column-count: 2;
+  column-gap: 2rem;
+}
+
 /* quick view product */
 .m-product-quickview--info {
   display: flex;
@@ -1161,5 +1166,8 @@ select {
   }
   .jmcs-reviews .swiper-slide:hover {
     box-shadow: none;
+  }
+  .m-tab-content__inner .rte {
+    column-count: 1;
   }
 }
