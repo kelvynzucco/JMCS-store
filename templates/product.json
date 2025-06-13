@@ -128,7 +128,7 @@
       "settings": {
         "container": "container-fluid",
         "color_scheme": "dark",
-        "remove_params": true,
+        "remove_params": false,
         "heading": "Você também pode gostar",
         "heading_size": "h3",
         "text_align": "center",
