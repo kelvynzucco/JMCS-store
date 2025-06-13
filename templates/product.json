@@ -123,28 +123,6 @@
         "animations": "inherit"
       }
     },
-    "product-recommendations": {
-      "type": "product-recommendations",
-      "settings": {
-        "container": "container-fluid",
-        "color_scheme": "dark",
-        "remove_params": false,
-        "heading": "Você também pode gostar",
-        "heading_size": "h3",
-        "text_align": "center",
-        "limit": 8,
-        "columns": 4,
-        "column_gap": 30,
-        "enable_slider": true,
-        "show_pagination": false,
-        "show_navigation": true,
-        "use_scroll_mobile": true,
-        "padding_top": 100,
-        "padding_bottom": 100,
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
     "featured_collection_DwhbFh": {
       "type": "featured-collection",
       "name": "Featured collection",
@@ -189,7 +167,6 @@
   "order": [
     "main",
     "product-details-tabs",
-    "product-recommendations",
     "featured_collection_DwhbFh"
   ]
 }
