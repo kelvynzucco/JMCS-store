@@ -113,7 +113,7 @@
   transform: translate3d(100%, 0, 0);
 }
 .m-product-media--slider .nav-swiper-container .m-product-media {
-  padding: 5px;
+  padding: 8px;
   border: 1px solid rgb(var(--color-background));
   cursor: pointer;
 }
