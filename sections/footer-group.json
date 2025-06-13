@@ -99,39 +99,13 @@
     },
     "age-verifier-popup": {
       "type": "age-verifier-popup",
-      "blocks": {
-        "block-1": {
-          "type": "heading",
-          "settings": {
-            "heading": "Confirm your age"
-          }
-        },
-        "block-2": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Are you 18 years old or older?</p>"
-          }
-        },
-        "block-3": {
-          "type": "buttons",
-          "settings": {
-            "decline_button": "No, I'm not",
-            "approve_button": "Yes, I am"
-          }
-        }
-      },
-      "block_order": [
-        "block-1",
-        "block-2",
-        "block-3"
-      ],
       "settings": {
         "design_mode": false,
         "enable": false,
         "bg_blur": true,
-        "decline_heading": "Come back when you're older",
-        "decline_content": "<p>Sorry, the content of this store can't be seen by a younger audience. Come back when you're older.</p>",
-        "return_button": "Oops, I entered incorrectly"
+        "decline_heading": "",
+        "decline_content": "",
+        "return_button": ""
       }
     }
   },
