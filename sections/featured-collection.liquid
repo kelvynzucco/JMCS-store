@@ -173,7 +173,7 @@
         <div class="m-product-list m-slider-control-hover-inside m-mixed-layout {% if mobile_disable_slider or enable_slider != true %} m-mixed-layout--mobile-grid{% if use_scroll_mobile %} m-mixed-layout--mobile-scroll{% endif %}{% endif %}">
           <div class="m-mixed-layout__wrapper{% if enable_slider %} swiper-container{% endif %}">
             <div
-              class="m-mixed-layout__inner m:grid m-cols-{{ items_per_row }} m:grid-2-cols md:m:grid-{{ items_per_row | divided_by: 2.0 | ceil }}-cols lg:m:grid-3-cols xl:m:grid-{{ items_per_row }}-cols{% if enable_slider %} swiper-wrapper{% endif %}"
+              class="m-mixed-layout__inner m:grid m-cols-{{ items_per_row }} m:grid-2-cols md:m:grid-{{ items_per_row | divided_by: 2.0 | ceil }}-cols lg:m:grid-4-cols xl:m:grid-{{ items_per_row }}-cols{% if enable_slider %} swiper-wrapper{% endif %}"
               data-products-container
             >
               {% if current_collection != blank %}
