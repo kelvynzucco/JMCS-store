@@ -971,6 +971,16 @@ select {
   border-radius: 20px;
 }
 
+.main-product__block .m-product-option {
+  margin-bottom: 16px;
+}
+
+.main-product__block .m-product-form--wrapper {
+  gap: 20px;
+}
+.main-product__block .m-product-option--label {
+  margin-bottom: 8px;
+}
 /* quick view product */
 .m-product-quickview--info {
   display: flex;
