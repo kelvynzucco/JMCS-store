@@ -981,6 +981,29 @@ select {
 .main-product__block .m-product-option--label {
   margin-bottom: 8px;
 }
+
+.m-product-addon--item svg {
+  color: var(--blue-primary);
+}
+
+.m-product-addon--item:hover svg {
+  color: var(--blue-hover-);
+}
+
+.main-product__block .m-product-addon {
+  border: none;
+  background-image: linear-gradient(
+    to right,
+    var(--background-blue) 0%,
+    var(--gradient-mid) 20%,
+    var(--blue-primary) 80%,
+    var(--background-blue) 100%
+  );
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
 /* quick view product */
 .m-product-quickview--info {
   display: flex;
