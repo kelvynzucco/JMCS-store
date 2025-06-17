@@ -755,12 +755,6 @@ select {
   -webkit-backdrop-filter: blur(4px);
 }
 
-.m-product-tag:not(.hidden) {
-  font-family: "Francois One", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-}
-
 .m-product-card__action-wrapper button:hover,
 .m-product-card__action-wrapper button:focus,
 .m-product-card__action-wrapper a:hover,
@@ -1147,6 +1141,27 @@ select {
   border-radius: 38px 38px 0 0;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+}
+/* Mobile menu */
+.menu-btns-wrap {
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+}
+
+.menu-btns-wrap .m-button {
+  border: none;
+  box-shadow: none;
+}
+.menu-btns-wrap .m-button:hover {
+  border: none;
+  box-shadow: none;
+}
+li.m-menu-mobile__item {
+  transition: background 0.3s ease;
+}
+li.m-menu-mobile__item:hover {
+  background-color: #3546e494;
 }
 
 /* MEDIA QUERIES */

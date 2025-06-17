@@ -1959,7 +1959,6 @@ textarea:not(
 .m-button:hover,
 .shopify-payment-button__button.shopify-payment-button__button--unbranded:hover,
 .spr-button.spr-button-primary:hover {
-  border-color: rgb(var(--color-button-hover));
   background-color: rgb(var(--color-button-hover));
   color: rgb(var(--color-button-text-hover));
 }
@@ -5486,7 +5485,7 @@ variant-picker
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(63, 65, 78, 0.7) !important;
+  background: rgba(4, 6, 28, 0.7) !important;
   backdrop-filter: blur(4px) !important;
   -webkit-backdrop-filter: blur(4px) !important;
 }

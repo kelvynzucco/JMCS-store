@@ -3,30 +3,42 @@
     <div class="m-menu-customer__wrapper">
       <div class="m-menu-customer__label">{{ 'customer.account.title' | t }}</div>
       {% if customer %}
-        <a href="{{ routes.account_url }}" class="m-menu-customer__name">
-          <svg width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16.556 21v-2.222a4.445 4.445 0 0 0-4.445-4.445H5.444A4.444 4.444 0 0 0 1 18.778V21M8.778 9.889a4.444 4.444 0 1 0 0-8.889 4.444 4.444 0 0 0 0 8.889" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span>{{ customer.first_name }}</span>
-        </a>
-        <a href="{{ routes.account_logout_url }}" class="m-button m-button--secondary m-logout-button">
-          {{- 'customer.account.log_out' | t -}}
-        </a>
+        <div class="menu-btns-wrap">
+          <div class="jmcs-button_inner">
+            <a href="{{ routes.account_url }}" class="m-menu-customer__name">
+              <svg width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.556 21v-2.222a4.445 4.445 0 0 0-4.445-4.445H5.444A4.444 4.444 0 0 0 1 18.778V21M8.778 9.889a4.444 4.444 0 1 0 0-8.889 4.444 4.444 0 0 0 0 8.889" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>{{ customer.first_name }}</span>
+            </a>
+          </div>
+          <div class="jmcs-button_inner m-logout-button">
+            <a href="{{ routes.account_logout_url }}" class="m-button">
+              {{- 'customer.account.log_out' | t -}}
+            </a>
+          </div>
+        </div>
       {% else %}
-        <a
-          href="{{ routes.account_login_url }}"
-          class="m-button m-button--primary m-signin-button"
-          data-tab="signin"
-        >
-          {{ 'layout.customer.log_in' | t }}
-        </a>
-        <a
-          href="{{ routes.account_register_url }}"
-          class="m-button m-button--secondary m-register-button"
-          data-tab="register"
-        >
-          {{ 'customer.register.title' | t }}
-        </a>
+        <div class="menu-btns-wrap">
+          <div class="jmcs-button_inner m-signin-button">
+            <a
+              href="{{ routes.account_login_url }}"
+              class="m-button"
+              data-tab="signin"
+            >
+              {{ 'layout.customer.log_in' | t }}
+            </a>
+          </div>
+          <div class="jmcs-button_inner m-register-button">
+            <a
+              href="{{ routes.account_register_url }}"
+              class="m-button"
+              data-tab="register"
+            >
+              {{ 'customer.register.title' | t }}
+            </a>
+          </div>
+        </div>
       {% endif %}
     </div>
   {% endif %}

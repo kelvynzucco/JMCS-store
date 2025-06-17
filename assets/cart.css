@@ -291,6 +291,7 @@
 .m-cart-addon__header {
   display: flex;
   column-gap: 5px;
+  justify-content: center;
 }
 .m-cart-addon__header button {
   background: none;
