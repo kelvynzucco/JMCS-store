@@ -3121,7 +3121,7 @@ responsive-image {
   display: inline-block;
   transition-duration: var(--m-duration-long);
   transition-timing-function: ease;
-  background-color: var(--bg-card-placeholder);
+  background-color: rgba(0, 0, 0, 0);
   transition-property: background-color;
 }
 responsive-image img {

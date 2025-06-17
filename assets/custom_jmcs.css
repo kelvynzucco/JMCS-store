@@ -42,8 +42,8 @@ select {
   background-image: linear-gradient(
     to right,
     var(--background-blue) 0%,
-    var(--gradient-mid) 20%,
-    var(--blue-primary) 80%,
+    var(--blue-primary) 20%,
+    var(--gradient-mid) 80%,
     var(--background-blue) 100%
   );
   background-size: 100% 1px;
@@ -160,8 +160,8 @@ select {
   background: linear-gradient(
     to right,
     var(--background-blue),
-    var(--gradient-mid) 20%,
-    var(--blue-primary) 80%,
+    var(--blue-primary) 20%,
+    var(--gradient-mid) 80%,
     var(--background-blue)
   );
 }
@@ -313,8 +313,8 @@ select {
   background: linear-gradient(
     to right,
     var(--background-blue) 0%,
-    var(--gradient-mid) 20%,
-    var(--blue-primary) 80%,
+    var(--blue-primary) 20%,
+    var(--gradient-mid) 80%,
     var(--background-blue) 100%
   );
 }
@@ -998,8 +998,8 @@ select {
   background-image: linear-gradient(
     to right,
     var(--background-blue) 0%,
-    var(--gradient-mid) 20%,
-    var(--blue-primary) 80%,
+    var(--blue-primary) 20%,
+    var(--gradient-mid) 80%,
     var(--background-blue) 100%
   );
   background-size: 100% 1px;
