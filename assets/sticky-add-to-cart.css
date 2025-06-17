@@ -75,15 +75,15 @@
 }
 .m-sticky-addtocart .m-product-option--dropdown-select {
   border-radius: 999px;
-  border: 1px solid rgb(var(--color-border));
-  margin-right: 20px;
   min-height: 46px;
   background-color: #04061c;
   padding: 0 40px 0 16px;
   cursor: pointer;
   transition: box-shadow 0.3s ease;
 }
-
+.m-sticky-addtocart .option-content-inner {
+  margin-right: 20px;
+}
 .m-sticky-addtocart .m-product-option--dropdown-select:focus,
 .m-sticky-addtocart .m-product-option--dropdown-select:focus-visible {
   outline: none !important;

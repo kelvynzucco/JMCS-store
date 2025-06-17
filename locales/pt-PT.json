@@ -381,7 +381,7 @@
   "products": {
     "product": {
       "regular_price": "Preço regular",
-      "sold_out": "Vendido",
+      "sold_out": "Esgotado",
       "availability": "Disponibilidade",
       "brand": "Marca",
       "colors": "Cores",
@@ -435,7 +435,7 @@
       "save_html": "Economize <span class=\"m-currency--saved m:font-medium\" data-saved-price>{{ amount }}</span>",
       "recently_viewed_products": "Produtos vistos recentemente",
       "select_options": "Selecione as opções",
-      "sold": "Vendido",
+      "sold": "Esgotado",
       "available": "Disponível",
       "xr_button": "Veja no seu espaço",
       "xr_button_label": "Visualize em seu espaço, carregue item em janela de realidade aumentada",

@@ -83,26 +83,28 @@
             <label for="id" class="m:visually-hidden">
               {%- render 'new-locale', key: 'products.product.select_options' -%}
             </label>
-            <select
-              name="id"
-              class="m-product-option--dropdown-select{% if product.has_only_default_variant %} m:hidden{% endif %}"
-            >
-              {% comment %} <option value="" disabled>{% render 'new-locale', key: 'products.product.select_options' %}</option> {% endcomment %}
-              {% for variant in product.variants %}
-                {% assign selected = false %}
-                {%- if variant.id == product.selected_or_first_available_variant.id -%}
-                  {% assign selected = true %}
-                {%- endif -%}
-                <option
-                  value="{{ variant.id }}"
-                  {% if selected %}
-                    selected="true"
-                  {% endif %}
-                >
-                  {{ variant.title }}
-                </option>
-              {% endfor %}
-            </select>
+            <div class="option-content-inner {% if product.has_only_default_variant %} m:hidden{% endif %}">
+              <select
+                name="id"
+                class="m-product-option--dropdown-select{% if product.has_only_default_variant %} m:hidden{% endif %}"
+              >
+                {% comment %} <option value="" disabled>{% render 'new-locale', key: 'products.product.select_options' %}</option> {% endcomment %}
+                {% for variant in product.variants %}
+                  {% assign selected = false %}
+                  {%- if variant.id == product.selected_or_first_available_variant.id -%}
+                    {% assign selected = true %}
+                  {%- endif -%}
+                  <option
+                    value="{{ variant.id }}"
+                    {% if selected %}
+                      selected="true"
+                    {% endif %}
+                  >
+                    {{ variant.title }}
+                  </option>
+                {% endfor %}
+              </select>
+            </div>
             {% render 'product-qty-input',
               class: 'm-sticky-addtocart--quantity',
               product_form_id: product_form_id,

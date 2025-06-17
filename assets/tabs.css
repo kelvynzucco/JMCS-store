@@ -27,6 +27,18 @@
   width: 100%;
   color: #3546e4;
 }
+
+.m-tab-header:after {
+  color: transparent;
+}
+
+.m-tab-header.active:focus,
+.m-tab-header.active:focus-visible {
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
 @media screen and (max-width: 767px) {
   .m-tab-header {
     padding: 8px 0;

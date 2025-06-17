@@ -5456,6 +5456,7 @@ variant-picker
 }
 .m-product-tag:not(.hidden) {
   display: inline-flex;
+  color: white;
 }
 .m-product-tag--discounted span {
   margin-left: 5px;
@@ -5472,10 +5473,10 @@ variant-picker
   display: none;
 }
 .m-product-tag--soldout {
-  width: 54px;
+  width: 50%;
   height: 54px;
   font-size: 10px;
-  border-radius: 50%;
+  border-radius: 999px;
   line-height: 12px;
   align-items: center;
   justify-content: center;
@@ -5486,6 +5487,9 @@ variant-picker
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background: rgba(4, 6, 28, 0.8) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
 }
 @media screen and (max-width: 767px) {
   .m-product-tag {
