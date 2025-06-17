@@ -755,6 +755,12 @@ select {
   -webkit-backdrop-filter: blur(4px);
 }
 
+.m-product-tag:not(.hidden) {
+  font-family: "Francois One", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
 .m-product-card__action-wrapper button:hover,
 .m-product-card__action-wrapper button:focus,
 .m-product-card__action-wrapper a:hover,

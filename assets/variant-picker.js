@@ -27,7 +27,13 @@ if (!customElements.get("variant-picker")) {
       this.domNodes = queryDomNodes(this.selectors, this.productWrapper);
 
       const themeProducts = window._themeProducts || {};
-      const { productId, sectionId, productUrl, hasOnlyDefaultVariant, showFeaturedMedia } = this.dataset;
+      const {
+        productId,
+        sectionId,
+        productUrl,
+        hasOnlyDefaultVariant,
+        showFeaturedMedia,
+      } = this.dataset;
 
       Object.assign(this, {
         productId,
@@ -36,7 +42,10 @@ if (!customElements.get("variant-picker")) {
         hasOnlyDefaultVariant: hasOnlyDefaultVariant === "true",
         showFeaturedMedia: showFeaturedMedia === "true",
         variantData: this.getVariantData(),
-        productData: Object.assign(this.getProductJson(), themeProducts[productId]),
+        productData: Object.assign(
+          this.getProductJson(),
+          themeProducts[productId]
+        ),
       });
 
       this.handleQueryString();
@@ -48,10 +57,15 @@ if (!customElements.get("variant-picker")) {
 
     handleQueryString() {
       const hasQueryString = window.location.search.includes("?variant=");
-      const disableSelectedVariantDefault = this.dataset.disableSelectedVariantDefault === "true";
-      const hasMultipleVariants = this.productData && this.productData.variants && this.productData.variants.length > 1;
+      const disableSelectedVariantDefault =
+        this.dataset.disableSelectedVariantDefault === "true";
+      const hasMultipleVariants =
+        this.productData &&
+        this.productData.variants &&
+        this.productData.variants.length > 1;
 
-      this.selectedVariantDefault = disableSelectedVariantDefault && hasMultipleVariants && !hasQueryString;
+      this.selectedVariantDefault =
+        disableSelectedVariantDefault && hasMultipleVariants && !hasQueryString;
 
       if (this.selectedVariantDefault) {
         this.disableSelectedVariantDefault();
@@ -68,13 +82,19 @@ if (!customElements.get("variant-picker")) {
     }
 
     selectInitialVariant() {
-      const variantIdInput = this.productWrapper.querySelector(this.selectors.variantIdInput);
+      const variantIdInput = this.productWrapper.querySelector(
+        this.selectors.variantIdInput
+      );
       const selectedVariantId = Number(variantIdInput.value);
-      const currentVariant = this.productData.variants.find((variant) => variant.id === selectedVariantId);
+      const currentVariant = this.productData.variants.find(
+        (variant) => variant.id === selectedVariantId
+      );
 
       this.selectedVariant = variantIdInput;
       this.currentVariant = currentVariant;
-      this.productData.current_variant_id = currentVariant ? currentVariant.id : null;
+      this.productData.current_variant_id = currentVariant
+        ? currentVariant.id
+        : null;
       this.productData.initialVariant = currentVariant;
 
       if (currentVariant) {
@@ -89,7 +109,9 @@ if (!customElements.get("variant-picker")) {
       const mediaGalleryHandler = this.getMediaGallery.bind(this);
 
       mediaGalleryHandler();
-      ["matchMobile", "unmatchMobile"].forEach((event) => document.addEventListener(event, mediaGalleryHandler));
+      ["matchMobile", "unmatchMobile"].forEach((event) =>
+        document.addEventListener(event, mediaGalleryHandler)
+      );
 
       this.addEventListener("change", this.onVariantChange);
     }
@@ -101,12 +123,16 @@ if (!customElements.get("variant-picker")) {
     waitForMediaGallery() {
       return new Promise((resolve) => {
         const checkMediaGallery = () => {
-          this.mediaGallery = this.productWrapper.querySelector("media-gallery");
-          this.mediaGalleryMobile = this.productWrapper.querySelector("media-gallery-mobile");
+          this.mediaGallery =
+            this.productWrapper.querySelector("media-gallery");
+          this.mediaGalleryMobile = this.productWrapper.querySelector(
+            "media-gallery-mobile"
+          );
 
           const isMediaGalleryReady =
             this.mediaGallery &&
-            (this.mediaGallery.view === "featured-product" || this.mediaGallery.view === "quick-view") &&
+            (this.mediaGallery.view === "featured-product" ||
+              this.mediaGallery.view === "quick-view") &&
             this.mediaGallery.mediaMode;
 
           const isBothGalleriesReady =
@@ -128,21 +154,31 @@ if (!customElements.get("variant-picker")) {
 
     setupMediaGallery() {
       const isMobile = MinimogTheme.config.mqlMobile;
-      const effectiveMediaGallery = isMobile ? this.mediaGalleryMobile || this.mediaGallery : this.mediaGallery;
+      const effectiveMediaGallery = isMobile
+        ? this.mediaGalleryMobile || this.mediaGallery
+        : this.mediaGallery;
       this.media = effectiveMediaGallery;
 
       if (!this.hasSetupMediaData) {
         if (isMobile || effectiveMediaGallery.mediaMode === "slider") {
-          this.slides = effectiveMediaGallery.slider && effectiveMediaGallery.slider.slides;
-          this.slidesNav = effectiveMediaGallery.navSlider && effectiveMediaGallery.navSlider.slides;
+          this.slides =
+            effectiveMediaGallery.slider && effectiveMediaGallery.slider.slides;
+          this.slidesNav =
+            effectiveMediaGallery.navSlider &&
+            effectiveMediaGallery.navSlider.slides;
         } else {
-          this.mediaItems = effectiveMediaGallery.querySelectorAll(".m-product-media--item");
+          this.mediaItems = effectiveMediaGallery.querySelectorAll(
+            ".m-product-media--item"
+          );
         }
 
         this.layout = !isMobile ? effectiveMediaGallery.layout : undefined;
       }
 
-      if (!this.showFeaturedMedia || (this.enableVariantGroupImages && this.variantGroupImages.enable)) {
+      if (
+        !this.showFeaturedMedia ||
+        (this.enableVariantGroupImages && this.variantGroupImages.enable)
+      ) {
         this.updateMedia();
       }
       this.hasSetupMediaData = true;
@@ -160,11 +196,13 @@ if (!customElements.get("variant-picker")) {
       });
 
       // Reset select elements and clear data-selected-value for select picker fields
-      this.querySelectorAll("[data-picker-field='select']").forEach((pickerSelect) => {
-        const selectElm = pickerSelect.querySelector("select");
-        if (selectElm) selectElm.value = "";
-        pickerSelect.setAttribute("data-selected-value", "");
-      });
+      this.querySelectorAll("[data-picker-field='select']").forEach(
+        (pickerSelect) => {
+          const selectElm = pickerSelect.querySelector("select");
+          if (selectElm) selectElm.value = "";
+          pickerSelect.setAttribute("data-selected-value", "");
+        }
+      );
 
       // Clear text content for selected option labels
       this.querySelectorAll(".option-label--selected").forEach((label) => {
@@ -225,14 +263,20 @@ if (!customElements.get("variant-picker")) {
       const variantChangeEvent = new CustomEvent("variant:changed", {
         detail: { variant: this.currentVariant },
       });
-      window.MinimogEvents.emit(`${this.productId}__VARIANT_CHANGE`, this.currentVariant, this);
+      window.MinimogEvents.emit(
+        `${this.productId}__VARIANT_CHANGE`,
+        this.currentVariant,
+        this
+      );
       document.dispatchEvent(variantChangeEvent);
     }
 
     getDataImageVariant(variantId) {
       if (!this.variantGroupImages || !this.variantGroupImages.enable) return;
 
-      const currentVariantMedia = this.variantGroupImages.mapping.find((variant) => Number(variant.id) === variantId);
+      const currentVariantMedia = this.variantGroupImages.mapping.find(
+        (variant) => Number(variant.id) === variantId
+      );
       if (currentVariantMedia) {
         this.currentVariantMedia = currentVariantMedia.media;
       }
@@ -240,8 +284,11 @@ if (!customElements.get("variant-picker")) {
 
     getProductJson() {
       try {
-        const productDataElement = this.productWrapper.querySelector("#productData[type='application/json']");
-        if (!productDataElement) throw new Error("Fallback product data element not found.");
+        const productDataElement = this.productWrapper.querySelector(
+          "#productData[type='application/json']"
+        );
+        if (!productDataElement)
+          throw new Error("Fallback product data element not found.");
         return JSON.parse(productDataElement.textContent);
       } catch (error) {
         console.error("Error loading fallback product data:", error);
@@ -278,7 +325,9 @@ if (!customElements.get("variant-picker")) {
 
     getSelectedOptions() {
       // Convert NodeList to Array for easier manipulation
-      const pickerFields = Array.from(this.querySelectorAll("[data-picker-field]"));
+      const pickerFields = Array.from(
+        this.querySelectorAll("[data-picker-field]")
+      );
 
       // Map each picker field to its corresponding value based on its type
       this.options = pickerFields
@@ -307,7 +356,9 @@ if (!customElements.get("variant-picker")) {
         const selectedValue = field.dataset.selectedValue;
         const optionValue = this.options[index];
         if (selectedValue !== optionValue) {
-          const selectedOption = field.querySelector(`input[value="${optionValue.replace(/["\\]/g, "\\$&")}"]`);
+          const selectedOption = field.querySelector(
+            `input[value="${optionValue.replace(/["\\]/g, "\\$&")}"]`
+          );
           if (selectedOption) {
             selectedOption.checked = true;
             field.updateSelectedValue();
@@ -328,7 +379,8 @@ if (!customElements.get("variant-picker")) {
       const customData = mediaItems.map((item) => {
         const { mediaType, index } = item.dataset;
         if (mediaType === "image") {
-          const { mediaSrc, mediaWidth, mediaHeight, mediaAlt } = item.querySelector(".m-product-media").dataset;
+          const { mediaSrc, mediaWidth, mediaHeight, mediaAlt } =
+            item.querySelector(".m-product-media").dataset;
           return {
             src: mediaSrc,
             width: parseInt(mediaWidth),
@@ -358,12 +410,19 @@ if (!customElements.get("variant-picker")) {
       let mainItems = [],
         navItems = [];
 
-      const reorderItems = (referenceItems, items, isNav = false, isSlider = false) => {
+      const reorderItems = (
+        referenceItems,
+        items,
+        isNav = false,
+        isSlider = false
+      ) => {
         let reorderedItems = [];
 
         referenceItems.forEach((referenceItem, index) => {
           const foundItem = items.find(
-            (item) => item.querySelector("[data-media-id]").dataset.mediaId === referenceItem
+            (item) =>
+              item.querySelector("[data-media-id]").dataset.mediaId ===
+              referenceItem
           );
           if (foundItem) {
             foundItem.dataset.index = index;
@@ -373,8 +432,12 @@ if (!customElements.get("variant-picker")) {
         });
 
         items.forEach((item) => {
-          const dataIdMedia = item.querySelector("[data-media-id]").dataset.mediaId;
-          if (!referenceItems.includes(dataIdMedia) && !reorderedItems.includes(item)) {
+          const dataIdMedia =
+            item.querySelector("[data-media-id]").dataset.mediaId;
+          if (
+            !referenceItems.includes(dataIdMedia) &&
+            !reorderedItems.includes(item)
+          ) {
             item.dataset.index = reorderedItems.length;
             item.dataset.swiperSlideIndex = reorderedItems.length;
             reorderedItems.push(item);
@@ -384,9 +447,15 @@ if (!customElements.get("variant-picker")) {
         if (isSlider) {
           reorderedItems.forEach((item) => {
             if (isNav) {
-              item.classList.toggle("swiper-slide-thumb-active", item.dataset.swiperSlideIndex === "0");
+              item.classList.toggle(
+                "swiper-slide-thumb-active",
+                item.dataset.swiperSlideIndex === "0"
+              );
             } else {
-              item.classList.toggle("swiper-slide-active", item.dataset.swiperSlideIndex === "0");
+              item.classList.toggle(
+                "swiper-slide-active",
+                item.dataset.swiperSlideIndex === "0"
+              );
             }
           });
         }
@@ -397,7 +466,8 @@ if (!customElements.get("variant-picker")) {
       // Common function to process slides
       const processItems = (currentItems, items) => {
         currentItems.forEach((slide) => {
-          const dataIdMedia = slide.querySelector("[data-media-id]").dataset.mediaId;
+          const dataIdMedia =
+            slide.querySelector("[data-media-id]").dataset.mediaId;
 
           const isCurrentVariantMedia =
             this.currentVariantMedia &&
@@ -421,7 +491,12 @@ if (!customElements.get("variant-picker")) {
         if (this.media.mediaMode === "slider" && this.slides) {
           // Re-render main media
           processItems(this.slides, mainItems);
-          const reorderedMainItems = reorderItems(this.currentVariantMedia, mainItems, false, true);
+          const reorderedMainItems = reorderItems(
+            this.currentVariantMedia,
+            mainItems,
+            false,
+            true
+          );
 
           // Update slider with new slides
           this.media.slider.removeAllSlides();
@@ -432,7 +507,12 @@ if (!customElements.get("variant-picker")) {
           // Re-render nav media if available
           if (this.slidesNav) {
             processItems(this.slidesNav, navItems);
-            const reorderedNavItems = reorderItems(this.currentVariantMedia, navItems, true, true);
+            const reorderedNavItems = reorderItems(
+              this.currentVariantMedia,
+              navItems,
+              true,
+              true
+            );
             if (this.media.navSlider) {
               this.media.navSlider.removeAllSlides();
               this.media.navSlider.appendSlide(reorderedNavItems);
@@ -441,13 +521,18 @@ if (!customElements.get("variant-picker")) {
           }
         } else {
           // Ensure mediaWrapper is available before proceeding.
-          const mediaWrapper = this.media.querySelector(".m-product-media--list");
+          const mediaWrapper = this.media.querySelector(
+            ".m-product-media--list"
+          );
           if (!mediaWrapper) return;
 
           // Use a more functional approach to filter and process items.
           processItems(this.mediaItems, mainItems);
 
-          const reorderedItems = reorderItems(this.currentVariantMedia, mainItems);
+          const reorderedItems = reorderItems(
+            this.currentVariantMedia,
+            mainItems
+          );
 
           // Clear the mediaWrapper content once before appending new items.
           mediaWrapper.innerHTML = "";
@@ -485,22 +570,34 @@ if (!customElements.get("variant-picker")) {
 
     updateBrowserHistory() {
       if (this.currentVariant && this.dataset.updateUrl !== "false") {
-        window.history.replaceState({}, "", `${this.productUrl}?variant=${this.currentVariant.id}`);
+        window.history.replaceState(
+          {},
+          "",
+          `${this.productUrl}?variant=${this.currentVariant.id}`
+        );
       }
     }
 
     updateVariantInput() {
-      document.querySelectorAll(`#product-form-${this.sectionId}, #product-form-installment`).forEach((productForm) => {
-        const variantIdInput = productForm.querySelector(this.selectors.variantIdInput);
-        if (variantIdInput) {
-          variantIdInput.value = this.currentVariant.id;
-          variantIdInput.dispatchEvent(new Event("input", { bubbles: true }));
-        }
-      });
+      document
+        .querySelectorAll(
+          `#product-form-${this.sectionId}, #product-form-installment`
+        )
+        .forEach((productForm) => {
+          const variantIdInput = productForm.querySelector(
+            this.selectors.variantIdInput
+          );
+          if (variantIdInput) {
+            variantIdInput.value = this.currentVariant.id;
+            variantIdInput.dispatchEvent(new Event("input", { bubbles: true }));
+          }
+        });
     }
 
     updatePickupAvailability() {
-      const pickUpAvailability = this.productWrapper.querySelector("pickup-availability");
+      const pickUpAvailability = this.productWrapper.querySelector(
+        "pickup-availability"
+      );
 
       if (!pickUpAvailability) return;
 
@@ -539,14 +636,24 @@ if (!customElements.get("variant-picker")) {
         saleAmount: "[data-saved-price]",
       };
 
-      const mainProductPrices = this.productWrapper.querySelector(".main-product__block-price");
+      const mainProductPrices = this.productWrapper.querySelector(
+        ".main-product__block-price"
+      );
       if (!mainProductPrices) return;
 
       const moneyFormat = window.MinimogSettings.money_format;
-      const { priceWrapper, salePrice, unitPrice, compareAtPrice, saleBadge, saleAmount, unitPriceWrapper } =
-        queryDomNodes(selectors, mainProductPrices);
+      const {
+        priceWrapper,
+        salePrice,
+        unitPrice,
+        compareAtPrice,
+        saleBadge,
+        saleAmount,
+        unitPriceWrapper,
+      } = queryDomNodes(selectors, mainProductPrices);
 
-      const { compare_at_price, price, unit_price_measurement, available } = this.currentVariant;
+      const { compare_at_price, price, unit_price_measurement, available } =
+        this.currentVariant;
       const saleBadgeType = priceWrapper.dataset.saleBadgeType;
 
       const onSale = compare_at_price && compare_at_price > price;
@@ -572,7 +679,9 @@ if (!customElements.get("variant-picker")) {
         if (saleBadgeType === "fixed_amount") {
           value = formatMoney(compare_at_price - price, moneyFormat);
         } else {
-          const saving = Math.round(((compare_at_price - price) * 100) / compare_at_price) + "%";
+          const saving =
+            Math.round(((compare_at_price - price) * 100) / compare_at_price) +
+            "%";
           value = saving;
         }
         if (saleAmount) {
@@ -595,19 +704,26 @@ if (!customElements.get("variant-picker")) {
     }
 
     _getBaseUnit() {
-      const { reference_value, reference_unit } = this.currentVariant.unit_price_measurement;
-      return reference_value === 1 ? reference_unit : `${reference_value}${reference_unit}`;
+      const { reference_value, reference_unit } =
+        this.currentVariant.unit_price_measurement;
+      return reference_value === 1
+        ? reference_unit
+        : `${reference_value}${reference_unit}`;
     }
 
     updateButton(disable = true, text) {
-      const productForms = document.querySelectorAll(`.product-form-${this.sectionId}`);
+      const productForms = document.querySelectorAll(
+        `.product-form-${this.sectionId}`
+      );
       if (!productForms.length) return;
 
       productForms.forEach((productForm) => {
         const addButton = productForm.querySelector('[name="add"]');
         if (!addButton) return;
 
-        const dynamicCheckout = productForm.querySelector(".m-product-dynamic-checkout");
+        const dynamicCheckout = productForm.querySelector(
+          ".m-product-dynamic-checkout"
+        );
         const addButtonText = addButton.querySelector(".m-add-to-cart--text");
 
         const updateButtonState = (isDisabled) => {
@@ -616,7 +732,13 @@ if (!customElements.get("variant-picker")) {
           if (dynamicCheckout) {
             dynamicCheckout.classList.toggle("disabled", isDisabled);
           }
-          addButtonText.textContent = isDisabled && text ? text : window.MinimogStrings.addToCart;
+          if (isDisabled) {
+            if (text) {
+              addButtonText.textContent = text;
+            }
+          } else {
+            addButtonText.textContent = window.MinimogStrings.addToCart;
+          }
         };
 
         updateButtonState(disable);
@@ -626,8 +748,12 @@ if (!customElements.get("variant-picker")) {
     updateProductMeta() {
       const { available, sku } = this.currentVariant;
       const { inStock, outOfStock } = window.MinimogStrings;
-      const productAvailability = this.productWrapper.querySelector(this.selectors.productAvailability);
-      const productSku = this.productWrapper.querySelector(this.selectors.productSku);
+      const productAvailability = this.productWrapper.querySelector(
+        this.selectors.productAvailability
+      );
+      const productSku = this.productWrapper.querySelector(
+        this.selectors.productSku
+      );
 
       if (productSku) {
         productSku.textContent = sku || "N/A";
@@ -635,7 +761,10 @@ if (!customElements.get("variant-picker")) {
 
       if (productAvailability) {
         productAvailability.textContent = available ? inStock : outOfStock;
-        productAvailability.classList.toggle("m-product-availability--outofstock", !available);
+        productAvailability.classList.toggle(
+          "m-product-availability--outofstock",
+          !available
+        );
       }
 
       // Emit a custom event for product meta update
@@ -680,16 +809,21 @@ if (!customElements.get("variant-picker")) {
         if (optPos === options.length) {
           const optionsArray = [...this.currentVariant.options];
           optionsArray[optPos - 1] = value;
-          matchVariants.push(getVariantFromOptionArray(this.productData, optionsArray));
+          matchVariants.push(
+            getVariantFromOptionArray(this.productData, optionsArray)
+          );
         } else {
           matchVariants = variants.filter(
             (v) =>
-              v.options[optPos - 1] === value && v.options[optPos - 2] === this.currentVariant[`option${optPos - 1}`]
+              v.options[optPos - 1] === value &&
+              v.options[optPos - 2] ===
+                this.currentVariant[`option${optPos - 1}`]
           );
         }
 
         matchVariants = matchVariants.filter(Boolean);
-        const isSoldOut = matchVariants.length && matchVariants.every((v) => !v.available);
+        const isSoldOut =
+          matchVariants.length && matchVariants.every((v) => !v.available);
         const isUnavailable = !matchVariants.length;
 
         optNode.classList.toggle(classes.soldOut, isSoldOut);
@@ -705,7 +839,9 @@ if (!customElements.get("variant-picker")) {
       if (this.variantData) {
         return this.variantData;
       }
-      const productVariants = this.querySelector('#productVariants[type="application/json"]');
+      const productVariants = this.querySelector(
+        '#productVariants[type="application/json"]'
+      );
       if (productVariants) {
         try {
           this.variantData = JSON.parse(productVariants.textContent);
@@ -720,7 +856,9 @@ if (!customElements.get("variant-picker")) {
       if (this.variantGroupImages) {
         return this.variantGroupImages;
       }
-      const variantGroupElement = this.querySelector('#variantGroup[type="application/json"]');
+      const variantGroupElement = this.querySelector(
+        '#variantGroup[type="application/json"]'
+      );
       if (variantGroupElement) {
         try {
           this.variantGroupImages = JSON.parse(variantGroupElement.textContent);
@@ -732,22 +870,36 @@ if (!customElements.get("variant-picker")) {
     }
 
     initOptionSwatches() {
-      const { _colorSwatches = [], _imageSwatches = [] } = window.MinimogSettings;
+      const { _colorSwatches = [], _imageSwatches = [] } =
+        window.MinimogSettings;
 
       if (!this.domNodes.optionNodes) return;
 
       this.domNodes.optionNodes.forEach((optNode) => {
-        const { optionType, optionPosition, value: optionValue } = optNode.dataset;
+        const {
+          optionType,
+          optionPosition,
+          value: optionValue,
+        } = optNode.dataset;
         const optionValueLowerCase = optionValue && optionValue.toLowerCase();
-        const variantToShowSwatchImage = this.variantData.find((v) => v[`option${optionPosition}`] === optionValue);
+        const variantToShowSwatchImage = this.variantData.find(
+          (v) => v[`option${optionPosition}`] === optionValue
+        );
         const variantImage =
           variantToShowSwatchImage &&
           variantToShowSwatchImage.featured_image &&
           variantToShowSwatchImage.featured_image.src
-            ? getSizedImageUrl(variantToShowSwatchImage.featured_image.src, "100x")
+            ? getSizedImageUrl(
+                variantToShowSwatchImage.featured_image.src,
+                "100x"
+              )
             : null;
-        const customImage = _imageSwatches.find((i) => i.key === optionValueLowerCase);
-        const customColor = _colorSwatches.find((c) => c.key === optionValueLowerCase);
+        const customImage = _imageSwatches.find(
+          (i) => i.key === optionValueLowerCase
+        );
+        const customColor = _colorSwatches.find(
+          (c) => c.key === optionValueLowerCase
+        );
 
         const labelElement = optNode.querySelector("label");
         if (!labelElement) return;
@@ -761,10 +913,13 @@ if (!customElements.get("variant-picker")) {
         switch (optionType) {
           case "default":
           case "image":
-            labelElement.style.backgroundImage = `url(${(customImage && customImage.value) || variantImage || ""})`;
+            labelElement.style.backgroundImage = `url(${
+              (customImage && customImage.value) || variantImage || ""
+            })`;
             break;
           case "color":
-            labelElement.style.backgroundColor = (customColor && customColor.value) || optionValueLowerCase;
+            labelElement.style.backgroundColor =
+              (customColor && customColor.value) || optionValueLowerCase;
             if (customImage && customImage.value) {
               labelElement.style.backgroundImage = `url(${customImage.value})`;
             }
@@ -787,7 +942,9 @@ if (!customElements.get("variant-button")) {
     }
 
     updateSelectedValue() {
-      this.value = Array.from(this.querySelectorAll("input")).find((radio) => radio.checked).value;
+      this.value = Array.from(this.querySelectorAll("input")).find(
+        (radio) => radio.checked
+      ).value;
       this.setAttribute("data-selected-value", this.value);
       if (this.selectedSpan) {
         this.selectedSpan.textContent = this.value;
