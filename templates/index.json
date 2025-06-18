@@ -265,24 +265,24 @@
     "162251092958fcda7c": {
       "type": "product-tabs",
       "blocks": {
+        "162251092958fcda7c-1": {
+          "type": "tab",
+          "settings": {
+            "title": "Todos",
+            "collection": "frontpage"
+          }
+        },
         "162251092958fcda7c-0": {
           "type": "tab",
           "settings": {
             "title": "Novos",
-            "collection": "frontpage"
-          }
-        },
-        "162251092958fcda7c-1": {
-          "type": "tab",
-          "settings": {
-            "title": "Neoband",
-            "collection": "frontpage"
+            "collection": "todos-os-produtos"
           }
         }
       },
       "block_order": [
-        "162251092958fcda7c-0",
-        "162251092958fcda7c-1"
+        "162251092958fcda7c-1",
+        "162251092958fcda7c-0"
       ],
       "custom_css": [],
       "settings": {
