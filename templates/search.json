@@ -12,7 +12,7 @@
     "main": {
       "type": "page-search",
       "settings": {
-        "container": "container-full",
+        "container": "container-fluid",
         "results_per_page": 12,
         "show_sorting": true,
         "show_filter": true,
