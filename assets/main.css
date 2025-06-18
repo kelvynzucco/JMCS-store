@@ -5488,6 +5488,7 @@ variant-picker
   background: rgba(4, 6, 28, 0.7) !important;
   backdrop-filter: blur(4px) !important;
   -webkit-backdrop-filter: blur(4px) !important;
+  border: 1px solid rgba(53, 70, 228, 0.2);
 }
 @media screen and (max-width: 767px) {
   .m-product-tag {
