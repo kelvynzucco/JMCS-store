@@ -21,7 +21,7 @@
         "sidebar_title": "Filters",
         "collapsed_groups": "Brand, Vendor, Size",
         "color_swatches": "color,colour,couleur,farbe",
-        "limit_height_widget": false,
+        "limit_height_widget": true,
         "limit_height": 600
       }
     }
