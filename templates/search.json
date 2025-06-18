@@ -12,16 +12,16 @@
     "main": {
       "type": "page-search",
       "settings": {
-        "container": "container-fluid",
-        "results_per_page": 9,
-        "show_sorting": false,
-        "show_filter": false,
-        "show_product_count": false,
-        "change_product_variant_on_fitlering": false,
+        "container": "container-full",
+        "results_per_page": 12,
+        "show_sorting": true,
+        "show_filter": true,
+        "show_product_count": true,
+        "change_product_variant_on_fitlering": true,
         "sidebar_title": "Filters",
         "collapsed_groups": "Brand, Vendor, Size",
         "color_swatches": "color,colour,couleur,farbe",
-        "limit_height_widget": true,
+        "limit_height_widget": false,
         "limit_height": 300
       }
     }
