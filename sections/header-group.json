@@ -68,7 +68,7 @@
         "mobile_menu": "",
         "uppercase_parent_level": false,
         "show_menu_column_divider": true,
-        "search": "show_full",
+        "search": "show_icon",
         "show_account_icon": true,
         "show_cart_icon": true,
         "show_wishlist_icon": false,
