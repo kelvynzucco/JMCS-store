@@ -44,7 +44,7 @@
         "paginate_type": "infinite",
         "show_sorting": true,
         "show_filter": true,
-        "filters_type": "tags_filter",
+        "filters_type": "storefront_filters",
         "sidebar": "fixed",
         "sidebar_title": "Filters",
         "limit_height_widget": true,
