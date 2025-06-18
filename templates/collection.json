@@ -1,7 +1,17 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "collection-header": {
       "type": "collection-page-header",
+      "disabled": true,
       "settings": {
         "color_scheme": "dark",
         "container": "container-fluid",
@@ -51,13 +61,13 @@
         "container": "container-fluid",
         "grid_layout": "grid",
         "grid_columns": "4",
-        "show_columns_switcher": true,
+        "show_columns_switcher": false,
         "pagination_limit": 12,
-        "paginate_type": "paginate",
+        "paginate_type": "infinite",
         "show_sorting": true,
         "show_filter": true,
         "filters_type": "storefront_filters",
-        "sidebar": "leftColumn",
+        "sidebar": "fixed",
         "sidebar_title": "Filters",
         "limit_height_widget": true,
         "limit_height": 300,
