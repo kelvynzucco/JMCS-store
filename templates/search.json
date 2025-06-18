@@ -22,7 +22,7 @@
         "collapsed_groups": "Brand, Vendor, Size",
         "color_swatches": "color,colour,couleur,farbe",
         "limit_height_widget": true,
-        "limit_height": 600
+        "limit_height": 300
       }
     }
   },
