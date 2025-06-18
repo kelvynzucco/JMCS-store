@@ -44,7 +44,7 @@
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 }
-.m-sidebar--content::after {
+.sidebar-open .m-sidebar--content::after {
   content: "";
   position: absolute;
   top: 0;
@@ -576,20 +576,22 @@ input:checked ~ .m-facets .m-facet--color-label {
   padding-left: 16px;
 }
 .m-toolbar--column-switcher > button {
-  transition: background-color var(--m-duration-default, 0.25s) ease,
+  transition: border var(--m-duration-default, 0.25s) ease,
     fill var(--m-duration-default, 0.25s) ease;
   margin: 0 5px;
   width: 36px;
   height: 36px;
   align-items: center;
   justify-content: center;
-  background-color: #f2f2f2;
-  border-radius: 3px;
+  background-color: #04061c;
+  border-radius: 12px;
+  color: #3546e4;
+  border: 1px solid #3546e4;
 }
 .m-toolbar--column-switcher > button.active,
 .m-toolbar--column-switcher > button:hover {
-  background-color: rgb(var(--color-button-hover));
-  color: rgb(var(--color-button-text-hover));
+  border: 1px solid #e6e8f9;
+  color: #e6e8f9;
 }
 @media screen and (min-width: 1024px) {
   .m-toolbar--column-switcher > button {

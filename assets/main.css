@@ -5471,6 +5471,7 @@ variant-picker
 .m-product-tag--preorder .foxkit-preorder-badge:not(:first-child) {
   display: none;
 }
+
 .m-product-tag--soldout {
   width: 50%;
   height: 46px;
@@ -5490,6 +5491,16 @@ variant-picker
   -webkit-backdrop-filter: blur(4px) !important;
   border: 1px solid rgba(53, 70, 228, 0.2);
 }
+
+.m-search-result__products-list .m-product-tag--soldout {
+  border-radius: 20px !important;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(2px) !important;
+  -webkit-backdrop-filter: blur(2px) !important;
+  word-break: break-word;
+}
+
 @media screen and (max-width: 767px) {
   .m-product-tag {
     font-size: 10px;
