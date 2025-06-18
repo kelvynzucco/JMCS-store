@@ -13,7 +13,7 @@
       "type": "page-search",
       "settings": {
         "container": "container-fluid",
-        "results_per_page": 12,
+        "results_per_page": 9,
         "show_sorting": true,
         "show_filter": true,
         "show_product_count": true,
@@ -22,7 +22,7 @@
         "collapsed_groups": "Brand, Vendor, Size",
         "color_swatches": "color,colour,couleur,farbe",
         "limit_height_widget": false,
-        "limit_height": 300
+        "limit_height": 400
       }
     }
   },
