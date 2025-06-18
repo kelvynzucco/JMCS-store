@@ -31,21 +31,6 @@
     },
     "main": {
       "type": "main-collection-product-grid",
-      "blocks": {
-        "collections_gAEdN8": {
-          "type": "collections",
-          "settings": {
-            "title": "Collections",
-            "menu": "",
-            "show_image": false,
-            "use_accordion": true,
-            "open_filtergroup": true
-          }
-        }
-      },
-      "block_order": [
-        "collections_gAEdN8"
-      ],
       "custom_css": [
         ".m-banner-promotion {order: 3 !important; margin-top: 30px; margin-bottom: 0;}",
         ".m-collection-filters-form {margin-bottom: 0;}"
