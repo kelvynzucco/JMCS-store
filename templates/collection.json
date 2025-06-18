@@ -67,7 +67,7 @@
         "show_sorting": true,
         "show_filter": true,
         "filters_type": "storefront_filters",
-        "sidebar": "fixed",
+        "sidebar": "leftColumn",
         "sidebar_title": "Filters",
         "limit_height_widget": true,
         "limit_height": 300,
