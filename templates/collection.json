@@ -34,6 +34,7 @@
       "blocks": {
         "banner_promotion_KppNc9": {
           "type": "banner_promotion",
+          "disabled": true,
           "settings": {
             "color_scheme": "dark",
             "text_size": "medium",
