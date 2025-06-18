@@ -189,7 +189,7 @@
         "65e38235-f03b-43c9-8590-38c9c656e51c": {
           "type": "collection_block",
           "settings": {
-            "collection": "sunglasses",
+            "collection": "shows-e-eventos",
             "title": "SHOWS &<br>EVENTOS",
             "item_image": "shopify://shop_images/Shows_e_Eventos.png"
           }
@@ -197,7 +197,7 @@
         "694c01c9-a95f-4c09-9cf0-ec75f0131e98": {
           "type": "collection_block",
           "settings": {
-            "collection": "knit-wears",
+            "collection": "festas-particulares",
             "title": "FESTAS<br>PARTICULARES",
             "item_image": "shopify://shop_images/Festas_Particulares.png"
           }
@@ -205,7 +205,7 @@
         "16225316461d1cff80-1": {
           "type": "collection_block",
           "settings": {
-            "collection": "women-bags",
+            "collection": "hospitais-e-clinicas",
             "title": "HOSPITAIS &<br>CLÍNICAS",
             "item_image": "shopify://shop_images/Hospitais_e_Clinicas.png"
           }
@@ -213,7 +213,7 @@
         "6d4abb37-5aa2-4499-a2b0-5d85f0d36eec": {
           "type": "collection_block",
           "settings": {
-            "collection": "sneakers",
+            "collection": "assembleias-e-seminarios",
             "title": "ASSEMBLEIAS &<br>SEMINÁRIOS",
             "item_image": "shopify://shop_images/Assembleias_e_Seminarios.png"
           }
