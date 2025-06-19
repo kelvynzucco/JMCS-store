@@ -29,7 +29,7 @@
         "49e72833-c68f-4a7b-ab64-3ef0cae99bcb": {
           "type": "menu",
           "settings": {
-            "menu": "main-menu",
+            "menu": "central-de-ajuda",
             "title": "Central de Ajuda",
             "width": "25%",
             "order_first": false,
@@ -39,7 +39,7 @@
         "7ebc2f78-975b-4a81-b874-103c3355a866": {
           "type": "menu",
           "settings": {
-            "menu": "main-menu",
+            "menu": "loja-online",
             "title": "Loja Online",
             "width": "25%",
             "order_first": false,
