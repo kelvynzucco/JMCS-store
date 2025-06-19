@@ -13,44 +13,55 @@
       "type": "page-about-us",
       "settings": {}
     },
-    "custom-content": {
-      "type": "custom-content",
+    "slider_K8facQ": {
+      "type": "slider",
       "blocks": {
-        "be5d2488-3c71-471f-bb75-dbccb6970cb0": {
-          "type": "image",
+        "slider_item_hpaTWQ": {
+          "type": "slider_item",
           "settings": {
-            "image": "shopify://shop_images/about-us-placeholder.png",
-            "link": "",
-            "width": "100%",
-            "alignment": "center",
-            "block_custom_class": "",
-            "animations": "inherit"
+            "background": "shopify://shop_images/about-us-placeholder.png",
+            "content_in_container": false,
+            "content_position": "center middle",
+            "text_alignment": "center",
+            "text_size": "medium",
+            "text_color": "black",
+            "subheading": "",
+            "title": "",
+            "description": "",
+            "image_link": "",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "second_button_text": "",
+            "second_button_link": "",
+            "second_button_style": "m-button--primary",
+            "second_button_size": "",
+            "show_footer": false,
+            "footer_alignment": "center",
+            "footer_text": "",
+            "footer_button": "",
+            "footer_link": ""
           }
         }
       },
       "block_order": [
-        "be5d2488-3c71-471f-bb75-dbccb6970cb0"
+        "slider_item_hpaTWQ"
       ],
-      "custom_css": [
-        "@media (min-width: 1280px) {#m-custom__block--9a3a8077-de29-4141-9162-b9484d4a85f8 {padding-left: 100px; }}"
-      ],
+      "name": "Slideshow",
       "settings": {
-        "heading": "",
-        "heading_size": "h3",
-        "subheading": "",
-        "description": "",
-        "header_alignment": "center",
         "container": "container",
-        "color_scheme": "",
-        "content_color_scheme": "",
-        "enable_parallax": false,
-        "parallax_direction": "vertical",
-        "gap": 30,
-        "gap_mobile": 16,
-        "use_scroll_mobile": false,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "custom_class": "m-about-page"
+        "slideshow_height": "adapt",
+        "show_overlay": false,
+        "dots_position": "bottom",
+        "dots_color": "dark",
+        "show_dots": false,
+        "show_arrows": false,
+        "autorotate": false,
+        "autorotate_speed": 10,
+        "use_content_above": false,
+        "custom_class": "",
+        "animations": "inherit"
       }
     },
     "rich_text_htaRgH": {
@@ -93,7 +104,7 @@
   },
   "order": [
     "main",
-    "custom-content",
+    "slider_K8facQ",
     "rich_text_htaRgH"
   ]
 }
