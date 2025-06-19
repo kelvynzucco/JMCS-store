@@ -11,7 +11,6 @@
   "sections": {
     "main": {
       "type": "page-about-us",
-      "disabled": true,
       "settings": {}
     },
     "custom-content": {
@@ -75,7 +74,7 @@
     }
   },
   "order": [
-    "main",
-    "custom-content"
+    "custom-content",
+    "main"
   ]
 }
