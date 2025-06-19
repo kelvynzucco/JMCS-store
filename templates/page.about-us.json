@@ -76,7 +76,7 @@
       "custom_css": [
         ".sobrenospg {width: 100%; display: flex; align-items: center;}",
         ".sobrenospg .m-section-my {display: flex; justify-content: center;}",
-        ".sobrenospg .m-richtext {max-width: 700px; text-align: justify;}"
+        ".sobrenospg .m-richtext {max-width: 900px; text-align: justify;}"
       ],
       "name": "Rich text",
       "settings": {
