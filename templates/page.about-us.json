@@ -73,6 +73,9 @@
         "heading_9JdQth",
         "text_XBkKrF"
       ],
+      "custom_css": [
+        ".sobrenospg {max-width: 600px; text-align: center; display: flex; align-items: center;}"
+      ],
       "name": "Rich text",
       "settings": {
         "container": "container",
@@ -80,7 +83,7 @@
         "content_alignment": "center",
         "padding_top": 52,
         "padding_bottom": 52,
-        "custom_class": "sobrenos-page",
+        "custom_class": "sobrenospg",
         "animations": "inherit"
       }
     }
