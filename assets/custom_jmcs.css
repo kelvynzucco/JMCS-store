@@ -1008,7 +1008,7 @@ select {
 }
 
 .m-sticky-addtocart {
-  border-top: 1px solid var(--blue-primary);
+  border-top: 1px solid rgba(53, 70, 228, 0.2);
   padding: 12px 0;
 }
 
