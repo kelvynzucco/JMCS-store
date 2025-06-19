@@ -88,7 +88,7 @@
     "social_whatsapp_link": "https://api.whatsapp.com/send?phone=554788130354",
     "social_whatsapp_label": "47 98813 0354",
     "discount_code_enable": false,
-    "cart_estimate_shipping": false,
+    "cart_estimate_shipping": true,
     "show_delivery_days": false,
     "default_country_estimate_shipping": "Brasil",
     "enable_predictive_search": true,
