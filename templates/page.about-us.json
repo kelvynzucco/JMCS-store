@@ -65,7 +65,7 @@
         "text_XBkKrF": {
           "type": "text",
           "settings": {
-            "text": "<p> Atuamos no mercado com o compromisso de entregar qualidade, agilidade e segurança para nossos clientes em todo o Brasil há mais de 15 anos.</p><p>Nossa empresa é 100% focada na fabricação de pulseiras de identificação lisas ou personalizadas. Atendemos desde pequenas demandas até grandes projetos, oferecendo flexibilidade, preços competitivos e atendimento humanizado. Seja para um evento, uma clínica, um parque ou qualquer outro ambiente que necessite de organização e controle de acesso, nossas pulseiras garantem praticidade, segurança e durabilidade.</p>"
+            "text": "<p>Atuamos no mercado com o compromisso de entregar qualidade, agilidade e segurança para nossos clientes em todo o Brasil há mais de 15 anos.<br/><br/>Nossa empresa é 100% focada na fabricação de pulseiras de identificação lisas ou personalizadas. Atendemos desde pequenas demandas até grandes projetos, oferecendo flexibilidade, preços competitivos e atendimento humanizado. Seja para um evento, uma clínica, um parque ou qualquer outro ambiente que necessite de organização e controle de acesso, nossas pulseiras garantem praticidade, segurança e durabilidade.<br/><br/>Além do segmento de eventos, somos fornecedores confiáveis para hospitais, clínicas, hotéis, resorts, campings e empresas que priorizam a organização e a segurança em seus ambientes.<br/><br/>Nosso diferencial está na qualidade do nosso produto, na personalização sob medida e na agilidade na entrega. Trabalhamos todos os dias para que sua experiência seja simples, rápida e eficiente — do orçamento à produção.<br/><br/>Seja bem-vindo à JMCS Pulseiras. Aqui, identificar é mais do que um detalhe — é garantir segurança, organização e tranquilidade para você e seu público.</p>"
           }
         }
       },
@@ -80,39 +80,7 @@
         "content_alignment": "center",
         "padding_top": 52,
         "padding_bottom": 52,
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-    "rich_text_pJh6AR": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_Ha6Xmm": {
-          "type": "heading",
-          "settings": {
-            "heading": "Além do segmento de eventos, somos fornecedores confiáveis para hospitais, clínicas, hotéis, resorts, campings e empresas que priorizam a organização e a segurança em seus ambientes.",
-            "heading_size": "h2"
-          }
-        },
-        "text_UbgBJM": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Nosso diferencial está na qualidade do nosso produto, na personalização sob medida e na agilidade na entrega. Trabalhamos todos os dias para que sua experiência seja simples, rápida e eficiente — do orçamento à produção.</p><p>Seja bem-vindo à JMCS Pulseiras. Aqui, identificar é mais do que um detalhe — é garantir segurança, organização e tranquilidade para você e seu público.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_Ha6Xmm",
-        "text_UbgBJM"
-      ],
-      "name": "Rich text",
-      "settings": {
-        "container": "container",
-        "color_scheme": "",
-        "content_alignment": "center",
-        "padding_top": 52,
-        "padding_bottom": 52,
-        "custom_class": "",
+        "custom_class": "sobrenos-page",
         "animations": "inherit"
       }
     }
@@ -120,7 +88,6 @@
   "order": [
     "main",
     "custom-content",
-    "rich_text_htaRgH",
-    "rich_text_pJh6AR"
+    "rich_text_htaRgH"
   ]
 }
