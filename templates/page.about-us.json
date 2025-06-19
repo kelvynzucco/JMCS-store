@@ -51,7 +51,7 @@
       ],
       "custom_css": [
         ".aboutusbanner {margin-top: 30px;}",
-        ".aboutusbanner .m-slide__wrapper{border-radius: 100px;}"
+        ".aboutusbanner .m-slide__media {border-radius: 38px;}"
       ],
       "name": "Slideshow",
       "settings": {
