@@ -134,7 +134,7 @@
         "header_alignment": "center",
         "color_scheme": "",
         "container": "container-fluid",
-        "collection": "frontpage",
+        "collection": "todos-produtos",
         "enable_flashsale": false,
         "show_countdown": false,
         "product_to_show": 8,

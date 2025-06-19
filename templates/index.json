@@ -269,7 +269,7 @@
           "type": "tab",
           "settings": {
             "title": "Todos",
-            "collection": "frontpage"
+            "collection": "todos-produtos"
           }
         },
         "162251092958fcda7c-0": {
