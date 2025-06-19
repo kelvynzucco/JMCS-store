@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "main": {
+      "type": "page-about-us",
+      "settings": {}
+    },
     "custom-content": {
       "type": "custom-content",
       "blocks": {
@@ -47,14 +51,10 @@
         "padding_bottom": 0,
         "custom_class": "m-about-page"
       }
-    },
-    "main": {
-      "type": "page-about-us",
-      "settings": {}
     }
   },
   "order": [
-    "custom-content",
-    "main"
+    "main",
+    "custom-content"
   ]
 }
