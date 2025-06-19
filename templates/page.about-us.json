@@ -74,7 +74,8 @@
         "text_XBkKrF"
       ],
       "custom_css": [
-        ".sobrenospg {width: 100%; display: flex; align-items: center;}"
+        ".sobrenospg {width: 100%; display: flex; align-items: center;}",
+        ".sobrenospg .m-richtext{max-width: 1080px;}"
       ],
       "name": "Rich text",
       "settings": {
