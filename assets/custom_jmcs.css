@@ -1164,6 +1164,19 @@ li.m-menu-mobile__item:hover {
   background-color: #3546e494;
 }
 
+/* 404 */
+
+.m-page404 .m-button {
+  border: 1px solid var(--blue-primary);
+  border-radius: 38px;
+  color: var(--white-mid);
+}
+
+.m-page404 .m-button:hover {
+  background-color: var(--blue-primary);
+  color: white;
+}
+
 /* MEDIA QUERIES */
 @media (max-width: 1549px) {
   .jmcs-reviews .m-slider-controls__button {

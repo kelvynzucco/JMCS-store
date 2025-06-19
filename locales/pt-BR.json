@@ -11,7 +11,7 @@
   "general": {
     "404": {
       "title": "Ops!",
-      "button": "Vá para casa",
+      "button": "Voltar à página inicial",
       "subtext": "Página não encontrada!"
     },
     "accessibility": {
