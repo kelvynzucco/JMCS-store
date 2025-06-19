@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -7,7 +16,7 @@
           "type": "categories",
           "settings": {
             "title": "Categories",
-            "list_blog": "collections"
+            "list_blog": ""
           }
         },
         "261dcbb3-347b-4fc0-bdb9-897faf531886": {
@@ -20,7 +29,9 @@
             "blog_show_author": false,
             "blog_show_date": false,
             "show_excerpt": false,
-            "truncate": "15"
+            "truncate_excerpt": false,
+            "truncate": "15",
+            "truncate_last_symbols": "..."
           }
         },
         "c1f05653-bae3-4ede-96e8-9b0c3b4d2d9a": {
@@ -28,20 +39,12 @@
           "settings": {
             "title": "Tags"
           }
-        },
-        "64549c91-0da7-4040-9536-59e15e91e6d5": {
-          "type": "instagram",
-          "settings": {
-            "title": "Instagram",
-            "images_count": 6
-          }
         }
       },
       "block_order": [
         "d3edb8bc-04ea-4ca1-90c7-408677484928",
         "261dcbb3-347b-4fc0-bdb9-897faf531886",
-        "c1f05653-bae3-4ede-96e8-9b0c3b4d2d9a",
-        "64549c91-0da7-4040-9536-59e15e91e6d5"
+        "c1f05653-bae3-4ede-96e8-9b0c3b4d2d9a"
       ],
       "settings": {
         "container": "container-fluid",
