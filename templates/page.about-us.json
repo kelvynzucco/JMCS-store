@@ -9,10 +9,6 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "page-about-us",
-      "settings": {}
-    },
     "custom-content": {
       "type": "custom-content",
       "blocks": {
@@ -25,30 +21,10 @@
             "block_custom_class": "",
             "animations": "inherit"
           }
-        },
-        "f5e88f1f-ff68-4d03-b686-0cb9fe62fab1": {
-          "type": "text",
-          "settings": {
-            "title": "<h4 class=\"about__block-heading\">Sobre Nós</h4>",
-            "subheading": "",
-            "text": "",
-            "width": "100%",
-            "alignment": "center",
-            "align_text": "center",
-            "text_size": "medium",
-            "text_color": "black",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--primary",
-            "button_size": "",
-            "block_custom_class": "",
-            "animations": "inherit"
-          }
         }
       },
       "block_order": [
-        "be5d2488-3c71-471f-bb75-dbccb6970cb0",
-        "f5e88f1f-ff68-4d03-b686-0cb9fe62fab1"
+        "be5d2488-3c71-471f-bb75-dbccb6970cb0"
       ],
       "custom_css": [
         "@media (min-width: 1280px) {#m-custom__block--9a3a8077-de29-4141-9162-b9484d4a85f8 {padding-left: 100px; }}"
@@ -71,6 +47,10 @@
         "padding_bottom": 0,
         "custom_class": "m-about-page"
       }
+    },
+    "main": {
+      "type": "page-about-us",
+      "settings": {}
     }
   },
   "order": [
