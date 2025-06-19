@@ -49,6 +49,9 @@
       "block_order": [
         "slider_item_hpaTWQ"
       ],
+      "custom_css": [
+        ".aboutusbanner {margin-top: 30px;}"
+      ],
       "name": "Slideshow",
       "settings": {
         "container": "container",
@@ -61,7 +64,7 @@
         "autorotate": false,
         "autorotate_speed": 10,
         "use_content_above": false,
-        "custom_class": "",
+        "custom_class": "aboutusbanner",
         "animations": "inherit"
       }
     },
