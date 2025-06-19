@@ -76,13 +76,13 @@
       "custom_css": [
         ".sobrenospg {width: 100%; display: flex; align-items: center;}",
         ".sobrenospg .m-section-my {display: flex; justify-content: center;}",
-        ".sobrenospg .m-richtext {max-width: 900px;}"
+        ".sobrenospg .m-richtext {max-width: 600px; text-align: justify;}"
       ],
       "name": "Rich text",
       "settings": {
         "container": "container",
         "color_scheme": "",
-        "content_alignment": "center",
+        "content_alignment": "left",
         "padding_top": 52,
         "padding_bottom": 52,
         "custom_class": "sobrenospg",
