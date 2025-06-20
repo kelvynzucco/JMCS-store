@@ -58,6 +58,12 @@
             "trust_badges_image_width": "50%",
             "position": "below"
           }
+        },
+        "custom_liquid_68nQeV": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'shipping-estimate' %}"
+          }
         }
       },
       "block_order": [
@@ -67,7 +73,8 @@
         "variant_picker",
         "buy_buttons",
         "addons",
-        "trust_badge_RAzUDE"
+        "trust_badge_RAzUDE",
+        "custom_liquid_68nQeV"
       ],
       "settings": {
         "container": "container",
