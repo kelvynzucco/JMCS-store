@@ -91,7 +91,7 @@
     "cart_estimate_shipping": true,
     "show_delivery_days": true,
     "delivery_time_enable": false,
-    "default_country_estimate_shipping": "BR",
+    "default_country_estimate_shipping": "Brazil",
     "enable_predictive_search": true,
     "search_by_tag": true,
     "search_by_body": true,
