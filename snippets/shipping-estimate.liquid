@@ -1,0 +1,31 @@
+<script src="{{ 'shipping-estimate.min.js' | asset_url }}" defer="defer"></script>
+
+<div class="shipping-estimate">
+  <div class="shipping-header-group">
+    <h3 class="shipping-title">Calcule frete e prazo</h3>
+    <a
+      class="shipping-link"
+      href="https://buscacepinter.correios.com.br/app/endereco/index.php"
+      target="_blank"
+      rel="nofollow"
+    >
+      Não sei meu CEP
+    </a>
+  </div>
+  <div class="shipping-input-group">
+    <input
+      type="tel"
+      name="cep"
+      placeholder="Digite seu CEP"
+      class="cep-estimate"
+      onfocus="VMasker(document.querySelector('.cep-estimate')).maskPattern(['99999-999'][0]);"
+    >
+    <button class="sf__btn sf__btn-primary">
+      <span class="btn-text-desktop"> Calcular frete </span>
+      <span class="btn-text-mobile"> Calcular </span>
+    </button>
+  </div>
+
+  <div class="loading"></div>
+  <div class="result"></div>
+</div>

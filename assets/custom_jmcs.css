@@ -1214,16 +1214,82 @@ li.m-menu-mobile__item:hover {
   border-radius: 999px;
   border: 1px solid var(--blue-primary);
 }
-
 .m-cart-addon--close {
   border: 1px solid var(--gradient-mid) !important;
 }
-
 .m-cart-addon--calculate:hover {
   background-color: var(--blue-primary);
   color: white;
   box-shadow: none !important;
   border: 1px solid var(--blue-primary);
+}
+
+/* calculadora frete produto */
+.shipping-estimate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+.shipping-header-group {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+.shipping-title,
+.shipping-link {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.shipping-input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-content: center;
+}
+.shipping-input-group input {
+  height: 44px;
+  border-radius: 999px;
+  padding: 0 14px;
+  border: 1px solid var(--blue-primary);
+  background-color: transparent;
+  color: var(--white-mid);
+}
+.sf__btn.sf__btn-primary {
+  background-color: var(--blue-primary);
+  border-radius: 999px;
+  padding: 0 14px;
+  height: 44px;
+}
+
+.btn-text-desktop {
+  display: block;
+}
+.btn-text-mobile {
+  display: none;
+}
+.loading,
+.result {
+  margin-top: 0.5rem;
+}
+.result svg {
+  max-width: 40px;
+}
+@media (min-width: 768px) {
+  .shipping-input-group {
+    flex-direction: row;
+  }
+}
+@media (max-width: 639px) {
+  .btn-text-desktop {
+    display: none;
+  }
+  .btn-text-mobile {
+    display: block;
+  }
 }
 
 /* MEDIA QUERIES */
