@@ -90,9 +90,6 @@
     </script>
     {% render 'theme-data' %}
     {% render 'custom-code-head' %}
-    {%- if settings.enable_predictive_search -%}
-      <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
   </head>
 
   <body
@@ -123,6 +120,10 @@
     <script src="{{ 'wishlist.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'compare-product.js' | asset_url }}" defer="defer"></script>
 
+    {%- if settings.enable_predictive_search -%}
+      <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
     {%- if linklists['gift-wrapping'].links != blank
       and linklists['gift-wrapping'].links.first.type == 'product_link'
     -%}
@@ -148,5 +149,7 @@
         </svg>
       </a>
     </div>
+    <script src="{{ 'swiper-bundle.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'passos.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>

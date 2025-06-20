@@ -181,13 +181,13 @@
               <input class="form-field" type="text" id="AddressCity" name="address[city]" value="{{ form.city }}">
             </div>
 
-            <div class="form-field-group" id="MadrressCountry">
+            <div class="form-field-group" id="MadrressCountry" style="display:none">
               <label class="form-field--label" for="AddressCountry">{{ 'customer.addresses.country' | t }}</label>
               <select
                 class="form-field"
                 id="AddressCountry"
                 name="address[country]"
-                data-default="{{ settings.default_country_estimate_shipping | default: 'US' }}"
+                data-default="{{ settings.default_country_estimate_shipping | default: 'Brazil' }}"
               ></select>
             </div>
 

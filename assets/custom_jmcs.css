@@ -1209,6 +1209,23 @@ li.m-menu-mobile__item:hover {
   height: 26px;
 }
 
+/* calculadora de frete */
+.m-cart-addon--calculate {
+  border-radius: 999px;
+  border: 1px solid var(--blue-primary);
+}
+
+.m-cart-addon--close {
+  border: 1px solid var(--gradient-mid) !important;
+}
+
+.m-cart-addon--calculate:hover {
+  background-color: var(--blue-primary);
+  color: white;
+  box-shadow: none !important;
+  border: 1px solid var(--blue-primary);
+}
+
 /* MEDIA QUERIES */
 @media (max-width: 1549px) {
   .jmcs-reviews .m-slider-controls__button {
