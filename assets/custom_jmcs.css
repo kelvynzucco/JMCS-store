@@ -1177,6 +1177,38 @@ li.m-menu-mobile__item:hover {
   color: white;
 }
 
+/* Botão flutuante do WhatsApp */
+.whatsapp-floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  background-color: #25d366;
+  border-radius: 50%;
+  padding: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.whatsapp-floating-button:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-floating-button a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--white-mid);
+}
+
+.whatsapp-floating-button .whatsapp-icon {
+  width: 26px;
+  height: 26px;
+}
+
 /* MEDIA QUERIES */
 @media (max-width: 1549px) {
   .jmcs-reviews .m-slider-controls__button {
@@ -1287,5 +1319,10 @@ li.m-menu-mobile__item:hover {
   }
   .m-tab-content--description .m-tab-content__inner .rte {
     column-count: 1;
+  }
+  .whatsapp-floating-button {
+    bottom: 70px;
+    right: 10px;
+    padding: 12px;
   }
 }
