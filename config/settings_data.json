@@ -90,7 +90,7 @@
     "discount_code_enable": false,
     "cart_estimate_shipping": true,
     "show_delivery_days": true,
-    "delivery_time_enable": true,
+    "delivery_time_enable": false,
     "default_country_estimate_shipping": "BR",
     "enable_predictive_search": true,
     "search_by_tag": true,
