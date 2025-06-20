@@ -1135,7 +1135,7 @@ select {
   box-shadow: 0 0 90.5px -30px rgba(53, 70, 228, 0.1);
 }
 
-.m-cart-addon .m-cart-addon__body {
+.m-cart-drawer__footer .m-cart-addon .m-cart-addon__body {
   background-color: rgba(4, 6, 28, 0.1);
   border: 1px solid rgba(53, 70, 228, 0.2);
   border-radius: 38px 38px 0 0;
